@@ -9,7 +9,7 @@ STABLE_LABEL = "stable"
 tagMap = [:]
 
 // Initialize
-tagMap['build-analysers-api'] = '0.1.0'
+tagMap['build-analysers'] = '0.1.0'
 
 // IRC properties
 IRC_NICK = "aicoe-bot"
@@ -93,13 +93,13 @@ pipeline {
 
                     openshift.withCluster() {
                         openshift.withProject(CI_TEST_NAMESPACE) {
-                            if (!openshift.selector("template/thoth-build-analysers-api-buildconfig").exists()) {
+                            if (!openshift.selector("template/thoth-build-analysers-buildconfig").exists()) {
                                 openshift.apply(readFile('openshift/buildConfig-template.yaml'))
                                 echo "BuildConfig Template created!"
                             }
 
                             /* Process the template and return the Map of the result */
-                            def model = openshift.process('thoth-build-analysers-api-buildconfig',
+                            def model = openshift.process('thoth-build-analysers-buildconfig',
                                     "-p", 
                                     "IMAGE_STREAM_TAG=${env.TAG}",
                                     "THOTH_USER_API_GIT_REF=${env.REF}",
@@ -131,9 +131,9 @@ pipeline {
             parallel {
                 stage("User API") {
                     steps {
-                        echo "Building Thoth User API container image..."
+                        echo "Building Thoth Build Analysers API container image..."
                         script {
-                            tagMap['build-analysers-api'] = aIStacksPipelineUtils.buildImageWithTag(CI_TEST_NAMESPACE, "build-analysers-api", "${env.TAG}")
+                            tagMap['build-analysers'] = aIStacksPipelineUtils.buildImageWithTag(CI_TEST_NAMESPACE, "build-analysers-api", "${env.TAG}")
                         }
 
                     } // steps

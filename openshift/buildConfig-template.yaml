@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Template
 labels:
-  template: thoth-build-analysers-api-buildconfig
+  template: thoth-build-analysers-buildconfig
   thoth: 0.1.0
 metadata:
-  name: thoth-build-analysers-api-buildconfig
+  name: thoth-build-analysers-buildconfig
   annotations:
     description: This is Thoth Build Analysers API BuildConfig, this template is meant to be used by Jenkins, but could also be used by humans...
     openshift.io/display-name: Thoth Build Analysers API BuildConfig
     version: 0.1.0
-    tags: poc,thoth,thoth-build-analysers-api,ai-stacks
+    tags: poc,thoth,build-analysers,ai-stacks
     template.openshift.io/documentation-url: https://github.com/Thoth-Station/
     template.openshift.io/long-description: This is Thoth Build Analysers API BuildConfig, this template is meant to be used by Jenkins, but could also be used by humans...
     template.openshift.io/provider-display-name: Red Hat, Inc.
@@ -55,11 +55,11 @@ objects:
       imageChange: {}
 
 parameters:
-- description: Git repository for Thoth's Build Analysers API
-  displayName: Thoth build-analysers-api git repository
+- description: Git repository for Thoth's Build Analysers
+  displayName: Thoth build-analysers git repository
   required: true
   name: GITHUB_URL
-  value: 'https://github.com/thoth-station/build-analysers-api'
+  value: 'https://github.com/thoth-station/build-analysers'
 
 - description: Git repository for Thoth's Build Analysers API
   displayName: Thoth build-analysers-api git reference
