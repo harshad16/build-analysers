@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0d79e4a89a71d3edb261b36290d2deca5e0a20f0244d20de86266411443b1ff6"
+            "sha256": "5449c7dd10b353a33df420f353a08c381dd0590b864f58ecc1b69128e218c722"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -331,6 +331,7 @@
         },
         "pluggy": {
             "hashes": [
+                "sha256:714306e9b9a7b24ee4c1e3ff6463d7f652cdd30f4693121b31572e2fe1fdaea3",
                 "sha256:7f8ae7f5bdf75671a718d2daf0a64b7885f74510bcd98b1a0bb420eb9a9d0cff"
             ],
             "version": "==0.6.0"
@@ -377,6 +378,13 @@
             ],
             "version": "==2.5.1"
         },
+        "pytest-datafiles": {
+            "hashes": [
+                "sha256:f7b10ad81f0361e4bfa5206be6df1159701b466e60a9c88c616fc135248c0024",
+                "sha256:bb6493c00e8cfb26e9a08f3cc6d5796ae1d168a5a3d09a0e31b3c65b5619a4f0"
+            ],
+            "version": "==1.0"
+        },
         "requests": {
             "hashes": [
                 "sha256:6a1b267aa90cac58ac3a765d067950e7dbbf75b1da07e895d1f594193a40a38b",
@@ -391,12 +399,26 @@
             ],
             "version": "==1.11.0"
         },
+        "tox": {
+            "hashes": [
+                "sha256:9ee7de958a43806402a38c0d2aa07fa8553f4d2c20a15b140e9f771c2afeade0",
+                "sha256:96efa09710a3daeeb845561ebbe1497641d9cef2ee0aea30db6969058b2bda2f"
+            ],
+            "version": "==3.0.0"
+        },
         "urllib3": {
             "hashes": [
                 "sha256:06330f386d6e4b195fbfc736b297f58c5a892e4440e54d294d7004e3a9bbea1b",
                 "sha256:cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
             ],
             "version": "==1.22"
+        },
+        "virtualenv": {
+            "hashes": [
+                "sha256:e8e05d4714a1c51a2f5921e62f547fcb0f713ebbe959e0a7f585cc8bef71d11f",
+                "sha256:1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
+            ],
+            "version": "==15.2.0"
         },
         "wrapt": {
             "hashes": [

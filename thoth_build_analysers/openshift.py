@@ -17,3 +17,22 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """Thoth: Build Analysers"""
+
+from thoth_build_analysers.exceptions import EmptyBuildLogException, BuildLogAnalysisException
+
+
+def analyse(build_log_text):
+    if (build_log_text is None) or (build_log_text is ''):
+        raise EmptyBuildLogException
+
+    for line in build_log_text.splitlines():
+        print(line)
+
+        if line.startswith('error: build error: non-zero'):
+            return False
+
+        if line.startswith('Push successful'):
+            return True
+
+    # cant conclude successful or not... PANIC!
+    raise BuildLogAnalysisException

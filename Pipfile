@@ -20,8 +20,10 @@ requests = "*"
 pylint = "*"
 pytest = "*"
 pytest-bdd = "*"
-pytest-cov="*"
+pytest-cov = "*"
 requests = "*"
+pytest-datafiles = "*"
+tox = "*"
 
 
 [requires]
