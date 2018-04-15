@@ -31,7 +31,7 @@ objects:
 - apiVersion: v1
   kind: BuildConfig
   metadata:
-    name: user-api
+    name: build-analysers-api
     labels:
       app: thoth-core
   spec:
