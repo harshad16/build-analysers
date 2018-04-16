@@ -102,8 +102,8 @@ pipeline {
                             def model = openshift.process('thoth-build-analysers-buildconfig',
                                     "-p", 
                                     "IMAGE_STREAM_TAG=${env.TAG}",
-                                    "THOTH_USER_API_GIT_REF=${env.REF}",
-                                    "THOTH_USER_API_GIT_URL=https://github.com/${org}/${repo}")
+                                    "GITHUB_REF=${env.REF}",
+                                    "GITHUB_URL=https://github.com/${org}/${repo}")
 
                             echo "BuildConfig Model from Template"
                             echo "${model}"
@@ -129,7 +129,7 @@ pipeline {
         } // stage
         stage("Build Container Images") {
             parallel {
-                stage("User API") {
+                stage("Build Analysers") {
                     steps {
                         echo "Building Thoth Build Analysers API container image..."
                         script {
@@ -218,7 +218,9 @@ pipeline {
             script {
                 // junit 'reports/*.xml'
 
-                pipelineUtils.sendIRCNotification("${IRC_NICK}", IRC_CHANNEL, "${JOB_NAME} #${BUILD_NUMBER}: ${currentBuild.currentResult}: ${BUILD_URL}")
+                pipelineUtils.sendIRCNotification("${IRC_NICK}", 
+                    IRC_CHANNEL, 
+                    "${JOB_NAME} #${BUILD_NUMBER}: ${currentBuild.currentResult}: ${BUILD_URL}")
             }
         }
         success {
