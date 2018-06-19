@@ -1,0 +1,538 @@
+Pull request #11 opened
+Connecting to https://api.github.com using sesheta/******
+Connecting to https://api.github.com to check permissions of obtain list of fridex for thoth-station/package-releases-job
+Checking out git https://github.com/thoth-station/package-releases-job.git into /var/lib/jenkins/jobs/thoth-station/jobs/package-releases-job/branches/PR-11/workspace@script to read Jenkinsfile
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/thoth-station/package-releases-job.git
+ > git init /var/lib/jenkins/jobs/thoth-station/jobs/package-releases-job/branches/PR-11/workspace@script # timeout=10
+Fetching upstream changes from https://github.com/thoth-station/package-releases-job.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --no-tags --progress https://github.com/thoth-station/package-releases-job.git +refs/pull/11/head:refs/remotes/origin/PR-11 +refs/heads/master:refs/remotes/origin/master
+ > git config remote.origin.url https://github.com/thoth-station/package-releases-job.git # timeout=10
+ > git config --add remote.origin.fetch +refs/pull/11/head:refs/remotes/origin/PR-11 # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master # timeout=10
+ > git config remote.origin.url https://github.com/thoth-station/package-releases-job.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/thoth-station/package-releases-job.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --no-tags --progress https://github.com/thoth-station/package-releases-job.git +refs/pull/11/head:refs/remotes/origin/PR-11 +refs/heads/master:refs/remotes/origin/master
+Merging remotes/origin/master commit 35a572e622b3525b0a2c072e82a27cd4dd90e91a into PR head commit 257d9dced746e992c7dac5b30f1e3473100f944e
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 257d9dced746e992c7dac5b30f1e3473100f944e
+ > git merge 35a572e622b3525b0a2c072e82a27cd4dd90e91a # timeout=10
+ > git rev-parse HEAD^{commit} # timeout=10
+Merge succeeded, producing 257d9dced746e992c7dac5b30f1e3473100f944e
+Checking out Revision 257d9dced746e992c7dac5b30f1e3473100f944e (PR-11)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 257d9dced746e992c7dac5b30f1e3473100f944e
+Commit message: "Add license header"
+First time build. Skipping changelog.
+Running in Durability level: MAX_SURVIVABILITY
+Loading library cico-pipeline-library@master
+Attempting to resolve master from remote references...
+ > git --version # timeout=10
+ > git ls-remote -h -t https://github.com/CentOS/cico-pipeline-library # timeout=10
+Found match: refs/heads/master revision fbf47bf0b196e6225c76fb744050673f99461543
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/CentOS/cico-pipeline-library
+ > git init /var/lib/jenkins/jobs/thoth-station/jobs/package-releases-job/branches/PR-11/workspace@libs/cico-pipeline-library # timeout=10
+Fetching upstream changes from https://github.com/CentOS/cico-pipeline-library
+ > git --version # timeout=10
+ > git fetch --no-tags --progress https://github.com/CentOS/cico-pipeline-library +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/CentOS/cico-pipeline-library # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/CentOS/cico-pipeline-library # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/CentOS/cico-pipeline-library
+ > git fetch --no-tags --progress https://github.com/CentOS/cico-pipeline-library +refs/heads/*:refs/remotes/origin/*
+Checking out Revision fbf47bf0b196e6225c76fb744050673f99461543 (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f fbf47bf0b196e6225c76fb744050673f99461543
+Commit message: "Merge pull request #19 from scoheb/openshiftUtils"
+First time build. Skipping changelog.
+fatal: bad object 257d9dced746e992c7dac5b30f1e3473100f944e
+[Pipeline] properties
+[Pipeline] library
+Only using first definition of library cico-pipeline-library
+[Pipeline] library
+Loading library ci-pipeline@master
+Attempting to resolve master from remote references...
+ > git --version # timeout=10
+ > git ls-remote -h -t https://github.com/CentOS-PaaS-SIG/ci-pipeline # timeout=10
+Found match: refs/heads/master revision 1dcc96a7c6e3ee86e4b314afe2e72b1e494769ce
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/CentOS-PaaS-SIG/ci-pipeline
+ > git init /var/lib/jenkins/jobs/thoth-station/jobs/package-releases-job/branches/PR-11/workspace@libs/ci-pipeline # timeout=10
+Fetching upstream changes from https://github.com/CentOS-PaaS-SIG/ci-pipeline
+ > git --version # timeout=10
+ > git fetch --no-tags --progress https://github.com/CentOS-PaaS-SIG/ci-pipeline +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/CentOS-PaaS-SIG/ci-pipeline # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/CentOS-PaaS-SIG/ci-pipeline # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/CentOS-PaaS-SIG/ci-pipeline
+ > git fetch --no-tags --progress https://github.com/CentOS-PaaS-SIG/ci-pipeline +refs/heads/*:refs/remotes/origin/*
+Checking out Revision 1dcc96a7c6e3ee86e4b314afe2e72b1e494769ce (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1dcc96a7c6e3ee86e4b314afe2e72b1e494769ce
+Commit message: "Merge pull request #577 from johnbieren/master"
+First time build. Skipping changelog.
+fatal: bad object 257d9dced746e992c7dac5b30f1e3473100f944e
+[Pipeline] library
+Loading library ai-stacks-pipeline@master
+Attempting to resolve master from remote references...
+ > git --version # timeout=10
+ > git ls-remote -h -t https://github.com/AICoE/AI-Stacks-pipeline # timeout=10
+Found match: refs/heads/master revision 9d55931101be0f70c1a1c2e25b1a720d9b22f2d4
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/AICoE/AI-Stacks-pipeline
+ > git init /var/lib/jenkins/jobs/thoth-station/jobs/package-releases-job/branches/PR-11/workspace@libs/ai-stacks-pipeline # timeout=10
+Fetching upstream changes from https://github.com/AICoE/AI-Stacks-pipeline
+ > git --version # timeout=10
+ > git fetch --no-tags --progress https://github.com/AICoE/AI-Stacks-pipeline +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/AICoE/AI-Stacks-pipeline # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/AICoE/AI-Stacks-pipeline # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/AICoE/AI-Stacks-pipeline
+ > git fetch --no-tags --progress https://github.com/AICoE/AI-Stacks-pipeline +refs/heads/*:refs/remotes/origin/*
+Checking out Revision 9d55931101be0f70c1a1c2e25b1a720d9b22f2d4 (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9d55931101be0f70c1a1c2e25b1a720d9b22f2d4
+Commit message: "added centos7 jenkins image as an imagestream"
+First time build. Skipping changelog.
+fatal: bad object 257d9dced746e992c7dac5b30f1e3473100f944e
+[Pipeline] podTemplate
+[Pipeline] {
+[Pipeline] node
+Still waiting to schedule task
+jenkins-aicoe-slave-skzl2 is offline
+Agent jenkins-aicoe-slave-skzl2 is provisioned from template Kubernetes Pod Template
+Agent specification [Kubernetes Pod Template] (aicoe jenkins-aicoe-slave aicoe-slave ai-coe jenkins-ai-coe-slave ai-coe-slave ai-stacks-pipeline-master thoth thoth-master): 
+* [jnlp] docker-registry.default.svc:5000/thoth-test-core/jenkins-aicoe-slave(resourceRequestCpu: , resourceRequestMemory: , resourceLimitCpu: , resourceLimitMemory: )
+
+Running on jenkins-aicoe-slave-skzl2 in /tmp/workspace/_package-releases-job_PR-11-CGOESHTEWKGPI32NLVFZEMP3NL2F6ETLUQ44EGS7RBU3GSJQ4FDA
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/thoth-station/package-releases-job.git
+ > git init /tmp/workspace/_package-releases-job_PR-11-CGOESHTEWKGPI32NLVFZEMP3NL2F6ETLUQ44EGS7RBU3GSJQ4FDA # timeout=10
+Fetching upstream changes from https://github.com/thoth-station/package-releases-job.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --no-tags --progress https://github.com/thoth-station/package-releases-job.git +refs/pull/11/head:refs/remotes/origin/PR-11 +refs/heads/master:refs/remotes/origin/master
+ > git config remote.origin.url https://github.com/thoth-station/package-releases-job.git # timeout=10
+ > git config --add remote.origin.fetch +refs/pull/11/head:refs/remotes/origin/PR-11 # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master # timeout=10
+ > git config remote.origin.url https://github.com/thoth-station/package-releases-job.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/thoth-station/package-releases-job.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --no-tags --progress https://github.com/thoth-station/package-releases-job.git +refs/pull/11/head:refs/remotes/origin/PR-11 +refs/heads/master:refs/remotes/origin/master
+Merging remotes/origin/master commit 35a572e622b3525b0a2c072e82a27cd4dd90e91a into PR head commit 257d9dced746e992c7dac5b30f1e3473100f944e
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 257d9dced746e992c7dac5b30f1e3473100f944e
+ > git merge 35a572e622b3525b0a2c072e82a27cd4dd90e91a # timeout=10
+ > git rev-parse HEAD^{commit} # timeout=10
+Merge succeeded, producing 257d9dced746e992c7dac5b30f1e3473100f944e
+Checking out Revision 257d9dced746e992c7dac5b30f1e3473100f944e (PR-11)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 257d9dced746e992c7dac5b30f1e3473100f944e
+Commit message: "Add license header"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] container
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Create BuildConfig)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+
+[Pipeline] _OcContextInit
+[Pipeline] _OcContextInit
+[Pipeline] readFile
+[Pipeline] _OcAction
+[Pipeline] readFile
+[Pipeline] _OcAction
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Setup BuildConfig)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] _OcContextInit
+[Pipeline] _OcContextInit
+[Pipeline] readFile
+[Pipeline] _OcAction
+[Pipeline] readFile
+[Pipeline] _OcAction
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Get Changelog)
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/jobs/thoth-station/jobs/package-releases-job/branches/PR-11/workspace
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Gathering SCM changes
+[Pipeline] echo
+ - No new changes
+
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] writeFile
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Container Images)
+[Pipeline] parallel
+[Pipeline] [Package Releases Job] { (Branch: Package Releases Job)
+[Pipeline] [Package Releases Job] stage
+[Pipeline] [Package Releases Job] { (Package Releases Job)
+[Pipeline] [Package Releases Job] echo
+[Package Releases Job] Building Thoth Package Releases Job container image...
+[Pipeline] [Package Releases Job] script
+[Pipeline] [Package Releases Job] {
+[Pipeline] [Package Releases Job] echo
+[Package Releases Job] 
+[Pipeline] [Package Releases Job] _OcContextInit
+[Pipeline] [Package Releases Job] _OcContextInit
+[Pipeline] [Package Releases Job] readFile
+[Pipeline] [Package Releases Job] _OcAction
+[Pipeline] [Package Releases Job] echo
+[Package Releases Job] Resulting Build: build/package-releases-job-15
+[Pipeline] [Package Releases Job] readFile
+[Pipeline] [Package Releases Job] _OcAction
+[Package Releases Job] [describe] Name:		package-releases-job-15
+[Package Releases Job] [describe] Namespace:	thoth-test-core
+[Package Releases Job] [describe] Created:	15 seconds ago
+[Package Releases Job] [describe] Labels:		app=thoth-core
+[Package Releases Job] [describe] 		buildconfig=package-releases-job
+[Package Releases Job] [describe] 		openshift.io/build-config.name=package-releases-job
+[Package Releases Job] [describe] 		openshift.io/build.start-policy=Serial
+[Package Releases Job] [describe] 		template=thoth-package-releases-buildconfig
+[Package Releases Job] [describe] 		thoth=0.1.0
+[Package Releases Job] [describe] Annotations:	openshift.io/build-config.name=package-releases-job
+[Package Releases Job] [describe] 		openshift.io/build.number=15
+[Package Releases Job] [describe] 		openshift.io/build.pod-name=package-releases-job-15-build
+[Package Releases Job] [describe] 
+[Package Releases Job] [describe] Status:		[1mComplete[0m
+[Package Releases Job] [describe] Started:	Tue, 24 Apr 2018 19:34:25 UTC
+[Package Releases Job] [describe] Duration:	8s
+[Package Releases Job] [describe] Build Config:	package-releases-job
+[Package Releases Job] [describe] Build Pod:	package-releases-job-15-build
+[Package Releases Job] [describe] Image Digest:	sha256:2e63f91c184b504e2e7e6e4dd33d6080c993c6742316b264a4f5c81c458aef37
+[Package Releases Job] [describe] 
+[Package Releases Job] [describe] Strategy:		Source
+[Package Releases Job] [describe] URL:			https://github.com/thoth-station/package-releases-job
+[Package Releases Job] [describe] Ref:			refs/pull/11/head
+[Package Releases Job] [describe] Commit:			257d9dc (Add license header)
+[Package Releases Job] [describe] Author/Committer:	Fridolin Pokorny
+[Package Releases Job] [describe] From Image:		DockerImage registry.centos.org/centos/python-36-centos7@sha256:d6f7654758b9b472648f97b332d2683cf00a9cec60c06a50645a23e0ed1ca981
+[Package Releases Job] [describe] Output to:		ImageStreamTag package-releases-job:PR-11
+[Package Releases Job] [describe] Push Secret:		builder-dockercfg-skg6b
+[Package Releases Job] [describe] 
+[Package Releases Job] [describe] Build trigger cause:	Manually triggered
+[Package Releases Job] [describe] 
+[Package Releases Job] [describe] Events:
+[Package Releases Job] [describe]   FirstSeen	LastSeen	Count	From							SubObjectPath				Type		Reason			Message
+[Package Releases Job] [describe]   ---------	--------	-----	----							-------------				--------	------			-------
+[Package Releases Job] [describe]   15s		15s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}						Normal		SuccessfulMountVolume	MountVolume.SetUp succeeded for volume "builder-token-xxgwp" 
+[Package Releases Job] [describe]   15s		15s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}						Normal		SuccessfulMountVolume	MountVolume.SetUp succeeded for volume "builder-dockercfg-skg6b-push" 
+[Package Releases Job] [describe]   15s		15s		1	{default-scheduler }										Normal		Scheduled		Successfully assigned package-releases-job-15-build to cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com
+[Package Releases Job] [describe]   15s		15s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}						Normal		SuccessfulMountVolume	MountVolume.SetUp succeeded for volume "docker-socket" 
+[Package Releases Job] [describe]   15s		15s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}						Normal		SuccessfulMountVolume	MountVolume.SetUp succeeded for volume "crio-socket" 
+[Package Releases Job] [describe]   15s		15s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}						Normal		SuccessfulMountVolume	MountVolume.SetUp succeeded for volume "buildworkdir" 
+[Package Releases Job] [describe]   13s		13s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.initContainers{git-clone}		Normal		Created			Created container
+[Package Releases Job] [describe]   13s		13s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.initContainers{git-clone}		Normal		Pulled			Container image "openshift3/ose-sti-builder:v3.7.23" already present on machine
+[Package Releases Job] [describe]   12s		12s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.initContainers{git-clone}		Normal		Started			Started container
+[Package Releases Job] [describe]   11s		11s		1	{build-controller }										Normal		BuildStarted		Build thoth-test-core/package-releases-job-15 is now running
+[Package Releases Job] [describe]   10s		10s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.initContainers{manage-dockerfile}	Normal		Pulled			Container image "openshift3/ose-sti-builder:v3.7.23" already present on machine
+[Package Releases Job] [describe]   10s		10s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.initContainers{manage-dockerfile}	Normal		Created			Created container
+[Package Releases Job] [describe]   10s		10s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.initContainers{manage-dockerfile}	Normal		Started			Started container
+[Package Releases Job] [describe]   9s		9s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.containers{sti-build}		Normal		Started			Started container
+[Package Releases Job] [describe]   9s		9s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.containers{sti-build}		Normal		Pulled			Container image "openshift3/ose-sti-builder:v3.7.23" already present on machine
+[Package Releases Job] [describe]   9s		9s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}	spec.containers{sti-build}		Normal		Created			Created container
+[Package Releases Job] [describe]   7s		7s		1	{build-controller }										Normal		BuildCompleted		Build thoth-test-core/package-releases-job-15 completed successfully
+[Package Releases Job] [describe]   6s		6s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}						Normal		SandboxChanged		Pod sandbox changed, it will be killed and re-created.
+[Package Releases Job] [describe]   4s		4s		1	{kubelet cpt-0012.ocp.prod.upshift.eng.rdu2.redhat.com}						Warning		FailedCreatePodSandBox	Failed create pod sandbox: rpc error: code = 2 desc = NetworkPlugin cni failed to set up pod "package-releases-job-15-build_thoth-test-core" network: CNI request failed with status 400: 'error on port vethe1c642b1: "could not open network device vethe1c642b1 (No such device)"
+[Package Releases Job] [describe] '
+[Package Releases Job] [describe] 
+[Pipeline] [Package Releases Job] sh
+[Package Releases Job] [_package-releases-job_PR-11-CGOESHTEWKGPI32NLVFZEMP3NL2F6ETLUQ44EGS7RBU3GSJQ4FDA] Running shell script
+[Package Releases Job] /tmp/workspace/_package-releases-job_PR-11-CGOESHTEWKGPI32NLVFZEMP3NL2F6ETLUQ44EGS7RBU3GSJQ4FDA@tmp/durable-52caf9e1/script.sh: line 54: syntax error near unexpected token `('
+[Pipeline] [Package Releases Job] }
+[Pipeline] [Package Releases Job] // script
+[Pipeline] [Package Releases Job] }
+[Pipeline] [Package Releases Job] // stage
+[Pipeline] [Package Releases Job] }
+[Package Releases Job] Failed in branch Package Releases Job
+[Pipeline] // parallel
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Tag Container Image as Test)
+Stage 'Tag Container Image as Test' skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Image Tag Report)
+Stage 'Image Tag Report' skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Tag stable image)
+Stage 'Tag stable image' skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Promotion to Stage)
+Stage 'Promotion to Stage' skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
+[_package-releases-job_PR-11-CGOESHTEWKGPI32NLVFZEMP3NL2F6ETLUQ44EGS7RBU3GSJQ4FDA] Running shell script
++ echo NICK sesheta
++ openssl s_client -connect irc.freenode.net:6697
++ echo USER sesheta 8 Jenkinsfile LICENSE OWNERS Pipfile Pipfile.lock README.rst app.py openshift : sesheta
++ sleep 5
+depth=2 O = Digital Signature Trust Co., CN = DST Root CA X3
+verify return:1
+depth=1 C = US, O = Let's Encrypt, CN = Let's Encrypt Authority X3
+verify return:1
+depth=0 CN = tolkien.freenode.net
+verify return:1
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:/CN=tolkien.freenode.net
+   i:/C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+ 1 s:/C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+   i:/O=Digital Signature Trust Co./CN=DST Root CA X3
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIKJTCCCQ2gAwIBAgISA3ltfzPle6mbAWA5cPuN1smiMA0GCSqGSIb3DQEBCwUA
+MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD
+ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xODA0MTYwNTAzMDVaFw0x
+ODA3MTUwNTAzMDVaMB8xHTAbBgNVBAMTFHRvbGtpZW4uZnJlZW5vZGUubmV0MIIC
+IjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA6NHe3lPTlm+2VuguiB+52zxh
+51ioSoTeClWnrbRiNfRuY26jkz4beO4VRhgFPIm5ZtxcSeN4Q8o0wbIfC0c5JGNB
+jUs9cwsDpl8wGl1u41OceakeHEUBSPwa3NTD7twWD3Nz2GekuV55PVlIe/jV5Vyg
+xWXSRvDhxArQ5HLzNADviKBzDkWZ8XmLWvnCLkbtDjeBsHOezXsXxqgfV3VTrbcX
+THLBjbigULtXWyLfeNjyPGusGantKOmUqVZLOelfA81mNHf16YWFETY3UtOPR0dC
+Az1sN9dQs4DJPLDYCnckxJgcX+kEMPlNB6VUkQzJyfvLrLbhtVPbOcKn9wlgEKz5
+2n6fzer3AybBCKgrw/X+MRy9DhMEDEWyBwAKV64mVqCaHs7mEwDWWoEfVNzs9rZQ
+iwzjdy3gly3XVIAO88r/TsYNZzPkXRixM+5RXCVjFcFfBkuglCSQRAkwz6YSkMIv
+rdlQNgHkGRV1D+STWEjGc9M27VNWIZ03OLtRM/GASbxy0vNR/kw57P/DqwMvOWfl
+Xxp5mHFZW4PjzJvaAa9T/GfjxzizomgVeoyONvpRYoyVOEGaBPRkRtISGf2GS7qE
+2f3SZQK4Dgt4U3R6aojQoqpTvl86elsdjHOm/xonTk0EUNp9T/yHuMAlV3JXBxM3
+kn/Ml5GdwLDAoTRiqmUCAwEAAaOCBi4wggYqMA4GA1UdDwEB/wQEAwIFoDAdBgNV
+HSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4E
+FgQU8WHPEiVVqIqf7zkx9rDan9YCUWEwHwYDVR0jBBgwFoAUqEpqYwR93brm0Tm3
+pkVl7/Oo7KEwbwYIKwYBBQUHAQEEYzBhMC4GCCsGAQUFBzABhiJodHRwOi8vb2Nz
+cC5pbnQteDMubGV0c2VuY3J5cHQub3JnMC8GCCsGAQUFBzAChiNodHRwOi8vY2Vy
+dC5pbnQteDMubGV0c2VuY3J5cHQub3JnLzCCAy8GA1UdEQSCAyYwggMighRjaGF0
+LmF1LmZyZWVub2RlLmNvbYIUY2hhdC5hdS5mcmVlbm9kZS5uZXSCFGNoYXQuYXUu
+ZnJlZW5vZGUub3JnghRjaGF0LmV1LmZyZWVub2RlLmNvbYIUY2hhdC5ldS5mcmVl
+bm9kZS5uZXSCFGNoYXQuZXUuZnJlZW5vZGUub3JnghFjaGF0LmZyZWVub2RlLmNv
+bYIRY2hhdC5mcmVlbm9kZS5uZXSCEWNoYXQuZnJlZW5vZGUub3JnghZjaGF0Lmlw
+djQuZnJlZW5vZGUuY29tghZjaGF0LmlwdjQuZnJlZW5vZGUubmV0ghZjaGF0Lmlw
+djQuZnJlZW5vZGUub3JnghZjaGF0LmlwdjYuZnJlZW5vZGUuY29tghZjaGF0Lmlw
+djYuZnJlZW5vZGUubmV0ghZjaGF0LmlwdjYuZnJlZW5vZGUub3JnghRjaGF0LnVz
+LmZyZWVub2RlLmNvbYIUY2hhdC51cy5mcmVlbm9kZS5uZXSCFGNoYXQudXMuZnJl
+ZW5vZGUub3JnghNpcmMuYXUuZnJlZW5vZGUuY29tghNpcmMuYXUuZnJlZW5vZGUu
+bmV0ghNpcmMuYXUuZnJlZW5vZGUub3JnghNpcmMuZXUuZnJlZW5vZGUuY29tghNp
+cmMuZXUuZnJlZW5vZGUubmV0ghNpcmMuZXUuZnJlZW5vZGUub3JnghBpcmMuZnJl
+ZW5vZGUuY29tghBpcmMuZnJlZW5vZGUubmV0ghBpcmMuZnJlZW5vZGUub3JnghVp
+cmMuaXB2NC5mcmVlbm9kZS5jb22CFWlyYy5pcHY0LmZyZWVub2RlLm5ldIIVaXJj
+LmlwdjQuZnJlZW5vZGUub3JnghVpcmMuaXB2Ni5mcmVlbm9kZS5jb22CFWlyYy5p
+cHY2LmZyZWVub2RlLm5ldIIVaXJjLmlwdjYuZnJlZW5vZGUub3JnghNpcmMudXMu
+ZnJlZW5vZGUuY29tghNpcmMudXMuZnJlZW5vZGUubmV0ghNpcmMudXMuZnJlZW5v
+ZGUub3JnghR0b2xraWVuLmZyZWVub2RlLm5ldDCB/gYDVR0gBIH2MIHzMAgGBmeB
+DAECATCB5gYLKwYBBAGC3xMBAQEwgdYwJgYIKwYBBQUHAgEWGmh0dHA6Ly9jcHMu
+bGV0c2VuY3J5cHQub3JnMIGrBggrBgEFBQcCAjCBngyBm1RoaXMgQ2VydGlmaWNh
+dGUgbWF5IG9ubHkgYmUgcmVsaWVkIHVwb24gYnkgUmVseWluZyBQYXJ0aWVzIGFu
+ZCBvbmx5IGluIGFjY29yZGFuY2Ugd2l0aCB0aGUgQ2VydGlmaWNhdGUgUG9saWN5
+IGZvdW5kIGF0IGh0dHBzOi8vbGV0c2VuY3J5cHQub3JnL3JlcG9zaXRvcnkvMIIB
+BAYKKwYBBAHWeQIEAgSB9QSB8gDwAHYA23Sv7ssp7LH+yj5xbSzluaq7NveEcYPH
+XZ1PN7Yfv2QAAAFizQy3FwAABAMARzBFAiB78MOGtMLBHo6CNZhDUF9qHpJQuR7V
+1KLMmIgHm2ehjAIhAMVU+9IHPCVmT/whfrcEa2GpntA89fg4O8HO1+mUrdqeAHYA
+KTxRllTIOWW6qlD8WAfUt2+/WHopctykwwz05UVH9HgAAAFizQy3WAAABAMARzBF
+AiEAjiAjo473kbYN3V7MBP0JtfVbleiKeZb2yQ4Z9vAV68sCIA8FTJhrBUY0gEuz
+Ivsbet4E2dIqw/+e7ZohPsST5eTEMA0GCSqGSIb3DQEBCwUAA4IBAQB4q8YQsHH4
+N8T3n/6sT7lxFkh5XSbJtaaE8muW3SZ4ED3tPAa6mrruMhWx5z+Zgm4hitXF7Rk0
+fsjxtcXxTas+cgrn43MqPhw55GnHdCYX/ltnUql/+RmQ6MtRyBwB+WZxxC84gJqQ
+3qJznaqQd5E1aCZcFt+/69KSfF79QUM54mXpoDPG6mnbeMF61ivnSNVDJAKOcmUs
+vwo24Rf8CBug20apflPCRVzM0NHTFtBPI8sq0CILv7J0e9Db0dOCWHgip51k+LI/
+uKFyQqIeg6lt3+omFOM8x3WY80GDkuD+IbKQ5mJ3CtLVmq+DGt69Tr2sxZh6m08h
+6scj45xpHBWb
+-----END CERTIFICATE-----
+subject=/CN=tolkien.freenode.net
+issuer=/C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+---
+No client certificate CA names sent
+Client Certificate Types: RSA fixed DH, DSS fixed DH, RSA sign, DSA sign, ECDSA sign
+Requested Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1
+Shared Requested Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1
+Peer signing digest: SHA512
+Server Temp Key: DH, 2048 bits
+---
+SSL handshake has read 5179 bytes and written 619 bytes
+---
+New, TLSv1/SSLv3, Cipher is DHE-RSA-AES256-GCM-SHA384
+Server public key is 4096 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : DHE-RSA-AES256-GCM-SHA384
+    Session-ID: EDCFD70578B573E0CF34B8205835B478140D78A592BEE19EA36404D9CA5A869E
+    Session-ID-ctx: 
+    Master-Key: 477E1F472313D0FD259B697A9850466C38EECF2909B14B67DED398F4374566F443D5186F68C34F0ECCE9899878DBA1AF
+    Key-Arg   : None
+    Krb5 Principal: None
+    PSK identity: None
+    PSK identity hint: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 51 9c 43 73 43 77 65 c2-04 05 a8 03 4c 2c 25 02   Q.CsCwe.....L,%.
+    0010 - 12 f4 74 ac 07 28 41 2f-3a b1 5f 9a 2f 52 ee 97   ..t..(A/:._./R..
+    0020 - 9d 06 ce 00 69 9f ff ea-43 3f 84 4d c6 7f 50 87   ....i...C?.M..P.
+    0030 - 1d d4 49 91 56 4b fa 95-30 32 2a bb a4 38 d0 ea   ..I.VK..02*..8..
+    0040 - c1 46 6e 06 13 a6 0c 42-d3 fc a1 4f d7 f0 d8 74   .Fn....B...O...t
+    0050 - f4 55 40 f9 d0 6a 9d 6e-5e 71 38 55 84 8d b8 25   .U@..j.n^q8U...%
+    0060 - ba e9 29 ef 54 69 ee 11-0a 3e ca cc 44 d7 aa ad   ..).Ti...>..D...
+    0070 - 2a b1 64 12 45 ea 3a 57-e2 c9 ab f1 52 d5 f3 70   *.d.E.:W....R..p
+    0080 - 2c ef 92 92 00 03 b6 55-2b 86 79 f4 bf 84 2b 85   ,......U+.y...+.
+    0090 - 38 ec c1 d2 76 fa 13 87-30 d2 2a 15 48 ca c3 e4   8...v...0.*.H...
+
+    Start Time: 1524598491
+    Timeout   : 300 (sec)
+    Verify return code: 0 (ok)
+---
+:tolkien.freenode.net NOTICE * :*** Looking up your hostname...
+:tolkien.freenode.net NOTICE * :*** Checking Ident
+:tolkien.freenode.net NOTICE * :*** Found your hostname
++ echo 'JOIN #thoth-station'
++ sleep 10
+:tolkien.freenode.net NOTICE * :*** No Ident response
+:tolkien.freenode.net NOTICE sesheta :*** Spoofing your IP
+:tolkien.freenode.net 001 sesheta :Welcome to the freenode Internet Relay Chat Network sesheta
+:tolkien.freenode.net 002 sesheta :Your host is tolkien.freenode.net[71.11.84.232/6697], running version ircd-seven-1.1.4
+:tolkien.freenode.net 003 sesheta :This server was created Thu May 18 2017 at 17:43:36 UTC
+:tolkien.freenode.net 004 sesheta tolkien.freenode.net ircd-seven-1.1.4 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
+:tolkien.freenode.net 005 sesheta CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
+:tolkien.freenode.net 005 sesheta CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 SAFELIST ELIST=CTU KNOCK :are supported by this server
+:tolkien.freenode.net 005 sesheta WHOX ETRACE CPRIVMSG CNOTICE :are supported by this server
+:tolkien.freenode.net 251 sesheta :There are 122 users and 92763 invisible on 34 servers
+:tolkien.freenode.net 252 sesheta 28 :IRC Operators online
+:tolkien.freenode.net 253 sesheta 20 :unknown connection(s)
+:tolkien.freenode.net 254 sesheta 52409 :channels formed
+:tolkien.freenode.net 255 sesheta :I have 4489 clients and 1 servers
+:tolkien.freenode.net 265 sesheta 4489 7644 :Current local users 4489, max 7644
+:tolkien.freenode.net 266 sesheta 92885 97718 :Current global users 92885, max 97718
+:tolkien.freenode.net 250 sesheta :Highest connection count: 7645 (7644 clients) (3677979 connections received)
+:tolkien.freenode.net 375 sesheta :- tolkien.freenode.net Message of the Day - 
+:tolkien.freenode.net 372 sesheta :- Welcome to tolkien.freenode.net in Sanford, NC, US. Thanks to
+:tolkien.freenode.net 372 sesheta :- https://travelingmailbox.com/ for sponsoring this server
+:tolkien.freenode.net 372 sesheta :- Welcome to freenode - supporting the free and open source
+:tolkien.freenode.net 372 sesheta :- software communities since 1998.
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- By connecting to freenode you indicate that you have read and
+:tolkien.freenode.net 372 sesheta :- accept our policies and guidelines as set out on https://freenode.net
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- In the event that you observe behaviour that contravenes our policies,
+:tolkien.freenode.net 372 sesheta :- please notify a volunteer staff member via private message, or send us an
+:tolkien.freenode.net 372 sesheta :- e-mail to complaints@freenode.net -- we will do our best to address the
+:tolkien.freenode.net 372 sesheta :- situation within a reasonable period of time, and we may request further
+:tolkien.freenode.net 372 sesheta :- information or, as appropriate, involve other parties such as channel operators 
+:tolkien.freenode.net 372 sesheta :- Group Contacts representing an on-topic group.
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- freenode runs an open proxy scanner.
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- If you are looking for assistance, you will be able to find a list of
+:tolkien.freenode.net 372 sesheta :- volunteer staff using the '/who freenode/staff/*' command, and you may
+:tolkien.freenode.net 372 sesheta :- message any of us at any time. Please note that freenode predominantly
+:tolkien.freenode.net 372 sesheta :- provides assistance via private message, and while we have a network
+:tolkien.freenode.net 372 sesheta :- channel the primary venue for support requests is via private message to
+:tolkien.freenode.net 372 sesheta :- a member of the volunteer staff team.
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- From time to time, volunteer staff may send server-wide notices relating to
+:tolkien.freenode.net 372 sesheta :- the project, or the communities that we host. The majority of such notices
+:tolkien.freenode.net 372 sesheta :- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
+:tolkien.freenode.net 372 sesheta :- do not miss them. Important messages relating to the freenode project, including
+:tolkien.freenode.net 372 sesheta :- notices of upcoming maintenance and other scheduled downtime will be issued as
+:tolkien.freenode.net 372 sesheta :- global notices.
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- Representing an on-topic project? Don't forget to register, more information
+:tolkien.freenode.net 372 sesheta :- can be found on the https://freenode.net website under "Group Registration".
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- freenode organises an annual conference, and we would like to extend our
+:tolkien.freenode.net 372 sesheta :- thanks to the attendees, exhibitors and speakers who made freenode #live 2017
+:tolkien.freenode.net 372 sesheta :- possible. And of course, our generous sponsors: Bytemark, Canonical (Ubuntu),
+:tolkien.freenode.net 372 sesheta :- Falanx Cyber Security, Private Internet Access and Yubico for footing the bill.
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- Thank you also to our server sponsors for the sustained support in keeping the
+:tolkien.freenode.net 372 sesheta :- network going for close to two decades.
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- freenode #live returns to Bristol, UK on November 3rd-4th 2018. Our Call for
+:tolkien.freenode.net 372 sesheta :- Proposals is live at https://freenode.live and open until July 31, 2018. If 
+:tolkien.freenode.net 372 sesheta :- you are interested in sponsoring this event, please send an e-mail to
+:tolkien.freenode.net 372 sesheta :- sponsor@freenode.live
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :- Thank you for using freenode!
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 372 sesheta :-  
+:tolkien.freenode.net 376 sesheta :End of /MOTD command.
+:sesheta MODE sesheta :+Zi
+:tolkien.freenode.net 396 sesheta nat/redhat/x-lnpxtrnzpyxrxlwp :is now your hidden host (set by syn.)
+:sesheta!sesheta@nat/redhat/x-lnpxtrnzpyxrxlwp JOIN #thoth-station
+:tolkien.freenode.net 332 sesheta #thoth-station :Hi, we are Thoth | https://github.com/thoth-station
+:tolkien.freenode.net 333 sesheta #thoth-station goern 1524531646
+:tolkien.freenode.net 353 sesheta = #thoth-station :sesheta fpokorny @[GNU]
+:tolkien.freenode.net 366 sesheta #thoth-station :End of /NAMES list.
+EXITCODE   0+ echo 'NOTICE #thoth-station :thoth-station/package-releases-job/PR-11 #1: FAILURE: https://jenkins-thoth-test-core.cloud.upshift.engineering.redhat.com/job/thoth-station/job/package-releases-job/job/PR-11/1/'
++ echo QUIT
+DONE
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // container
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // podTemplate
+[Pipeline] End of Pipeline
+
+GitHub has been notified of this commit’s build result
+
+ERROR: script returned exit code 2
+Finished: FAILURE
