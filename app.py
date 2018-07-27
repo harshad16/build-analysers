@@ -16,7 +16,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-"""Thoth: Build Analysers API"""
+"""Thoth: Build Analysers API."""
 
 import os
 import time
@@ -39,7 +39,7 @@ import thoth_build_analysers
 from thoth_build_analysers.apis import api
 from thoth_build_analysers.configuration import Configuration
 
-DEBUG = bool(os.getenv('DEBUG', False))
+DEBUG = bool(os.getenv('DEBUG', True))
 
 if DEBUG:
     logging.basicConfig(level=logging.DEBUG)

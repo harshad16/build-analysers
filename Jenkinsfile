@@ -93,13 +93,13 @@ pipeline {
 
                     openshift.withCluster() {
                         openshift.withProject(CI_TEST_NAMESPACE) {
-                            if (!openshift.selector("template/thoth-build-analysers-buildconfig").exists()) {
+                            if (!openshift.selector("template/build-analysers-buildconfig").exists()) {
                                 openshift.apply(readFile('openshift/buildConfig-template.yaml'))
                                 echo "BuildConfig Template created!"
                             }
 
                             /* Process the template and return the Map of the result */
-                            def model = openshift.process('thoth-build-analysers-buildconfig',
+                            def model = openshift.process('build-analysers-buildconfig',
                                     "-p", 
                                     "IMAGE_STREAM_TAG=${env.TAG}",
                                     "GITHUB_REF=${env.REF}",

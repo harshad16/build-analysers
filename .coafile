@@ -1,15 +1,17 @@
 [all]
-ignore = .git/**
+bears = LineCountBear, FilenameBear
+files = **.py, **.yml, **.rst
+ignore = **/__pycache__/**, **/__pycache__, __pycache__, __pycache__/**, **/*.pyc, *.pyc
+max_lines_per_file = 1000
+max_line_length = 120
 
 [all.python]
-files = *.py
-ignore += **/__init__.py
-bears = PEP8Bear, PyCommentedCodeBear, PyUnusedCodeBear
-language = python
-use_spaces = True
-remove_all_unused_imports = True
+bears = PycodestyleBear, PyDocStyleBear
+files = **.py
+language = Python
+editor = vim
+ignore = setup.py
 
-[all.commit]
-bears = GitCommitBear
-shortlog_trailing_period = False
-shortlog_regex = ([^:]*|[^:]+[^ ]: [A-Z0-9*].*)
+[all.yaml]
+bears = YAMLLintBear
+files = **.yml, **.yaml

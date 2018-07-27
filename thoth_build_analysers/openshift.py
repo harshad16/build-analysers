@@ -31,6 +31,9 @@ def analyse(build_log_text):
         if line.startswith('error: build error: non-zero'):
             return False
 
+        if "Your Pipfile.lock" in line and "is out of date" in line:
+            return False
+
         if line.startswith('Push successful'):
             return True
 
