@@ -36,6 +36,8 @@ from thoth.lab import convert
 
 from typing import Iterable, List, Mapping, Tuple, Union
 
+from thoth.build_analysers.parsing import parse_log
+
 query = _query_factory()
 tostring = _tostring_factory()
 
@@ -49,6 +51,22 @@ def build_log_prepare(log: str) -> List[str]:
     log_messages = [m.strip() for m in log_messages if len(set(m)) > 0]
     
     return log_messages
+
+
+def build_log_to_dependency_table(log: str) -> pd.DataFrame:
+    """Parse raw build log to find software stack and create dependency table."""
+    df = pd.io.json.json_normalize(
+        parse_log(log), record_path='result')
+
+    if len(df) <= 0:
+        raise ValueError("No packages have been found in the log file.")
+
+    df = df \
+        ._.vstack('from') \
+        ._.flatten('from', {'package': 'source'}) \
+        .drop(['artifact', 'from'], axis=1)
+
+    return df.convert.to_dependency_table(source='source', target='package')
 
 
 def ast_search_expressions(entrypoint: Union[str, PosixPath],
