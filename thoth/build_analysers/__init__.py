@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# thoth-storages
+# thoth-build-analysers
 # Copyright(C) 2018, 2019 Marek Cermak
 #
 # This program is free software: you can redistribute it and / or modify
