@@ -21,7 +21,7 @@ import typing
 
 import attr
 
-_HandlerBaseType = typing.TypeVar('T', bound='Repository')
+_HandlerBaseType = typing.TypeVar("T", bound="Repository")
 
 
 @attr.s

@@ -19,5 +19,4 @@
 
 from .__about__ import __version__
 
-__name__ = 'thoth-build-analysers'
-
+__name__ = "thoth-build-analysers"
