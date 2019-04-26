@@ -31,9 +31,6 @@ def parse_log(input_text: str) -> typing.List[dict]:
     """
     result = []
     for handler in HandlerBase.instantiate_handlers():
-        result.append({
-            'handler': handler.__class__.__name__.lower(),
-            'result': handler.run(input_text)
-        })
+        result.append({"handler": handler.__class__.__name__.lower(), "result": handler.run(input_text)})
 
     return result

@@ -18,6 +18,8 @@
 
 import itertools
 import re
+import parse
+
 import pandas as pd
 
 from pathlib import Path, PosixPath
@@ -49,35 +51,33 @@ def build_log_prepare(log: str) -> List[str]:
     """
     log_messages = log.splitlines()
     log_messages = [m.strip() for m in log_messages if len(set(m)) > 0]
-    
+
     return log_messages
 
 
 def build_log_to_dependency_table(log: str) -> pd.DataFrame:
     """Parse raw build log to find software stack and create dependency table."""
-    df = pd.io.json.json_normalize(
-        parse_log(log), record_path='result')
+    df = pd.io.json.json_normalize(parse_log(log), record_path="result")
 
     if len(df) <= 0:
         raise ValueError("No packages have been found in the log file.")
 
-    df = df \
-        ._.vstack('from') \
-        ._.flatten('from', {'package': 'source'}) \
-        .drop(['artifact', 'from'], axis=1)
+    df = df._.vstack("from")._.flatten("from", {"package": "source"}).drop(["artifact", "from"], axis=1)
 
-    return df.convert.to_dependency_table(source='source', target='package')
+    return df.convert.to_dependency_table(source="source", target="package")
 
 
-def ast_search_expressions(entrypoint: Union[str, PosixPath],
-                           expressions: Union[str, List[str]] = None,
-                           glob: str = "**/*.py",
-                           verbose: bool = False):
+def ast_search_expressions(
+    entrypoint: Union[str, PosixPath],
+    expressions: Union[str, List[str]] = None,
+    glob: str = "**/*.py",
+    verbose: bool = False,
+):
     """Glob through the source AST and extract AST elements and patterns."""
     if isinstance(entrypoint, str):
         entrypoint = Path(entrypoint)
 
-    expression = '|'.join(expressions)
+    expression = "|".join(expressions)
 
     matching_elements = []
     for module in entrypoint.glob(glob):
@@ -91,19 +91,17 @@ def ast_search_expressions(entrypoint: Union[str, PosixPath],
                 print(f"Unable to process module '{module}'")
 
     matching_arguments = list(
-        itertools.chain(*[elt.xpath("./ancestor-or-self::*[@s][1]/@s") for elt in matching_elements]))
-    
+        itertools.chain(*[elt.xpath("./ancestor-or-self::*[@s][1]/@s") for elt in matching_elements])
+    )
+
     return matching_elements, matching_arguments
 
 
 def ast_search_pip(entrypoint: str):
     """Search through the source AST and extract patterns for pip."""
     elements, arguments = ast_search_expressions(
-    entrypoint=entrypoint,
-    expressions=[
-        "//args/Str[string-length(@s) > 5]"
-    ],
-)
+        entrypoint=entrypoint, expressions=["//args/Str[string-length(@s) > 5]"]
+    )
 
     return clean_pattern_dataframe(ast_to_pattern_dataframe(elements, arguments))
 
@@ -111,12 +109,8 @@ def ast_search_pip(entrypoint: str):
 def ast_search_pipenv(entrypoint: str):
     """Search through the source AST and extract patterns for pipenv."""
     elements, arguments = ast_search_expressions(
-    entrypoint=entrypoint,
-    expressions=[
-        "//Str[string-length(@s) > 5]"
-    ],
-    glob="**/exceptions.py"
-)
+        entrypoint=entrypoint, expressions=["//Str[string-length(@s) > 5]"], glob="**/exceptions.py"
+    )
 
     return clean_pattern_dataframe(ast_to_pattern_dataframe(elements, arguments))
 
@@ -127,12 +121,14 @@ def ast_to_pattern_dataframe(elements: list, patterns: List[str]) -> pd.DataFram
     :param elements: list of AST elements corresponding to the patterns
     """
     if not len(elements) == len(patterns):
-        raise ValueError(f"Length of `elements` does not match length of `patterns`, {len(elements)} != {len(patterns)}")
+        raise ValueError(
+            f"Length of `elements` does not match length of `patterns`, {len(elements)} != {len(patterns)}"
+        )
     callers = []
     caller_attrs = []
     method_attrs = []
 
-    parent_tags  = []
+    parent_tags = []
 
     for elt in elements:
         parent: str = elt.xpath("name(./parent::*[1])") or None
@@ -151,44 +147,51 @@ def ast_to_pattern_dataframe(elements: list, patterns: List[str]) -> pd.DataFram
         callers.append(func)
         caller_attrs.append(dict(caller.attrib) if caller is not None else None)
         method_attrs.append(dict(method.attrib) if method is not None else None)
-        
-    df = pd.DataFrame(patterns, columns=['pattern'])
 
-    df['parent_tag'] = parent_tags
-    df['caller_attrs'] = caller_attrs
-    df['method_attrs'] = method_attrs
+    df = pd.DataFrame(patterns, columns=["pattern"])
 
-    caller_records = {'id': 'caller'}
-    method_records = {'attr': 'method'}
+    df["parent_tag"] = parent_tags
+    df["caller_attrs"] = caller_attrs
+    df["method_attrs"] = method_attrs
 
-    df = pd.concat([
-        df,
-        df.caller_attrs._.flatten(record_paths=caller_records),
-        df.method_attrs._.flatten(record_paths=method_records)
-    ], axis=1, sort=False)
+    caller_records = {"id": "caller"}
+    method_records = {"attr": "method"}
 
-    df = df \
-        .drop(['caller_attrs', 'method_attrs'], axis=1) \
-        .drop_duplicates('pattern') \
-        .dropna(subset=['caller', 'method'], how='all')
+    df = pd.concat(
+        [
+            df,
+            df.caller_attrs._.flatten(record_paths=caller_records),
+            df.method_attrs._.flatten(record_paths=method_records),
+        ],
+        axis=1,
+        sort=False,
+    )
+
+    df = (
+        df.drop(["caller_attrs", "method_attrs"], axis=1)
+        .drop_duplicates("pattern")
+        .dropna(subset=["caller", "method"], how="all")
+    )
 
     return df
 
 
 def clean_pattern_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """Clean the DataFrame by removing unwanted patterns and reformatting."""
-    df = df.query("""
+    df = df.query(
+        """
         ( (caller == "logger") & (method.str.match("info|debug")) ) | \
         ( (caller == "crayons") ) | \
         ( (method.str.match("append")) & (parent_tag.str.match("value(s)?|args")) ) | \
         ( (method.str.match("command|format")) & (parent_tag.str.match("value(s)?")) ) | \
         ( (method.str.match("_update|echo")) )
-    """)
+    """
+    )
 
     # check if any log message contains splitlines (important for future comparison)
     rows = []
-    for i, row in df[df.pattern.str.contains('\n')].iterrows():
-        for sub_str in reversed(row.pattern.split('\n')):
+    for i, row in df[df.pattern.str.contains("\n")].iterrows():
+        for sub_str in reversed(row.pattern.split("\n")):
             new_row = row.copy()
             new_row.pattern = sub_str
 
@@ -199,62 +202,65 @@ def clean_pattern_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df = df.append(rows)
 
     # simple heuristics, remove all-mighty patterns
-    df = df[df.pattern.str.contains(r"[a-zA-Z]{3,}")] \
-        .sort_values(['caller', 'method'], na_position='last', ascending=False) \
+    df = (
+        df[df.pattern.str.contains(r"[a-zA-Z]{3,}")]
+        .sort_values(["caller", "method"], na_position="last", ascending=False)
         .reset_index(drop=True)
-    
+    )
+
     # reformat pattern here to reduce complexity
     df.pattern = df.pattern.apply(reformat)
-    
+
     return df
 
 
-PEP_461_FORMAT_CODES = {'c', 'b', 'a', 'r', 's', 'd', 'i', 'o', 'u', 'x', 'X', 'e', 'E', 'f', 'F', 'g', 'G'}
+PEP_461_FORMAT_CODES = {"c", "b", "a", "r", "s", "d", "i", "o", "u", "x", "X", "e", "E", "f", "F", "g", "G"}
+
 
 def reformat(string: str) -> str:
     """Reformat format codes by PEP 461 and PEP 3101 to formatting style defined by `parse` library."""
-    
+
     def _reformat(rest):
         span = re.search(r"(?:(?<=\s)|(?<=\W)|(?<=^))(%\w)|(\{.*?\})(?=\s|\W|$)", rest)
         if span is not None:
             code = span.group(0)
 
             if code[1:] in PEP_461_FORMAT_CODES or re.fullmatch(r"^\{.*?\}$", code):
-                formatted = rest[:span.start()] + "{}"
-                
+                formatted = rest[: span.start()] + "{}"
+
                 yield formatted
-                yield from _reformat(rest[span.end():])
-        else:        
+                yield from _reformat(rest[span.end() :])
+        else:
             yield rest
-    
-    formatted = ''.join(_reformat(string)).strip()
-    
+
+    formatted = "".join(_reformat(string)).strip()
+
     return formatted
 
 
 def reconstruct_string(format_pattern: str, format_string: str) -> str:
     """Attempt to reconstruct string based on a format pattern."""
     format_pattern = reformat(format_pattern)
-    
+
     # hand-coded heuristic to prevent over-match of == versions
     if format_pattern == "{}=={}":
         return format_string
-    
+
     try:
         parsed = parse.parse(format_pattern, format_string)
     except Exception:
         parsed = None
-    
+
     if not parsed:
         return format_string
-    
+
     reconstructed = ""
     cut = 0
     for span in parsed.spans.values():
         start, end = span
         reconstructed += format_string[cut:start] + "{}"
         cut = end
-        
+
     reconstructed += format_string[cut:]
-    
+
     return reconstructed
