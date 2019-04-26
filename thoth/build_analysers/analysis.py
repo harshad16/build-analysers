@@ -16,10 +16,14 @@
 
 """Build log analysis logic."""
 
+import json
 import re
 import string
+import textwrap
 
 import itertools
+
+import networkx as nx
 
 import numpy as np
 import pandas as pd
@@ -28,9 +32,13 @@ from collections import Counter
 from pathlib import Path
 
 from thoth.build_analysers.preprocessing import build_log_prepare
+from thoth.build_analysers.preprocessing import build_log_to_dependency_table
 from thoth.build_analysers.preprocessing import reconstruct_string
 
-from typing import Iterable, Union
+from thoth.lab.graph import get_root
+
+from typing import Iterable, List, Tuple, Union
+
 
 THRESHOLDS = {
     'WARNING': 0.3,
@@ -98,9 +106,9 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFr
 def build_breaker_report(
     log: str,
     *,
-    colorize: bool = True,
+    colorize: bool = False,
     indentation_level: int = 4
-) -> dict:
+) -> str:
     """Analyze raw build log and produce a report."""
     df_log = build_breaker_analyze(log)
     
@@ -203,7 +211,14 @@ def build_breaker_analyze(log: str, *, colorize: bool = True):
     df_log.loc[errors.index, 'label'] = 'ERROR'
     
     if colorize:
-        df_log['colour'] = scale_colour_continuous(df_log.score, norm=False)
+        try:
+            from thoth.lab.utils import scale_colour_continuous
+            df_log['colour'] = scale_colour_continuous(df_log.score, norm=False)
+        except ImportError:
+            # TODO: logger.warn, using discrete scale based on labels
+            df_log['colour'] = df_log.label.map({
+                'INFO': 'green', 'WARNING': 'yellow', 'ERROR': 'red'
+            })
 
     return df_log
 
@@ -222,7 +237,7 @@ def build_breaker_identify(dep_table: pd.DataFrame, error_messages: List[str]) -
     return packages[-1] if packages else None
 
 
-def simple_bow_similarity(matcher, matchee):
+def simple_bow_similarity(matcher: str, matchee: str) -> Tuple[float, List[str]]:
     """Compare two sentences and count number of common words.
     
     :returns: float, score representing sentence similarity
@@ -241,8 +256,8 @@ def simple_bow_similarity(matcher, matchee):
     return score, list(match)
 
 
-def simple_bow_similarity_with_replacement(matcher, matchee, reformat=False):
-    """Compare two matcheeences while respecting matcher string formatting syntax.
+def simple_bow_similarity_with_replacement(matcher: str, matchee: str, reformat=False) -> Tuple[float, List[str]]:
+    """Compare two strings while respecting matcher string formatting syntax.
     
     This function checks for string formatted syntax in the `matcher`
     pattern and replaces it with regexp based syntax. Then size of the span
@@ -262,3 +277,34 @@ def simple_bow_similarity_with_replacement(matcher, matchee, reformat=False):
         score, match = simple_bow_similarity(matcher, formatted)
         
     return score, list(match)
+
+
+def get_succesfully_installed_packages(dep_table: pd.DataFrame, build_breaker: str = None):
+    """Traverse dependency table in DFS manner and output installed packages."""
+    g = dep_table.convert.to_dependency_graph()
+    root = get_root(g)
+    
+    failed_branch = get_failed_branch(dep_table, build_breaker)
+
+    successfully_installed = set()
+    for node in nx.dfs_preorder_nodes(g, root):
+        if re.match(re.escape(node), build_breaker or "", re.IGNORECASE):
+            break
+        successfully_installed.add(node)
+
+    successfully_installed = successfully_installed.difference(set(failed_branch))
+    
+    return successfully_installed
+
+
+def get_failed_branch(dep_table: pd.DataFrame, build_breaker: str):
+    """Traverse dependency table in DFS manner and output installed packages."""
+    g = dep_table.convert.to_dependency_graph()
+    root = get_root(g)
+    
+    failed_branch = []
+
+    if build_breaker:
+        failed_branch = nx.shortest_path(g, root, build_breaker)[:-1]
+    
+    return failed_branch
