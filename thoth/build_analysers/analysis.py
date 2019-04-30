@@ -176,7 +176,7 @@ def build_breaker_analyze(log: str, *, colorize: bool = True):
 
     scores, candidate_indices = build_breaker_predict(log_messages, patterns, which == "pip")
 
-    df_log = pd.DataFrame(zip(log_messages, scores), columns=["msg", "score"])
+    df_log = pd.DataFrame(list(zip(log_messages, scores)), columns=["msg", "score"])
     df_log["pattern"] = [patterns[int(i)] if i is not None else None for i in candidate_indices]
 
     threshold_e = THRESHOLDS["ERROR"]
