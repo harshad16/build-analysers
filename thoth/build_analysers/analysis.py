@@ -59,6 +59,7 @@ Probable reason:
 )
 
 
+# TODO: Implement binary classifier to distinguish pip / pipenv logs
 def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFrame]:
     """Retrieve build log patterns based on the given log file.
     
@@ -73,8 +74,13 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFr
 
     # definite checks
     pipenv_patterns = ["pipenv", "pipfile", "pipfile.lock", "locking", "virtualenv", "candidates"]
-    if any([re.search(p, w) for w in bow_log for p in pipenv_patterns]):
+    if any([re.search(p, w, re.IGNORECASE) for w in bow_log for p in pipenv_patterns]):
         return "pipenv", df_pipenv
+
+    # pip first-line check
+    pip_patterns = [r"Processing (.+)", r"You should consider upgrading via the '(.+)' command."]
+    if any([re.fullmatch(p, msg, re.IGNORECASE) for msg in [log_messages[0], log_messages[-1]] for p in pip_patterns]):
+        return "pip", df_pip
 
     # otherwise try to determine using BoW scores
 
@@ -118,17 +124,6 @@ def build_breaker_report(log: str, *, colorize: bool = False, indentation_level:
 
     else:
         return "No build breaker identified."
-
-
-def build_breaker_identify(dep_table: pd.DataFrame, error_messages: List[str]) -> Union[str, None]:
-    """Identify build breaker package name."""
-    g = dep_table.convert.to_dependency_graph()
-
-    packages = []
-    for msg in error_messages:
-        packages.extend(p for p in dep_table.target if re.search(p, msg) and g.has_node(p))
-
-    return packages[-1] if packages else None
 
 
 def build_breaker_predict(
