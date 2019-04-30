@@ -66,29 +66,31 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFr
     This function detects whether the log file has been produced
     by 'pip' or 'pipenv' and retrieves appropriate resources.
     """
-    df_pip = pd.read_csv(PIP_PATTERNS_FPATH)
-    df_pipenv = pd.read_csv(PIPENV_PATTERNS_FPATH)
+    patterns_pip = pd.read_csv(PIP_PATTERNS_FPATH).pattern
+    patterns_pipenv = pd.read_csv(PIPENV_PATTERNS_FPATH).pattern
 
     # create BoW for each and compare it to the log file
     bow_log = Counter(itertools.chain(*[s.strip("{}").split() for s in log_messages]))
 
     # definite checks
-    pipenv_patterns = ["pipenv", "pipfile", "pipfile.lock", "locking", "virtualenv", "candidates"]
-    if any([re.search(p, w, re.IGNORECASE) for w in bow_log for p in pipenv_patterns]):
-        return "pipenv", df_pipenv
+    pipenv_indicators = ["pipenv", "pipfile", "pipfile.lock", "locking", "virtualenv", "candidates"]
+    if any([re.search(p, w, re.IGNORECASE) for w in bow_log for p in pipenv_indicators]):
+        return "pipenv", patterns_pipenv
 
     # pip first-line check
-    pip_patterns = [r"Processing (.+)", r"You should consider upgrading via the '(.+)' command."]
-    if any([re.fullmatch(p, msg, re.IGNORECASE) for msg in [log_messages[0], log_messages[-1]] for p in pip_patterns]):
-        return "pip", df_pip
+    pip_indicators = [r"Processing (.+)", r"You should consider upgrading via the '(.+)' command."]
+    if any(
+        [re.fullmatch(p, msg, re.IGNORECASE) for msg in [log_messages[0], log_messages[-1]] for p in pip_indicators]
+    ):
+        return "pip", patterns_pip
 
     # otherwise try to determine using BoW scores
 
-    bow_pip = Counter(itertools.chain(*[s.strip("{}").split() for s in df_pip.pattern]))
+    bow_pip = Counter(itertools.chain(*[s.strip("{}").split() for s in patterns_pip]))
     s = sum(bow_pip.values())
     bow_pip = {k: v / s for k, v in bow_pip.items()}
 
-    bow_pipenv = Counter(itertools.chain(*[s.strip("{}").split() for s in df_pipenv.pattern]))
+    bow_pipenv = Counter(itertools.chain(*[s.strip("{}").split() for s in patterns_pipenv]))
     s = sum(bow_pipenv.values())
     bow_pipenv = {k: v / s for k, v in bow_pipenv.items()}
 
@@ -98,7 +100,7 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFr
         score["pip"] += bow_pip.get(word, 0) * count
         score["pipenv"] += bow_pipenv.get(word, 0) * count
 
-    return ("pip", df_pip) if score["pip"] >= score["pipenv"] else ("pipenv", df_pipenv)
+    return ("pip", patterns_pip) if score["pip"] >= score["pipenv"] else ("pipenv", patterns_pipenv)
 
 
 def build_breaker_report(log: str, *, colorize: bool = False, indentation_level: int = 4) -> str:
