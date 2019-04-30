@@ -1,0 +1,11 @@
+# build log parsing
+astpath
+parse
+
+numpy
+pandas
+
+# graph traversal
+networkx
+
+thoth-lab
