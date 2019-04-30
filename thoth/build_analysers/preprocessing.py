@@ -46,7 +46,7 @@ tostring = _tostring_factory()
 
 def build_log_prepare(log: str) -> List[str]:
     """Process raw build log by lines and output list of log messages.
-    
+
     :returns: List[str], list of log messages
     """
     log_messages = log.splitlines()
@@ -117,7 +117,7 @@ def ast_search_pipenv(entrypoint: str):
 
 def ast_to_pattern_dataframe(elements: list, patterns: List[str]) -> pd.DataFrame:
     """Convert AST matches into a pattern dataframe.
-    
+
     :param elements: list of AST elements corresponding to the patterns
     """
     if not len(elements) == len(patterns):
@@ -219,7 +219,6 @@ PEP_461_FORMAT_CODES = {"c", "b", "a", "r", "s", "d", "i", "o", "u", "x", "X", "
 
 def reformat(string: str) -> str:
     """Reformat format codes by PEP 461 and PEP 3101 to formatting style defined by `parse` library."""
-
     def _reformat(rest):
         span = re.search(r"(?:(?<=\s)|(?<=\W)|(?<=^))(%\w)|(\{.*?\})(?=\s|\W|$)", rest)
         if span is not None:
@@ -229,7 +228,7 @@ def reformat(string: str) -> str:
                 formatted = rest[: span.start()] + "{}"
 
                 yield formatted
-                yield from _reformat(rest[span.end() :])
+                yield from _reformat(rest[span.end():])
         else:
             yield rest
 

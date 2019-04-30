@@ -50,7 +50,7 @@ REPORT_TEMPLATE = string.Template(
     """
 Build breaker:
 
-$info     
+$info
 
 Probable reason:
 
@@ -59,9 +59,10 @@ Probable reason:
 )
 
 
+# TODO: Implement binary classifier to distinguish pip / pipenv logs
 def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFrame]:
     """Retrieve build log patterns based on the given log file.
-    
+
     This function detects whether the log file has been produced
     by 'pip' or 'pipenv' and retrieves appropriate resources.
     """
@@ -73,8 +74,13 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFr
 
     # definite checks
     pipenv_patterns = ["pipenv", "pipfile", "pipfile.lock", "locking", "virtualenv", "candidates"]
-    if any([re.search(p, w) for w in bow_log for p in pipenv_patterns]):
+    if any([re.search(p, w, re.IGNORECASE) for w in bow_log for p in pipenv_patterns]):
         return "pipenv", df_pipenv
+
+    # pip first-line check
+    pip_patterns = [r"Processing (.+)", r"You should consider upgrading via the '(.+)' command."]
+    if any([re.fullmatch(p, msg, re.IGNORECASE) for msg in [log_messages[0], log_messages[-1]] for p in pip_patterns]):
+        return "pip", df_pip
 
     # otherwise try to determine using BoW scores
 
@@ -120,30 +126,19 @@ def build_breaker_report(log: str, *, colorize: bool = False, indentation_level:
         return "No build breaker identified."
 
 
-def build_breaker_identify(dep_table: pd.DataFrame, error_messages: List[str]) -> Union[str, None]:
-    """Identify build breaker package name."""
-    g = dep_table.convert.to_dependency_graph()
-
-    packages = []
-    for msg in error_messages:
-        packages.extend(p for p in dep_table.target if re.search(p, msg) and g.has_node(p))
-
-    return packages[-1] if packages else None
-
-
 def build_breaker_predict(
     log_messages: Iterable[str], patterns: Iterable[str], reverse_scores: bool = False
 ) -> np.ndarray:
     """Predict scores and candidate pattern indices for each log message in `log`.
-    
+
     The method compares each message in `log` with a candidate pattern in `patterns`
     and outputs similarity score based on a BoW approach penalized by the length of
     the log message.
-    
+
     :param logs: Iterable[str], An iterable of log messages
     :param patterns: Iterable[str], patterns to compare to log messages
     :returns: np.ndarray of shape (2, n), n is length of logs
-    
+
         dimensions represent message similarity score and candidate pattern index respectively
     """
     print(f"Length of the log file: {len(log_messages)}")
@@ -181,7 +176,7 @@ def build_breaker_analyze(log: str, *, colorize: bool = True):
 
     scores, candidate_indices = build_breaker_predict(log_messages, patterns, which == "pip")
 
-    df_log = pd.DataFrame(zip(log_messages, scores), columns=["msg", "score"])
+    df_log = pd.DataFrame(list(zip(log_messages, scores)), columns=["msg", "score"])
     df_log["pattern"] = [patterns[int(i)] if i is not None else None for i in candidate_indices]
 
     threshold_e = THRESHOLDS["ERROR"]
@@ -219,7 +214,7 @@ def build_breaker_identify(dep_table: pd.DataFrame, error_messages: List[str]) -
 
 def simple_bow_similarity(matcher: str, matchee: str) -> Tuple[float, List[str]]:
     """Compare two sentences and count number of common words.
-    
+
     :returns: float, score representing sentence similarity
     """
     x = set(matchee.strip().lower().split())
@@ -238,11 +233,11 @@ def simple_bow_similarity(matcher: str, matchee: str) -> Tuple[float, List[str]]
 
 def simple_bow_similarity_with_replacement(matcher: str, matchee: str, reformat=False) -> Tuple[float, List[str]]:
     """Compare two strings while respecting matcher string formatting syntax.
-    
+
     This function checks for string formatted syntax in the `matcher`
     pattern and replaces it with regexp based syntax. Then size of the span
     is computed and transformed into similarity score.
-    
+
     :returns: float, score representing sentence similarity
     """
     score = 0
