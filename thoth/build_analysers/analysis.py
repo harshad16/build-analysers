@@ -109,13 +109,13 @@ def build_breaker_report(log: str, *, colorize: bool = False, indentation_level:
 
     dep_table = build_log_to_dependency_table(log)
 
-    errors = df_log.query("label == 'ERROR' & msg.str.contains('|'.join(@dep_table.target))")
+    errors = df_log.query("label == 'ERROR' & msg.str.contains('|'.join(@dep_table.target))", engine="python")
     build_breaker = build_breaker_identify(dep_table, errors.msg)
 
     if build_breaker:
         build_breaker_info = dep_table.query(f"target == '{build_breaker}'")
 
-        line_no, reason = next(df_log.query("msg.str.contains(@build_breaker)").msg[::-1].iteritems())
+        line_no, reason = next(df_log.query("msg.str.contains(@build_breaker)", engine="python").msg[::-1].iteritems())
 
         build_breaker_info_str = json.dumps(
             build_breaker_info.to_dict(orient="records")[0], indent=indentation_level, sort_keys=True
@@ -184,8 +184,8 @@ def build_breaker_analyze(log: str, *, colorize: bool = True):
     threshold_e = THRESHOLDS["ERROR"]
     threshold_w = THRESHOLDS["WARNING"]
 
-    warnings = df_log.query("score > @threshold_w")
-    errors = warnings.query("score > @threshold_e")
+    warnings = df_log.query("score > @threshold_w", engine="python")
+    errors = warnings.query("score > @threshold_e", engine="python")
 
     df_log["label"] = "INFO"
     df_log.loc[warnings.index, "label"] = "WARNING"
