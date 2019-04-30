@@ -50,7 +50,7 @@ REPORT_TEMPLATE = string.Template(
     """
 Build breaker:
 
-$info     
+$info
 
 Probable reason:
 
@@ -62,7 +62,7 @@ Probable reason:
 # TODO: Implement binary classifier to distinguish pip / pipenv logs
 def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFrame]:
     """Retrieve build log patterns based on the given log file.
-    
+
     This function detects whether the log file has been produced
     by 'pip' or 'pipenv' and retrieves appropriate resources.
     """
@@ -130,15 +130,15 @@ def build_breaker_predict(
     log_messages: Iterable[str], patterns: Iterable[str], reverse_scores: bool = False
 ) -> np.ndarray:
     """Predict scores and candidate pattern indices for each log message in `log`.
-    
+
     The method compares each message in `log` with a candidate pattern in `patterns`
     and outputs similarity score based on a BoW approach penalized by the length of
     the log message.
-    
+
     :param logs: Iterable[str], An iterable of log messages
     :param patterns: Iterable[str], patterns to compare to log messages
     :returns: np.ndarray of shape (2, n), n is length of logs
-    
+
         dimensions represent message similarity score and candidate pattern index respectively
     """
     print(f"Length of the log file: {len(log_messages)}")
@@ -214,7 +214,7 @@ def build_breaker_identify(dep_table: pd.DataFrame, error_messages: List[str]) -
 
 def simple_bow_similarity(matcher: str, matchee: str) -> Tuple[float, List[str]]:
     """Compare two sentences and count number of common words.
-    
+
     :returns: float, score representing sentence similarity
     """
     x = set(matchee.strip().lower().split())
@@ -233,11 +233,11 @@ def simple_bow_similarity(matcher: str, matchee: str) -> Tuple[float, List[str]]
 
 def simple_bow_similarity_with_replacement(matcher: str, matchee: str, reformat=False) -> Tuple[float, List[str]]:
     """Compare two strings while respecting matcher string formatting syntax.
-    
+
     This function checks for string formatted syntax in the `matcher`
     pattern and replaces it with regexp based syntax. Then size of the span
     is computed and transformed into similarity score.
-    
+
     :returns: float, score representing sentence similarity
     """
     score = 0
