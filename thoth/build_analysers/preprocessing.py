@@ -60,7 +60,7 @@ def build_log_to_dependency_table(log: str) -> pd.DataFrame:
     df = pd.io.json.json_normalize(parse_log(log), record_path="result")
 
     if len(df) <= 0:
-        raise ValueError("No packages have been found in the log file.")
+        return pd.DataFrame()
 
     df = df._.vstack("from")._.flatten("from", {"package": "source"}).drop(["artifact", "from"], axis=1)
 
