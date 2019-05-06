@@ -117,7 +117,9 @@ def build_breaker_report(log: str, *, colorize: bool = False, indentation_level:
         if build_breaker:
             build_breaker_info = dep_table.query(f"target == '{build_breaker}'")
 
-            line_no, reason = next(df_log.query("msg.str.contains(@build_breaker)", engine="python").msg[::-1].iteritems())
+            line_no, reason = next(
+                df_log.query("msg.str.contains(@build_breaker)", engine="python").msg[::-1].iteritems()
+            )
 
             build_breaker_info_str = json.dumps(
                 build_breaker_info.to_dict(orient="records")[0], indent=indentation_level, sort_keys=True
@@ -127,6 +129,7 @@ def build_breaker_report(log: str, *, colorize: bool = False, indentation_level:
             report = REPORT_TEMPLATE.safe_substitute(info=build_breaker_info_str, ln=line_no, reason=reason)
 
     return report
+
 
 def build_breaker_predict(
     log_messages: Iterable[str], patterns: Iterable[str], reverse_scores: bool = False
