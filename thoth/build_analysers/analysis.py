@@ -167,7 +167,7 @@ def build_breaker_predict(
     if reverse_scores:  # reverse the scores
         scores = 1 / (scores * np.max(1 / scores))
 
-    return np.vstack([winner_scores, winner_indices])
+    return np.vstack([scores, winner_indices])
 
 
 def build_breaker_analyze(log: str, *, colorize: bool = True):
