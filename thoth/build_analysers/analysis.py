@@ -145,6 +145,9 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
 
     if len(errors) >= 1:
         dep_table = build_log_to_dependency_table(log)
+        dep_table.target.fillna("", inplace=True)
+        # make sure the packages are unique, keep only the latest
+        dep_table.drop_duplicates("target", keep="last", inplace=True)
 
         if len(dep_table) >= 1:
             errors = errors.query("msg.str.contains('|'.join(@dep_table.target))", engine="python")
