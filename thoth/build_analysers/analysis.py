@@ -106,26 +106,29 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFr
 def build_breaker_report(log: str, *, colorize: bool = False, indentation_level: int = 4) -> str:
     """Analyze raw build log and produce a report."""
     df_log = build_breaker_analyze(log)
-
     dep_table = build_log_to_dependency_table(log)
 
-    errors = df_log.query("label == 'ERROR' & msg.str.contains('|'.join(@dep_table.target))", engine="python")
-    build_breaker = build_breaker_identify(dep_table, errors.msg)
+    report = "No build breaker identified."
 
-    if build_breaker:
-        build_breaker_info = dep_table.query(f"target == '{build_breaker}'")
+    if len(dep_table) >= 1:
+        errors = df_log.query("label == 'ERROR' & msg.str.contains('|'.join(@dep_table.target))", engine="python")
+        build_breaker = build_breaker_identify(dep_table, errors.msg)
 
-        line_no, reason = next(df_log.query("msg.str.contains(@build_breaker)", engine="python").msg[::-1].iteritems())
+        if build_breaker:
+            build_breaker_info = dep_table.query(f"target == '{build_breaker}'")
 
-        build_breaker_info_str = json.dumps(
-            build_breaker_info.to_dict(orient="records")[0], indent=indentation_level, sort_keys=True
-        )
-        build_breaker_info_str = textwrap.indent(build_breaker_info_str, " " * indentation_level)
+            line_no, reason = next(
+                df_log.query("msg.str.contains(@build_breaker)", engine="python").msg[::-1].iteritems()
+            )
 
-        return REPORT_TEMPLATE.safe_substitute(info=build_breaker_info_str, ln=line_no, reason=reason)
+            build_breaker_info_str = json.dumps(
+                build_breaker_info.to_dict(orient="records")[0], indent=indentation_level, sort_keys=True
+            )
+            build_breaker_info_str = textwrap.indent(build_breaker_info_str, " " * indentation_level)
 
-    else:
-        return "No build breaker identified."
+            report = REPORT_TEMPLATE.safe_substitute(info=build_breaker_info_str, ln=line_no, reason=reason)
+
+    return report
 
 
 def build_breaker_predict(
@@ -167,7 +170,7 @@ def build_breaker_predict(
     if reverse_scores:  # reverse the scores
         scores = 1 / (scores * np.max(1 / scores))
 
-    return np.vstack([winner_scores, winner_indices])
+    return np.vstack([scores, winner_indices])
 
 
 def build_breaker_analyze(log: str, *, colorize: bool = True):
