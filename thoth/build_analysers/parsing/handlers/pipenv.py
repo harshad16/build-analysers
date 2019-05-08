@@ -28,12 +28,15 @@ _LOG = logging.getLogger("thoth.build_analysers.parsing.handlers.pipenv")
 
 _RE_ESCAPE_SEQ = re.compile(r"(\x9B|\x1B\[)[0-?]*[ -/]*[@-~]")
 _RE_FOUND_CANDIDATE = re.compile(
-    r'\s*found candidate (?P<package>[+a-zA-Z_\-.():/0-9>=<;,"]+)'
-    r"\s*\(constraint was (?P<constraint>[a-zA-Z_\-.:/0-9>=<~;, ]+)\)$"
+    r'\s*found candidate (?P<package>[+a-zA-Z_\-.():/0-9>=~<;,"]+)'
+    r"\s*\(constraint was (?P<constraint>[a-zA-Z_\-.:/0-9>=~<;, ]+)\)$"
 )
 _RE_COULD_NOT_FOUND = re.compile(
-    r'(.*) Could not find a version that matches '
-    r'(?P<package>[+a-zA-Z\-_]+)(?P<constraint>[+a-zA_Z\-.:/0-9>=<;,"]+)'
+    r"(.*) Could not find a version that matches "
+    r'(?P<package>[+a-zA-Z\-_]+)(?P<constraint>[+a-zA_Z\-.:/0-9>=~<;,"]+)'
+)
+_RE_REQUIRES = re.compile(
+    r'\s*(?P<package>[+a-zA-Z_\-.():/0-9>=<;,"]+)' r'\s*requires (?P<dependencies>[+a-zA-Z_\-.():/0-9>=<;, "]+)'
 )
 
 
@@ -44,17 +47,27 @@ class Pipenv(HandlerBase):
     def run(self, input_text: str) -> list:
         """Find and parse installed packages and their versions from a build log."""
         result = []
+
+        seen = set()
         lines = input_text.split("\n")
         for line in map(self._remove_escape_seq, lines):
-            for pattern in [_RE_FOUND_CANDIDATE, _RE_COULD_NOT_FOUND]:
+            if line in seen:
+                continue
+
+            seen.add(line)  # we want to skip duplicite lines
+
+            for pattern in [_RE_FOUND_CANDIDATE, _RE_REQUIRES, _RE_COULD_NOT_FOUND]:
                 match_result = pattern.fullmatch(line)
                 if match_result:
-                    package = match_result.group('package')
-                    constraint = match_result.group('constraint')
-                    dependency = self._parse_package(package, constraint)
-                    dependency["from"] = [{"package": None, "version_specified:": None}]  # TODO: get the parent packages
-                    dependency["artifact"] = None
-                    result.append(dependency)
+                    package = match_result.group("package")
+                    if "constraint" in match_result.groupdict():
+                        constraint = match_result.group("constraint")
+                        result.append(self._parse_package(package, constraint=constraint))
+                    elif "dependencies" in match_result.groupdict():
+                        dependencies = match_result.group("dependencies")
+                        result.extend(self._parse_secondary_dependency(package, dependencies))
+                    else:
+                        result.append(self._parse_package(package))
                     break
 
         return result
@@ -65,17 +78,40 @@ class Pipenv(HandlerBase):
         return _RE_ESCAPE_SEQ.sub("", line)
 
     @classmethod
-    def _parse_package(cls, package_specifier: str, constraint: str = "<any>") -> dict:
+    def _parse_package(
+        cls,
+        package_specifier: str,
+        parents: typing.List[dict] = None,
+        constraint: str = "<any>",
+        specified: bool = False,
+    ) -> dict:
         """Parse packages and return them in a dictionary."""
-        parsed_package = cls._do_parse_package(package_specifier)
+        package, version = cls._do_parse_package(package_specifier)
         result = {
-            "package": parsed_package[0],
-            "version_specified": constraint,
-            "version_installed": parsed_package[1],
+            "package": package,
+            "from": parents or [{"package": None, "version_specified": None}],
+            "version_specified": version if specified else constraint,
+            "version_installed": None,
             "already_satisfied": None,
+            "artifact": None,
         }
 
         return result or None
+
+    @classmethod
+    def _parse_secondary_dependency(cls, package_specifier: str, dependencies: str) -> list:
+        """Parse package with secondary dependencies and return them in a list."""
+        parent = cls._parse_package(package_specifier)
+        result = [parent]
+
+        parent_package_specifier = {k: parent[k] for k in ["package", "version_installed"]}
+
+        for dep in dependencies.split(","):
+            if dep == "-":
+                continue
+            result.append(cls._parse_package(dep, parents=[parent_package_specifier], specified=True))
+
+        return result
 
     @staticmethod
     def _do_parse_package(package_specifier: str) -> typing.Tuple[str, typing.Optional[str]]:

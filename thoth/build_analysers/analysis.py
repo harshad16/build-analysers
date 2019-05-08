@@ -154,9 +154,9 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
             build_breaker_package_name: str = build_breaker_identify(dep_table, errors.msg)
 
             if build_breaker_package_name:
-                build_breaker_info, = dep_table.query(f"target == '{build_breaker_package_name}'").to_dict(
+                build_breaker_info = dep_table.query(f"target == '{build_breaker_package_name}'").to_dict(
                     orient="records"
-                )
+                )[-1]  # the latest result of resolution
                 reason = next(
                     errors.query("msg.str.contains(@build_breaker_package_name)", engine="python").msg[::-1].iteritems()
                 )
