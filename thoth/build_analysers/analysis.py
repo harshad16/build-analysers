@@ -145,15 +145,18 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
 
     if len(errors) >= 1:
         dep_table = build_log_to_dependency_table(log)
+        dep_table.target.fillna("", inplace=True)
+        # make sure the packages are unique, keep only the latest
+        dep_table.drop_duplicates(["source", "target"], keep="last", inplace=True)
 
         if len(dep_table) >= 1:
             errors = errors.query("msg.str.contains('|'.join(@dep_table.target))", engine="python")
             build_breaker_package_name: str = build_breaker_identify(dep_table, errors.msg)
 
             if build_breaker_package_name:
-                build_breaker_info, = dep_table.query(f"target == '{build_breaker_package_name}'").to_dict(
+                build_breaker_info = dep_table.query(f"target == '{build_breaker_package_name}'").to_dict(
                     orient="records"
-                )
+                )[-1]  # the latest result of resolution
                 reason = next(
                     errors.query("msg.str.contains(@build_breaker_package_name)", engine="python").msg[::-1].iteritems()
                 )
