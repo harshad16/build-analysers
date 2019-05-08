@@ -31,6 +31,10 @@ _RE_FOUND_CANDIDATE = re.compile(
     r'\s*found candidate (?P<package>[+a-zA-Z_\-.():/0-9>=<;,"]+)'
     r"\s*\(constraint was (?P<constraint>[a-zA-Z_\-.:/0-9>=<~;, ]+)\)$"
 )
+_RE_COULD_NOT_FOUND = re.compile(
+    r'(.*) Could not find a version that matches '
+    r'(?P<package>[+a-zA-Z\-_]+)(?P<constraint>[+a-zA_Z\-.:/0-9>=<;,"]+)'
+)
 
 
 @attr.s
@@ -42,14 +46,16 @@ class Pipenv(HandlerBase):
         result = []
         lines = input_text.split("\n")
         for line in map(self._remove_escape_seq, lines):
-            match_result = _RE_FOUND_CANDIDATE.fullmatch(line)
-            if match_result:
-                package, constraint = match_result.groups()
-                dependency = self._parse_package(package, constraint)
-                dependency["from"] = [{"package": None, "version_specified:": None}]  # TODO: get the parent packages
-                dependency["artifact"] = None
-                result.append(dependency)
-                continue
+            for pattern in [_RE_FOUND_CANDIDATE, _RE_COULD_NOT_FOUND]:
+                match_result = pattern.fullmatch(line)
+                if match_result:
+                    package = match_result.group('package')
+                    constraint = match_result.group('constraint')
+                    dependency = self._parse_package(package, constraint)
+                    dependency["from"] = [{"package": None, "version_specified:": None}]  # TODO: get the parent packages
+                    dependency["artifact"] = None
+                    result.append(dependency)
+                    break
 
         return result
 
