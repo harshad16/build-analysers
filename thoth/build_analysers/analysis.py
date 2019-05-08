@@ -50,11 +50,15 @@ REPORT_TEMPLATE = string.Template(
     """
 Build breaker:
 
-$info
+$build_breaker
 
 Probable reason:
 
-    $ln: $reason
+    $reason
+
+Candidates:
+
+$candidates
 """
 )
 
@@ -103,32 +107,89 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFr
     return ("pip", patterns_pip) if score["pip"] >= score["pipenv"] else ("pipenv", patterns_pipenv)
 
 
-def build_breaker_report(log: str, *, colorize: bool = False, indentation_level: int = 4) -> str:
-    """Analyze raw build log and produce a report."""
-    df_log = build_breaker_analyze(log)
-    dep_table = build_log_to_dependency_table(log)
+def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, colorize: bool = False) -> dict:
+    """Analyze raw build log and produce a report.
 
-    report = "No build breaker identified."
+    :param log: Union[str, pd.DataFrame], raw build log to be analyzed or result of `build_log_analyze`
+    :param top: int, maximum number of candidates to report
+    :param colorize: bool, whether to map scores to colors (only valid if `log` is instance of str)
 
-    if len(dep_table) >= 1:
-        errors = df_log.query("label == 'ERROR' & msg.str.contains('|'.join(@dep_table.target))", engine="python")
-        build_breaker = build_breaker_identify(dep_table, errors.msg)
+    :returns: dict of the following schema:
+        {
+            "build_breaker": {
+                "already_satisfied": bool,
+                "source": str,
+                "target": str,
+                "version_installed": str,
+                "version_specified": str
+            },
+            "reason": {
+                "ln": str,
+                "msg" : str
+            },
+            "candidates": List[dict#reason]
+        }
+    """
+    df_log = log
+    if isinstance(log, str):
+        df_log = build_breaker_analyze(log, colorize=colorize)
 
-        if build_breaker:
-            build_breaker_info = dep_table.query(f"target == '{build_breaker}'")
+    build_breaker_info = dict()
+    """Dictionary holding build breaker attributs."""
+    reason = dict()
+    """Probable reason of the failure."""
+    candidates = []
+    """List of top *k* candidates to cause the build failure."""
 
-            line_no, reason = next(
-                df_log.query("msg.str.contains(@build_breaker)", engine="python").msg[::-1].iteritems()
-            )
+    errors = df_log.query("label == 'ERROR'")
 
-            build_breaker_info_str = json.dumps(
-                build_breaker_info.to_dict(orient="records")[0], indent=indentation_level, sort_keys=True
-            )
-            build_breaker_info_str = textwrap.indent(build_breaker_info_str, " " * indentation_level)
+    if len(errors) >= 1:
+        dep_table = build_log_to_dependency_table(log)
 
-            report = REPORT_TEMPLATE.safe_substitute(info=build_breaker_info_str, ln=line_no, reason=reason)
+        if len(dep_table) >= 1:
+            errors = errors.query("msg.str.contains('|'.join(@dep_table.target))", engine="python")
+            build_breaker_package_name: str = build_breaker_identify(dep_table, errors.msg)
 
-    return report
+            if build_breaker_package_name:
+                build_breaker_info, = dep_table.query(f"target == '{build_breaker_package_name}'").to_dict(
+                    orient="records"
+                )
+                reason = next(
+                    errors.query("msg.str.contains(@build_breaker_package_name)", engine="python").msg[::-1].iteritems()
+                )
+
+            elif len(errors) >= 1:
+                reason = next(errors.sort_values("score").msg[::-1].iteritems())
+
+        else:
+            reason = next(errors.sort_values("score").msg[::-1].iteritems())
+
+        candidates = list(map(lambda t: dict(zip(["ln", "msg"], t)), errors.sort_values("score").msg[::-1].iteritems()))
+
+    return {"build_breaker": build_breaker_info, "reason": dict(zip(["ln", "msg"], reason)), "candidates": candidates}
+
+
+def build_breaker_format_report(report: dict, indentation_level: int = 4) -> str:
+    """Format the report produced by the `build_breaker_report` function into string."""
+    if not report["candidates"]:
+        return "No build breaker candidates identified."
+
+    build_breaker_info_str = json.dumps(report["build_breaker"], indent=indentation_level, sort_keys=True)
+    build_breaker_info_str = textwrap.indent(build_breaker_info_str, " " * indentation_level)
+
+    def _format_reason(ln: str, reason: str):
+        return f"{ln}: {reason}"
+
+    build_breaker_candidates_str = json.dumps(
+        [_format_reason(*c.values()) for c in report["candidates"]], indent=indentation_level, sort_keys=False
+    )
+    build_breaker_candidates_str = textwrap.indent(build_breaker_candidates_str, " " * indentation_level)
+
+    return REPORT_TEMPLATE.safe_substitute(
+        build_breaker=build_breaker_info_str,
+        reason=_format_reason(*report["reason"].values()),
+        candidates=build_breaker_candidates_str,
+    )
 
 
 def build_breaker_predict(
