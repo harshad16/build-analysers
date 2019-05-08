@@ -67,8 +67,6 @@ class Pipenv(HandlerBase):
     @classmethod
     def _parse_package(cls, package_specifier: str, constraint: str = "<any>") -> dict:
         """Parse packages and return them in a dictionary."""
-        result = []
-
         parsed_package = cls._do_parse_package(package_specifier)
         result = {
             "package": parsed_package[0],
