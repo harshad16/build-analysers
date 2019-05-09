@@ -217,7 +217,7 @@ def clean_pattern_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 PEP_461_FORMAT_CODES = {"c", "b", "a", "r", "s", "d", "i", "o", "u", "x", "X", "e", "E", "f", "F", "g", "G"}
 
 
-def reformat(string: str) -> str:
+def reformat(string: str) -> str:  # Ignore PyDocStyleBear
     """Reformat format codes by PEP 461 and PEP 3101 to formatting style defined by `parse` library."""
 
     def _reformat(rest):
@@ -229,7 +229,7 @@ def reformat(string: str) -> str:
                 formatted = rest[: span.start()] + "{}"
 
                 yield formatted
-                yield from _reformat(rest[span.end() :])
+                yield from _reformat(rest[span.end():])
         else:
             yield rest
 
