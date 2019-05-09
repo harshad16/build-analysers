@@ -23,7 +23,7 @@ import typing
 from .handlers import HandlerBase
 
 
-def parse_log(input_text: str) -> typing.List[dict]:
+def parse_log(input_text: str, handlers: typing.List[str] = None) -> typing.List[dict]:
     """Extract packages from Docker image build log.
 
     Extract all installed packages based on the ecosystem out of a
@@ -31,6 +31,8 @@ def parse_log(input_text: str) -> typing.List[dict]:
     """
     result = []
     for handler in HandlerBase.instantiate_handlers():
-        result.append({"handler": handler.__class__.__name__.lower(), "result": handler.run(input_text)})
+        handler_name = handler.__class__.__name__.lower()
+        if handlers is None or handler_name in handlers:
+            result.append({"handler": handler_name, "result": handler.run(input_text)})
 
     return result

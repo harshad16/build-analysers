@@ -55,9 +55,9 @@ def build_log_prepare(log: str) -> List[str]:
     return log_messages
 
 
-def build_log_to_dependency_table(log: str) -> pd.DataFrame:
+def build_log_to_dependency_table(log: str, handlers: List[str] = None) -> pd.DataFrame:
     """Parse raw build log to find software stack and create dependency table."""
-    df = pd.io.json.json_normalize(parse_log(log), record_path="result")
+    df = pd.io.json.json_normalize(parse_log(log, handlers=handlers), record_path="result")
 
     if len(df) <= 0:
         return pd.DataFrame()
@@ -217,8 +217,9 @@ def clean_pattern_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 PEP_461_FORMAT_CODES = {"c", "b", "a", "r", "s", "d", "i", "o", "u", "x", "X", "e", "E", "f", "F", "g", "G"}
 
 
-def reformat(string: str) -> str:
+def reformat(string: str) -> str:  # Ignore PyDocStyleBear
     """Reformat format codes by PEP 461 and PEP 3101 to formatting style defined by `parse` library."""
+
     def _reformat(rest):
         span = re.search(r"(?:(?<=\s)|(?<=\W)|(?<=^))(%\w)|(\{.*?\})(?=\s|\W|$)", rest)
         if span is not None:
