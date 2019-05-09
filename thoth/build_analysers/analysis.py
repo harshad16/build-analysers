@@ -64,7 +64,7 @@ $candidates
 
 
 # TODO: Implement binary classifier to distinguish pip / pipenv logs
-def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.DataFrame]:
+def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.Series]:
     """Retrieve build log patterns based on the given log file.
 
     This function detects whether the log file has been produced
@@ -132,7 +132,7 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
     """
     df_log = log
     if isinstance(log, str):
-        df_log = build_breaker_analyze(log, colorize=colorize)
+        handler, df_log = build_breaker_analyze(log, colorize=colorize)
 
     build_breaker_info = dict()
     """Dictionary holding build breaker attributs."""
@@ -144,7 +144,7 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
     errors = df_log.query("label == 'ERROR'")
 
     if len(errors) >= 1:
-        dep_table = build_log_to_dependency_table(log)
+        dep_table = build_log_to_dependency_table(log, handlers=[handler])
         dep_table.target.fillna("", inplace=True)
         # make sure the packages are unique, keep only the latest
         dep_table.drop_duplicates(["source", "target"], keep="last", inplace=True)
@@ -156,7 +156,9 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
             if build_breaker_package_name:
                 build_breaker_info = dep_table.query(f"target == '{build_breaker_package_name}'").to_dict(
                     orient="records"
-                )[-1]  # the latest result of resolution
+                )[
+                    -1
+                ]  # the latest result of resolution
                 reason = next(
                     errors.query("msg.str.contains(@build_breaker_package_name)", engine="python").msg[::-1].iteritems()
                 )
@@ -237,13 +239,13 @@ def build_breaker_predict(
     return np.vstack([scores, winner_indices])
 
 
-def build_breaker_analyze(log: str, *, colorize: bool = True):
+def build_breaker_analyze(log: str, *, colorize: bool = True) -> Tuple[str, pd.DataFrame]:
     """Analyze raw build log."""
     log_messages = build_log_prepare(log)
 
-    which, patterns = retrieve_build_log_patterns(log_messages)
+    handler, patterns = retrieve_build_log_patterns(log_messages)
 
-    scores, candidate_indices = build_breaker_predict(log_messages, patterns, which == "pip")
+    scores, candidate_indices = build_breaker_predict(log_messages, patterns, handler == "pip")
 
     df_log = pd.DataFrame(list(zip(log_messages, scores)), columns=["msg", "score"])
     df_log["pattern"] = [patterns[int(i)] if i is not None else None for i in candidate_indices]
@@ -267,7 +269,7 @@ def build_breaker_analyze(log: str, *, colorize: bool = True):
             # TODO: logger.warn, using discrete scale based on labels
             df_log["colour"] = df_log.label.map({"INFO": "green", "WARNING": "yellow", "ERROR": "red"})
 
-    return df_log
+    return handler, df_log
 
 
 def build_breaker_identify(dep_table: pd.DataFrame, error_messages: List[str]) -> Union[str, None]:

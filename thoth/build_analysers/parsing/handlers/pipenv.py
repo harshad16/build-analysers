@@ -1,5 +1,5 @@
 # thoth-build-analysers
-# Copyright(C) 2018, 2019 Marek Cermak
+# Copyright(C) 2019 Marek Cermak
 #
 # This program is free software: you can redistribute it and / or modify
 # it under the terms of the GNU General Public License as published by
@@ -96,7 +96,7 @@ class Pipenv(HandlerBase):
             "artifact": None,
         }
 
-        return result or None
+        return result
 
     @classmethod
     def _parse_secondary_dependency(cls, package_specifier: str, dependencies: str) -> list:
