@@ -136,12 +136,14 @@ def build_breaker_report(
             "candidates": List[dict#reason]
         }
     """
-    df_log = log
-    if isinstance(log, str):
-        handler, df_log = build_breaker_analyze(log, colorize=colorize)
-    else:
+    if isinstance(log, pd.DataFrame):
         if not handler:
             raise ValueError("Given that `log` is assumed to be result of an analysis, a `handler` must be provided.")
+
+        df_log: pd.DataFrame = log
+        log: str = "\n".join(df_log.msg)
+    else:
+        handler, df_log = build_breaker_analyze(log, colorize=colorize)
 
     build_breaker_info = dict()
     """Dictionary holding build breaker attributs."""
