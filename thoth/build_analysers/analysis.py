@@ -256,7 +256,7 @@ def build_breaker_analyze(log: str, *, colorize: bool = True) -> Tuple[str, pd.D
 
     handler, patterns = retrieve_build_log_patterns(log_messages)
 
-    scores, candidate_indices = build_breaker_predict(log_messages, patterns, handler == "pip")
+    scores, candidate_indices = build_breaker_predict(log_messages, patterns, handler == "pip3")
 
     df_log = pd.DataFrame(list(zip(log_messages, scores)), columns=["msg", "score"])
     df_log["pattern"] = [patterns[int(i)] if i is not None else None for i in candidate_indices]
