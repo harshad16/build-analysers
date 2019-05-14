@@ -107,10 +107,16 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.Series
     return ("pip", patterns_pip) if score["pip"] >= score["pipenv"] else ("pipenv", patterns_pipenv)
 
 
-def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, colorize: bool = False) -> dict:
+def build_breaker_report(
+    log: Union[str, pd.DataFrame], *, handler: str = None, top: int = 5, colorize: bool = False
+) -> dict:
     """Analyze raw build log and produce a report.
 
     :param log: Union[str, pd.DataFrame], raw build log to be analyzed or result of `build_log_analyze`
+    :param handler: str, handler to be used, only required if `log` is result of an analysis
+
+        Currently supported handlers are: pip and pipenv
+
     :param top: int, maximum number of candidates to report
     :param colorize: bool, whether to map scores to colors (only valid if `log` is instance of str)
 
@@ -133,6 +139,9 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
     df_log = log
     if isinstance(log, str):
         handler, df_log = build_breaker_analyze(log, colorize=colorize)
+    else:
+        if not handler:
+            raise ValueError("Given that `log` is assumed to be result of an analysis, a `handler` must be provided.")
 
     build_breaker_info = dict()
     """Dictionary holding build breaker attributs."""
