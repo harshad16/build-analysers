@@ -103,3 +103,7 @@ ENV/
 .pytest_cache/
 images/npm-validator/node_modules/
 .vscode/
+
+# exclude fixtures and features
+!fixtures/**
+!features/**
