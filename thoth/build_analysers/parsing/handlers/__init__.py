@@ -19,4 +19,5 @@
 from .base import HandlerBase
 from .dnf import DNF
 from .pip3 import PIP3
+from .pipenv import Pipenv
 from .yum import YUM
