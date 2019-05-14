@@ -86,7 +86,7 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.Series
     if any(
         [re.fullmatch(p, msg, re.IGNORECASE) for msg in [log_messages[0], log_messages[-1]] for p in pip_indicators]
     ):
-        return "pip", patterns_pip
+        return "pip3", patterns_pip
 
     # otherwise try to determine using BoW scores
 
@@ -99,12 +99,12 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.Series
     bow_pipenv = {k: v / s for k, v in bow_pipenv.items()}
 
     # compare scores
-    score = {"pip": 0, "pipenv": 0}
+    score = {"pip3": 0, "pipenv": 0}
     for word, count in bow_log.items():
-        score["pip"] += bow_pip.get(word, 0) * count
+        score["pip3"] += bow_pip.get(word, 0) * count
         score["pipenv"] += bow_pipenv.get(word, 0) * count
 
-    return ("pip", patterns_pip) if score["pip"] >= score["pipenv"] else ("pipenv", patterns_pipenv)
+    return ("pip3", patterns_pip) if score["pip3"] >= score["pipenv"] else ("pipenv", patterns_pipenv)
 
 
 def build_breaker_report(
