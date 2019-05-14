@@ -1,0 +1,2406 @@
+Creating a virtualenv for this project…
+Pipfile: /home/macermak/workspace/thoth-station/Pipfile
+Using /home/macermak/anaconda3/bin/python3.6 (3.6.6) to create virtualenv…
+Running virtualenv with interpreter /home/macermak/anaconda3/bin/python3.6
+Using base prefix '/home/macermak/anaconda3'
+New python executable in /home/macermak/.local/share/virtualenvs/thoth-station-I79qFbNC/bin/python3.6
+Also creating executable in /home/macermak/.local/share/virtualenvs/thoth-station-I79qFbNC/bin/python
+Installing setuptools, pip, wheel...done.
+
+Virtualenv location: /home/macermak/.local/share/virtualenvs/thoth-station-I79qFbNC
+Pipfile.lock not found, creating…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+using sources: [{'url': 'https://pypi.org/simple', 'verify_ssl': True, 'name': 'pypi'}]
+Using pip: -i https://pypi.org/simple
+
+                          ROUND 1                           
+Current constraints:
+  black
+  coala
+  coala-bears
+  cprofilev
+  flexmock
+  goblinoid
+  moto
+  openstacksdk
+  pylint
+  pytest
+  pytest-cov
+  pytest-timeout
+
+Finding the best candidates:
+  found candidate black==18.9b0 (constraint was <any>)
+  found candidate coala==0.12.0.dev20180101025653 (constraint was <any>)
+  found candidate coala-bears==0.12.0.dev20171110210444 (constraint was <any>)
+  found candidate cprofilev==1.0.7 (constraint was <any>)
+  found candidate flexmock==0.10.3 (constraint was <any>)
+  found candidate goblinoid==0.1.0 (constraint was <any>)
+  found candidate moto==1.3.7 (constraint was <any>)
+  found candidate openstacksdk==0.25.0 (constraint was <any>)
+  found candidate pylint==2.3.1 (constraint was <any>)
+  found candidate pytest==4.3.0 (constraint was <any>)
+  found candidate pytest-cov==2.6.1 (constraint was <any>)
+  found candidate pytest-timeout==1.3.3 (constraint was <any>)
+
+Finding secondary dependencies:
+  moto==1.3.7 not in cache, need to check index
+  moto==1.3.7               requires aws-xray-sdk<0.96,>=0.93, boto3>=1.6.16, boto>=2.36.0, botocore>=1.12.13, cryptography>=2.3.0, docker>=2.5.1, jinja2>=2.7.3, jsondiff==1.1.1, mock, pyaml, python-dateutil<3.0.0,>=2.1, python-jose<3.0.0, pytz, requests>=2.5, responses>=0.9.0, six>1.9, werkzeug, xmltodict
+  black==18.9b0 not in cache, need to check index
+  black==18.9b0             requires appdirs, attrs>=17.4.0, click>=6.5, toml>=0.9.4
+  pytest-cov==2.6.1 not in cache, need to check index
+  pytest-cov==2.6.1         requires coverage>=4.4, pytest>=3.6
+  pytest==4.3.0 not in cache, need to check index
+  pytest==4.3.0             requires atomicwrites>=1.0, attrs>=17.4.0, more-itertools>=4.0.0; python_version > "2.7", pluggy>=0.7, py>=1.5.0, setuptools, six>=1.10.0
+  pytest-timeout==1.3.3 not in cache, need to check index
+  pytest-timeout==1.3.3     requires pytest>=3.6.0
+  flexmock==0.10.3 not in cache, need to check index
+  flexmock==0.10.3          requires -
+  cprofilev==1.0.7 not in cache, need to check index
+  cprofilev==1.0.7          requires bottle
+  goblinoid==0.1.0 not in cache, need to check index
+  goblinoid==0.1.0          requires click, daiquiri, goblin, gremlinpython, yarl<1.2
+  coala-bears==0.12.0.dev20171110210444 not in cache, need to check index
+  coala-bears==0.12.0.dev20171110210444 requires aenum~=2.0.8, apertium-lint~=0.29, autoflake~=0.7, autopep8~=1.2, bandit~=1.2, click==6.6, cmakelint~=1.3, coala>=0.12.0.dev20170828055500, cppclean~=0.12.0, cpplint~=1.3, dennis~=0.8, docutils-ast-writer~=0.1.2, eradicate~=0.1.6, guess-language-spirit~=0.5.2, html-linter~=0.3.0, httpolice~=0.5.2, isort~=4.2, memento-client~=0.6.1, munkres3~=1.0, mypy-lang~=0.4.6, nbformat~=4.1, nltk~=3.2, proselint~=0.7.0, pycodestyle~=2.2, pydocstyle~=2.0, pyflakes~=1.5.0, pylint~=1.6, pyroma~=2.2.0, pyyaml~=3.12, radon==1.4.0, restructuredtext-lint~=1.0.0, rstcheck~=3.1, safety~=0.5.1, scspell3k~=2.0, vim-vint~=0.3.12, vulture~=0.25.0, yamllint~=1.6.1, yapf~=0.16.0
+  openstacksdk==0.25.0 not in cache, need to check index
+  openstacksdk==0.25.0      requires appdirs>=1.3.0, cryptography>=2.1, decorator>=3.4.0, dogpile.cache>=0.6.2, iso8601>=0.1.11, jmespath>=0.9.0, jsonpatch!=1.20,>=1.16, keystoneauth1>=3.11.0, munch>=2.1.0, netifaces>=0.10.4, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, pyyaml>=3.12, requestsexceptions>=1.2.0, six>=1.10.0
+  pylint==2.3.1 not in cache, need to check index
+  pylint==2.3.1             requires astroid<3,>=2.2.0, isort<5,>=4.2.5, mccabe<0.7,>=0.6
+  coala==0.12.0.dev20180101025653 not in cache, need to check index
+  coala==0.12.0.dev20180101025653 requires appdirs~=1.4, coala-utils~=0.6.2, colorlog~=2.7, dependency-management~=0.4.0, libclang-py3~=3.4.0, packaging~=16.8, pygments~=2.1, pyprint~=0.2.6, requests~=2.12, setuptools>=19.0, testfixtures~=4.14.3, unidiff~=0.5.2
+
+New dependencies found in this round:
+  adding ['aenum', '~=2.0.8', '[]']
+  adding ['apertium-lint', '~=0.29', '[]']
+  adding ['appdirs', '>=1.3.0,~=1.4', '[]']
+  adding ['astroid', '<3,>=2.2.0', '[]']
+  adding ['atomicwrites', '>=1.0', '[]']
+  adding ['attrs', '>=17.4.0', '[]']
+  adding ['autoflake', '~=0.7', '[]']
+  adding ['autopep8', '~=1.2', '[]']
+  adding ['aws-xray-sdk', '<0.96,>=0.93', '[]']
+  adding ['bandit', '~=1.2', '[]']
+  adding ['boto', '>=2.36.0', '[]']
+  adding ['boto3', '>=1.6.16', '[]']
+  adding ['botocore', '>=1.12.13', '[]']
+  adding ['bottle', '', '[]']
+  adding ['click', '==6.6,>=6.5', '[]']
+  adding ['cmakelint', '~=1.3', '[]']
+  adding ['coala', '>=0.12.0.dev20170828055500', '[]']
+  adding ['coala-utils', '~=0.6.2', '[]']
+  adding ['colorlog', '~=2.7', '[]']
+  adding ['coverage', '>=4.4', '[]']
+  adding ['cppclean', '~=0.12.0', '[]']
+  adding ['cpplint', '~=1.3', '[]']
+  adding ['cryptography', '>=2.1,>=2.3.0', '[]']
+  adding ['daiquiri', '', '[]']
+  adding ['decorator', '>=3.4.0', '[]']
+  adding ['dennis', '~=0.8', '[]']
+  adding ['dependency-management', '~=0.4.0', '[]']
+  adding ['docker', '>=2.5.1', '[]']
+  adding ['docutils-ast-writer', '~=0.1.2', '[]']
+  adding ['dogpile.cache', '>=0.6.2', '[]']
+  adding ['eradicate', '~=0.1.6', '[]']
+  adding ['goblin', '', '[]']
+  adding ['gremlinpython', '', '[]']
+  adding ['guess-language-spirit', '~=0.5.2', '[]']
+  adding ['html-linter', '~=0.3.0', '[]']
+  adding ['httpolice', '~=0.5.2', '[]']
+  adding ['iso8601', '>=0.1.11', '[]']
+  adding ['isort', '<5,>=4.2.5,~=4.2', '[]']
+  adding ['jinja2', '>=2.7.3', '[]']
+  adding ['jmespath', '>=0.9.0', '[]']
+  adding ['jsondiff', '==1.1.1', '[]']
+  adding ['jsonpatch', '!=1.20,>=1.16', '[]']
+  adding ['keystoneauth1', '>=3.11.0', '[]']
+  adding ['libclang-py3', '~=3.4.0', '[]']
+  adding ['mccabe', '<0.7,>=0.6', '[]']
+  adding ['memento-client', '~=0.6.1', '[]']
+  adding ['mock', '', '[]']
+  adding ['more-itertools', '>=4.0.0', '[]']
+  adding ['munch', '>=2.1.0', '[]']
+  adding ['munkres3', '~=1.0', '[]']
+  adding ['mypy-lang', '~=0.4.6', '[]']
+  adding ['nbformat', '~=4.1', '[]']
+  adding ['netifaces', '>=0.10.4', '[]']
+  adding ['nltk', '~=3.2', '[]']
+  adding ['os-service-types', '>=1.2.0', '[]']
+  adding ['packaging', '~=16.8', '[]']
+  adding ['pbr', '!=2.1.0,>=2.0.0', '[]']
+  adding ['pluggy', '>=0.7', '[]']
+  adding ['proselint', '~=0.7.0', '[]']
+  adding ['py', '>=1.5.0', '[]']
+  adding ['pyaml', '', '[]']
+  adding ['pycodestyle', '~=2.2', '[]']
+  adding ['pydocstyle', '~=2.0', '[]']
+  adding ['pyflakes', '~=1.5.0', '[]']
+  adding ['pygments', '~=2.1', '[]']
+  adding ['pylint', '~=1.6', '[]']
+  adding ['pyprint', '~=0.2.6', '[]']
+  adding ['pyroma', '~=2.2.0', '[]']
+  adding ['pytest', '>=3.6,>=3.6.0', '[]']
+  adding ['python-dateutil', '<3.0.0,>=2.1', '[]']
+  adding ['python-jose', '<3.0.0', '[]']
+  adding ['pytz', '', '[]']
+  adding ['pyyaml', '>=3.12,~=3.12', '[]']
+  adding ['radon', '==1.4.0', '[]']
+  adding ['requests', '>=2.5,~=2.12', '[]']
+  adding ['requestsexceptions', '>=1.2.0', '[]']
+  adding ['responses', '>=0.9.0', '[]']
+  adding ['restructuredtext-lint', '~=1.0.0', '[]']
+  adding ['rstcheck', '~=3.1', '[]']
+  adding ['safety', '~=0.5.1', '[]']
+  adding ['scspell3k', '~=2.0', '[]']
+  adding ['six', '>1.9,>=1.10.0', '[]']
+  adding ['testfixtures', '~=4.14.3', '[]']
+  adding ['toml', '>=0.9.4', '[]']
+  adding ['unidiff', '~=0.5.2', '[]']
+  adding ['vim-vint', '~=0.3.12', '[]']
+  adding ['vulture', '~=0.25.0', '[]']
+  adding ['werkzeug', '', '[]']
+  adding ['xmltodict', '', '[]']
+  adding ['yamllint', '~=1.6.1', '[]']
+  adding ['yapf', '~=0.16.0', '[]']
+  adding ['yarl', '<1.2', '[]']
+Removed dependencies in this round:
+Unsafe dependencies in this round:
+------------------------------------------------------------
+Result of round 1: not stable
+
+                          ROUND 2                           
+Current constraints:
+  aenum~=2.0.8
+  apertium-lint~=0.29
+  appdirs>=1.3.0,~=1.4
+  astroid<3,>=2.2.0
+  atomicwrites>=1.0
+  attrs>=17.4.0
+  autoflake~=0.7
+  autopep8~=1.2
+  aws-xray-sdk<0.96,>=0.93
+  bandit~=1.2
+  black
+  boto>=2.36.0
+  boto3>=1.6.16
+  botocore>=1.12.13
+  bottle
+  click==6.6,>=6.5
+  cmakelint~=1.3
+  coala>=0.12.0.dev20170828055500
+  coala-bears
+  coala-utils~=0.6.2
+  colorlog~=2.7
+  coverage>=4.4
+  cppclean~=0.12.0
+  cpplint~=1.3
+  cprofilev
+  cryptography>=2.1,>=2.3.0
+  daiquiri
+  decorator>=3.4.0
+  dennis~=0.8
+  dependency-management~=0.4.0
+  docker>=2.5.1
+  docutils-ast-writer~=0.1.2
+  dogpile.cache>=0.6.2
+  eradicate~=0.1.6
+  flexmock
+  goblin
+  goblinoid
+  gremlinpython
+  guess-language-spirit~=0.5.2
+  html-linter~=0.3.0
+  httpolice~=0.5.2
+  iso8601>=0.1.11
+  isort<5,>=4.2.5,~=4.2
+  jinja2>=2.7.3
+  jmespath>=0.9.0
+  jsondiff==1.1.1
+  jsonpatch!=1.20,>=1.16
+  keystoneauth1>=3.11.0
+  libclang-py3~=3.4.0
+  mccabe<0.7,>=0.6
+  memento-client~=0.6.1
+  mock
+  more-itertools>=4.0.0
+  moto
+  munch>=2.1.0
+  munkres3~=1.0
+  mypy-lang~=0.4.6
+  nbformat~=4.1
+  netifaces>=0.10.4
+  nltk~=3.2
+  openstacksdk
+  os-service-types>=1.2.0
+  packaging~=16.8
+  pbr!=2.1.0,>=2.0.0
+  pluggy>=0.7
+  proselint~=0.7.0
+  py>=1.5.0
+  pyaml
+  pycodestyle~=2.2
+  pydocstyle~=2.0
+  pyflakes~=1.5.0
+  pygments~=2.1
+  pylint~=1.6
+  pyprint~=0.2.6
+  pyroma~=2.2.0
+  pytest>=3.6,>=3.6.0
+  pytest-cov
+  pytest-timeout
+  python-dateutil<3.0.0,>=2.1
+  python-jose<3.0.0
+  pytz
+  pyyaml>=3.12,~=3.12
+  radon==1.4.0
+  requests>=2.5,~=2.12
+  requestsexceptions>=1.2.0
+  responses>=0.9.0
+  restructuredtext-lint~=1.0.0
+  rstcheck~=3.1
+  safety~=0.5.1
+  scspell3k~=2.0
+  six>1.9,>=1.10.0
+  testfixtures~=4.14.3
+  toml>=0.9.4
+  unidiff~=0.5.2
+  vim-vint~=0.3.12
+  vulture~=0.25.0
+  werkzeug
+  xmltodict
+  yamllint~=1.6.1
+  yapf~=0.16.0
+  yarl<1.2
+
+Finding the best candidates:
+  found candidate aenum==2.0.10 (constraint was ~=2.0.8)
+  found candidate apertium-lint==0.29 (constraint was ~=0.29)
+  found candidate appdirs==1.4.3 (constraint was >=1.3.0,~=1.4)
+  found candidate astroid==2.2.4 (constraint was >=2.2.0,<3)
+  found candidate atomicwrites==1.3.0 (constraint was >=1.0)
+  found candidate attrs==19.1.0 (constraint was >=17.4.0)
+  found candidate autoflake==0.7 (constraint was ~=0.7)
+  found candidate autopep8==1.4.3 (constraint was ~=1.2)
+  found candidate aws-xray-sdk==0.95 (constraint was >=0.93,<0.96)
+  found candidate bandit==1.5.1 (constraint was ~=1.2)
+  found candidate black==18.9b0 (constraint was <any>)
+  found candidate boto==2.49.0 (constraint was >=2.36.0)
+  found candidate boto3==1.9.108 (constraint was >=1.6.16)
+  found candidate botocore==1.12.108 (constraint was >=1.12.13)
+  found candidate bottle==0.12.16 (constraint was <any>)
+  found candidate click==6.6 (constraint was >=6.5,==6.6)
+  found candidate cmakelint==1.3.4.1 (constraint was ~=1.3)
+  found candidate coala==0.12.0.dev20180101025653 (constraint was >=0.12.0.dev20170828055500)
+  found candidate coala-bears==0.12.0.dev20171110210444 (constraint was <any>)
+  found candidate coala-utils==0.6.7 (constraint was ~=0.6.2)
+  found candidate colorlog==2.10.0 (constraint was ~=2.7)
+  found candidate coverage==5.0a4 (constraint was >=4.4)
+  found candidate cppclean==0.12 (constraint was ~=0.12.0)
+  found candidate cpplint==1.4.4 (constraint was ~=1.3)
+  found candidate cprofilev==1.0.7 (constraint was <any>)
+  found candidate cryptography==2.6.1 (constraint was >=2.1,>=2.3.0)
+  found candidate daiquiri==1.5.0 (constraint was <any>)
+  found candidate decorator==4.3.2 (constraint was >=3.4.0)
+  found candidate dennis==0.9 (constraint was ~=0.8)
+  found candidate dependency-management==0.4.0 (constraint was ~=0.4.0)
+  found candidate docker==3.7.0 (constraint was >=2.5.1)
+  found candidate docutils-ast-writer==0.1.2 (constraint was ~=0.1.2)
+  found candidate dogpile.cache==0.7.1 (constraint was >=0.6.2)
+  found candidate eradicate==0.1.6 (constraint was ~=0.1.6)
+  found candidate flexmock==0.10.3 (constraint was <any>)
+  found candidate goblin==2.1.0 (constraint was <any>)
+  found candidate goblinoid==0.1.0 (constraint was <any>)
+  found candidate gremlinpython==3.4.0 (constraint was <any>)
+  found candidate guess-language-spirit==0.5.3 (constraint was ~=0.5.2)
+  found candidate html-linter==0.3.0 (constraint was ~=0.3.0)
+  found candidate httpolice==0.5.2 (constraint was ~=0.5.2)
+  found candidate iso8601==0.1.12 (constraint was >=0.1.11)
+  found candidate isort==4.3.11 (constraint was ~=4.2,>=4.2.5,<5)
+  found candidate jinja2==2.10 (constraint was >=2.7.3)
+  found candidate jmespath==0.9.4 (constraint was >=0.9.0)
+  found candidate jsondiff==1.1.1 (constraint was ==1.1.1)
+  found candidate jsonpatch==1.23 (constraint was >=1.16,!=1.20)
+  found candidate keystoneauth1==3.13.1 (constraint was >=3.11.0)
+  found candidate libclang-py3==3.4.0 (constraint was ~=3.4.0)
+  found candidate mccabe==0.6.1 (constraint was >=0.6,<0.7)
+  found candidate memento-client==0.6.1 (constraint was ~=0.6.1)
+  found candidate mock==2.0.0 (constraint was <any>)
+  found candidate more-itertools==6.0.0 (constraint was >=4.0.0)
+  found candidate moto==1.3.7 (constraint was <any>)
+  found candidate munch==2.3.2 (constraint was >=2.1.0)
+  found candidate munkres3==1.0.5.5 (constraint was ~=1.0)
+  found candidate mypy-lang==0.4.6 (constraint was ~=0.4.6)
+  found candidate nbformat==4.4.0 (constraint was ~=4.1)
+  found candidate netifaces==0.10.9 (constraint was >=0.10.4)
+  found candidate nltk==3.4 (constraint was ~=3.2)
+  found candidate openstacksdk==0.25.0 (constraint was <any>)
+  found candidate os-service-types==1.6.0 (constraint was >=1.2.0)
+  found candidate packaging==16.8 (constraint was ~=16.8)
+  found candidate pbr==5.1.3 (constraint was >=2.0.0,!=2.1.0)
+  found candidate pluggy==0.9.0 (constraint was >=0.7)
+  found candidate proselint==0.7.0 (constraint was ~=0.7.0)
+  found candidate py==1.8.0 (constraint was >=1.5.0)
+  found candidate pyaml==18.11.0 (constraint was <any>)
+  found candidate pycodestyle==2.5.0 (constraint was ~=2.2)
+  found candidate pydocstyle==2.1.1 (constraint was ~=2.0)
+  found candidate pyflakes==1.5.0 (constraint was ~=1.5.0)
+  found candidate pygments==2.3.1 (constraint was ~=2.1)
+  found candidate pylint==1.9.4 (constraint was ~=1.6)
+  found candidate pyprint==0.2.6 (constraint was ~=0.2.6)
+  found candidate pyroma==2.2 (constraint was ~=2.2.0)
+  found candidate pytest==4.3.0 (constraint was >=3.6,>=3.6.0)
+  found candidate pytest-cov==2.6.1 (constraint was <any>)
+  found candidate pytest-timeout==1.3.3 (constraint was <any>)
+  found candidate python-dateutil==2.8.0 (constraint was >=2.1,<3.0.0)
+  found candidate python-jose==2.0.2 (constraint was <3.0.0)
+  found candidate pytz==2018.9 (constraint was <any>)
+  found candidate pyyaml==3.13 (constraint was >=3.12,~=3.12)
+  found candidate radon==1.4.0 (constraint was ==1.4.0)
+  found candidate requests==2.21.0 (constraint was ~=2.12,>=2.5)
+  found candidate requestsexceptions==1.4.0 (constraint was >=1.2.0)
+  found candidate responses==0.10.5 (constraint was >=0.9.0)
+  found candidate restructuredtext-lint==1.0.1 (constraint was ~=1.0.0)
+  found candidate rstcheck==3.3.1 (constraint was ~=3.1)
+  found candidate safety==0.5.1 (constraint was ~=0.5.1)
+  found candidate scspell3k==2.2 (constraint was ~=2.0)
+  found candidate six==1.12.0 (constraint was >=1.10.0,>1.9)
+  found candidate testfixtures==4.14.3 (constraint was ~=4.14.3)
+  found candidate toml==0.10.0 (constraint was >=0.9.4)
+  found candidate unidiff==0.5.5 (constraint was ~=0.5.2)
+  found candidate vim-vint==0.3.19 (constraint was ~=0.3.12)
+  found candidate vulture==0.25 (constraint was ~=0.25.0)
+  found candidate werkzeug==0.14.1 (constraint was <any>)
+  found candidate xmltodict==0.12.0 (constraint was <any>)
+  found candidate yamllint==1.6.1 (constraint was ~=1.6.1)
+  found candidate yapf==0.16.3 (constraint was ~=0.16.0)
+  found candidate yarl==1.1.1 (constraint was <1.2)
+
+Finding secondary dependencies:
+  pyprint==0.2.6            requires colorama~=0.3.7, termcolor~=1.1.0
+  docker==3.7.0 not in cache, need to check index
+  docker==3.7.0             requires docker-pycreds>=0.4.0, requests!=2.18.0,>=2.14.2, six>=1.4.0, websocket-client>=0.32.0
+  mypy-lang==0.4.6          requires -
+  unidiff==0.5.5            requires -
+  appdirs==1.4.3            requires -
+  iso8601==0.1.12           requires -
+  pyaml==18.11.0 not in cache, need to check index
+  pyaml==18.11.0            requires pyyaml
+  jinja2==2.10              requires markupsafe>=0.23
+  vim-vint==0.3.19 not in cache, need to check index
+  vim-vint==0.3.19          requires ansicolor~=0.2.4, chardet>=2.3.0, pyyaml~=3.11
+  colorlog==2.10.0          requires -
+  memento-client==0.6.1 not in cache, need to check index
+  memento-client==0.6.1     requires requests>=2.7.0
+  decorator==4.3.2          requires -
+  goblin==2.1.0             requires aiogremlin==3.2.6rc1, inflection==0.3.1
+  pluggy==0.9.0 not in cache, need to check index
+  pluggy==0.9.0             requires -
+  atomicwrites==1.3.0       requires -
+  jsonpatch==1.23 not in cache, need to check index
+  jsonpatch==1.23           requires jsonpointer>=1.9
+  isort==4.3.11 not in cache, need to check index
+  isort==4.3.11             requires -
+  pyyaml==3.13              requires -
+  yarl==1.1.1               requires idna>=2.0, multidict>=4.0
+  safety==0.5.1             requires click>=6.0, packaging, requests
+  libclang-py3==3.4.0       requires -
+  jmespath==0.9.4 not in cache, need to check index
+  jmespath==0.9.4           requires -
+  coala==0.12.0.dev20180101025653 requires appdirs~=1.4, coala-utils~=0.6.2, colorlog~=2.7, dependency-management~=0.4.0, libclang-py3~=3.4.0, packaging~=16.8, pygments~=2.1, pyprint~=0.2.6, requests~=2.12, setuptools>=19.0, testfixtures~=4.14.3, unidiff~=0.5.2
+  rstcheck==3.3.1 not in cache, need to check index
+  rstcheck==3.3.1           requires docutils>=0.7
+  boto==2.49.0 not in cache, need to check index
+  boto==2.49.0              requires -
+  pyflakes==1.5.0 not in cache, need to check index
+  pyflakes==1.5.0           requires -
+  python-jose==2.0.2 not in cache, need to check index
+  python-jose==2.0.2        requires ecdsa<1.0, future<1.0, pycryptodome<4.0.0,>=3.3.1, six<2.0
+  keystoneauth1==3.13.1 not in cache, need to check index
+  keystoneauth1==3.13.1     requires iso8601>=0.1.11, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, requests>=2.14.2, six>=1.10.0, stevedore>=1.20.0
+  pytest==4.3.0             requires atomicwrites>=1.0, attrs>=17.4.0, more-itertools>=4.0.0; python_version > "2.7", pluggy>=0.7, py>=1.5.0, setuptools, six>=1.10.0
+  dependency-management==0.4.0 requires coala-utils~=0.6, sarge~=0.1.4
+  pylint==1.9.4             requires astroid<2.0,>=1.6, isort>=4.2.5, mccabe, six
+  goblinoid==0.1.0          requires click, daiquiri, goblin, gremlinpython, yarl<1.2
+  daiquiri==1.5.0           requires -
+  attrs==19.1.0             requires -
+  click==6.6                requires -
+  pygments==2.3.1           requires -
+  responses==0.10.5 not in cache, need to check index
+  responses==0.10.5         requires requests>=2.0, six
+  autopep8==1.4.3           requires pycodestyle>=2.4.0
+  html-linter==0.3.0        requires docopt>=0.6.1, template-remover
+  astroid==2.2.4 not in cache, need to check index
+  astroid==2.2.4            requires lazy-object-proxy, six, typed-ast>=1.3.0; implementation_name == "cpython", wrapt
+  bandit==1.5.1             requires gitpython>=1.0.1, pyyaml>=3.12, six>=1.10.0, stevedore>=1.20.0
+  toml==0.10.0 not in cache, need to check index
+  toml==0.10.0              requires -
+  requestsexceptions==1.4.0 not in cache, need to check index
+  requestsexceptions==1.4.0 requires -
+  boto3==1.9.108 not in cache, need to check index
+  boto3==1.9.108            requires botocore<1.13.0,>=1.12.108, jmespath<1.0.0,>=0.7.1, s3transfer<0.3.0,>=0.2.0
+  yamllint==1.6.1           requires pyyaml
+  vulture==0.25 not in cache, need to check index
+  vulture==0.25             requires -
+  coverage==5.0a4 not in cache, need to check index
+  coverage==5.0a4           requires -
+  testfixtures==4.14.3 not in cache, need to check index
+  testfixtures==4.14.3      requires -
+  mock==2.0.0 not in cache, need to check index
+  mock==2.0.0               requires pbr>=0.11, six>=1.9
+  flexmock==0.10.3          requires -
+  proselint==0.7.0          requires click, future, six
+  botocore==1.12.108 not in cache, need to check index
+  botocore==1.12.108        requires docutils>=0.10, jmespath<1.0.0,>=0.7.1, python-dateutil<3.0.0,>=2.1; python_version >= "2.7", urllib3<1.25,>=1.20; python_version >= "3.4"
+  pycodestyle==2.5.0        requires -
+  httpolice==0.5.2 not in cache, need to check index
+  httpolice==0.5.2          requires bitstring>=3.1.4, brotlipy>=0.5.1, defusedxml>=0.5.0, dominate>=2.2.0, lxml>=3.6.0, singledispatch>=3.4.0.3, six>=1.10.0
+  cpplint==1.4.4            requires -
+  os-service-types==1.6.0 not in cache, need to check index
+  os-service-types==1.6.0   requires pbr!=2.1.0,>=2.0.0
+  requests==2.21.0          requires certifi>=2017.4.17, chardet<3.1.0,>=3.0.2, idna<2.9,>=2.5, urllib3<1.25,>=1.21.1
+  apertium-lint==0.29 not in cache, need to check index
+  apertium-lint==0.29       requires -
+  pydocstyle==2.1.1 not in cache, need to check index
+  pydocstyle==2.1.1         requires six, snowballstemmer
+  mccabe==0.6.1             requires -
+  werkzeug==0.14.1          requires -
+  aws-xray-sdk==0.95 not in cache, need to check index
+  aws-xray-sdk==0.95        requires jsonpickle, requests, wrapt
+  nltk==3.4                 requires singledispatch, six
+  coala-utils==0.6.7        requires appdirs==1.4.*, pyprint==0.2.*
+  gremlinpython==3.4.0      requires aenum>=1.4.5, six>=1.10.0, tornado<5.0,>=4.4.1
+  jsondiff==1.1.1 not in cache, need to check index
+  jsondiff==1.1.1           requires -
+  docutils-ast-writer==0.1.2 not in cache, need to check index
+  docutils-ast-writer==0.1.2 requires docutils>=0.12
+  cppclean==0.12            requires -
+  openstacksdk==0.25.0      requires appdirs>=1.3.0, cryptography>=2.1, decorator>=3.4.0, dogpile.cache>=0.6.2, iso8601>=0.1.11, jmespath>=0.9.0, jsonpatch!=1.20,>=1.16, keystoneauth1>=3.11.0, munch>=2.1.0, netifaces>=0.10.4, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, pyyaml>=3.12, requestsexceptions>=1.2.0, six>=1.10.0
+  pytest-cov==2.6.1         requires coverage>=4.4, pytest>=3.6
+  xmltodict==0.12.0 not in cache, need to check index
+  xmltodict==0.12.0         requires -
+  dogpile.cache==0.7.1 not in cache, need to check index
+  dogpile.cache==0.7.1      requires decorator
+  aenum==2.0.10 not in cache, need to check index
+  aenum==2.0.10             requires -
+  py==1.8.0 not in cache, need to check index
+  py==1.8.0                 requires -
+  pytest-timeout==1.3.3     requires pytest>=3.6.0
+  cmakelint==1.3.4.1        requires -
+  black==18.9b0             requires appdirs, attrs>=17.4.0, click>=6.5, toml>=0.9.4
+  netifaces==0.10.9 not in cache, need to check index
+  netifaces==0.10.9         requires -
+  eradicate==0.1.6          requires -
+  pytz==2018.9              requires -
+  dennis==0.9               requires click>=6, polib>=1.0.8
+  pyroma==2.2               requires docutils, setuptools
+  python-dateutil==2.8.0    requires six>=1.5
+  bottle==0.12.16 not in cache, need to check index
+  bottle==0.12.16           requires -
+  coala-bears==0.12.0.dev20171110210444 requires aenum~=2.0.8, apertium-lint~=0.29, autoflake~=0.7, autopep8~=1.2, bandit~=1.2, click==6.6, cmakelint~=1.3, coala>=0.12.0.dev20170828055500, cppclean~=0.12.0, cpplint~=1.3, dennis~=0.8, docutils-ast-writer~=0.1.2, eradicate~=0.1.6, guess-language-spirit~=0.5.2, html-linter~=0.3.0, httpolice~=0.5.2, isort~=4.2, memento-client~=0.6.1, munkres3~=1.0, mypy-lang~=0.4.6, nbformat~=4.1, nltk~=3.2, proselint~=0.7.0, pycodestyle~=2.2, pydocstyle~=2.0, pyflakes~=1.5.0, pylint~=1.6, pyroma~=2.2.0, pyyaml~=3.12, radon==1.4.0, restructuredtext-lint~=1.0.0, rstcheck~=3.1, safety~=0.5.1, scspell3k~=2.0, vim-vint~=0.3.12, vulture~=0.25.0, yamllint~=1.6.1, yapf~=0.16.0
+  munch==2.3.2 not in cache, need to check index
+  munch==2.3.2              requires six
+  scspell3k==2.2            requires -
+  autoflake==0.7 not in cache, need to check index
+  autoflake==0.7            requires pyflakes>=0.8.1
+  cprofilev==1.0.7          requires bottle
+  pbr==5.1.3                requires -
+  nbformat==4.4.0           requires ipython-genutils, jsonschema!=2.5.0,>=2.4, jupyter-core, traitlets>=4.1
+  restructuredtext-lint==1.0.1 requires docutils<1.0,>=0.11
+  munkres3==1.0.5.5         requires -
+  cryptography==2.6.1 not in cache, need to check index
+  cryptography==2.6.1       requires asn1crypto>=0.21.0, cffi!=1.11.3,>=1.8, six>=1.4.1
+  packaging==16.8 not in cache, need to check index
+  packaging==16.8           requires pyparsing, six
+  more-itertools==6.0.0     requires -
+  moto==1.3.7               requires aws-xray-sdk<0.96,>=0.93, boto3>=1.6.16, boto>=2.36.0, botocore>=1.12.13, cryptography>=2.3.0, docker>=2.5.1, jinja2>=2.7.3, jsondiff==1.1.1, mock, pyaml, python-dateutil<3.0.0,>=2.1, python-jose<3.0.0, pytz, requests>=2.5, responses>=0.9.0, six>1.9, werkzeug, xmltodict
+  six==1.12.0               requires -
+  yapf==0.16.3 not in cache, need to check index
+  yapf==0.16.3              requires -
+  radon==1.4.0              requires colorama<0.4,>=0.3, mando<0.4,>=0.3
+  guess-language-spirit==0.5.3 requires -
+
+New dependencies found in this round:
+  adding ['aenum', '>=1.4.5,~=2.0.8', '[]']
+  adding ['aiogremlin', '==3.2.6rc1', '[]']
+  adding ['ansicolor', '~=0.2.4', '[]']
+  adding ['appdirs', '==1.4.*,>=1.3.0,~=1.4', '[]']
+  adding ['asn1crypto', '>=0.21.0', '[]']
+  adding ['astroid', '<2.0,>=1.6', '[]']
+  adding ['bitstring', '>=3.1.4', '[]']
+  adding ['botocore', '<1.13.0,>=1.12.108,>=1.12.13', '[]']
+  adding ['brotlipy', '>=0.5.1', '[]']
+  adding ['certifi', '>=2017.4.17', '[]']
+  adding ['cffi', '!=1.11.3,>=1.8', '[]']
+  adding ['chardet', '<3.1.0,>=2.3.0,>=3.0.2', '[]']
+  adding ['click', '==6.6,>=6,>=6.0,>=6.5', '[]']
+  adding ['coala-utils', '~=0.6,~=0.6.2', '[]']
+  adding ['colorama', '<0.4,>=0.3,~=0.3.7', '[]']
+  adding ['defusedxml', '>=0.5.0', '[]']
+  adding ['docker-pycreds', '>=0.4.0', '[]']
+  adding ['docopt', '>=0.6.1', '[]']
+  adding ['docutils', '<1.0,>=0.10,>=0.11,>=0.12,>=0.7', '[]']
+  adding ['dominate', '>=2.2.0', '[]']
+  adding ['ecdsa', '<1.0', '[]']
+  adding ['future', '<1.0', '[]']
+  adding ['gitpython', '>=1.0.1', '[]']
+  adding ['idna', '<2.9,>=2.0,>=2.5', '[]']
+  adding ['inflection', '==0.3.1', '[]']
+  adding ['ipython-genutils', '', '[]']
+  adding ['isort', '>=4.2.5,~=4.2', '[]']
+  adding ['jmespath', '<1.0.0,>=0.7.1,>=0.9.0', '[]']
+  adding ['jsonpickle', '', '[]']
+  adding ['jsonpointer', '>=1.9', '[]']
+  adding ['jsonschema', '!=2.5.0,>=2.4', '[]']
+  adding ['jupyter-core', '', '[]']
+  adding ['lazy-object-proxy', '', '[]']
+  adding ['lxml', '>=3.6.0', '[]']
+  adding ['mando', '<0.4,>=0.3', '[]']
+  adding ['markupsafe', '>=0.23', '[]']
+  adding ['mccabe', '', '[]']
+  adding ['multidict', '>=4.0', '[]']
+  adding ['pbr', '!=2.1.0,>=0.11,>=2.0.0', '[]']
+  adding ['polib', '>=1.0.8', '[]']
+  adding ['pycodestyle', '>=2.4.0,~=2.2', '[]']
+  adding ['pycryptodome', '<4.0.0,>=3.3.1', '[]']
+  adding ['pyflakes', '>=0.8.1,~=1.5.0', '[]']
+  adding ['pyparsing', '', '[]']
+  adding ['pyprint', '==0.2.*,~=0.2.6', '[]']
+  adding ['pyyaml', '>=3.12,~=3.11,~=3.12', '[]']
+  adding ['requests', '!=2.18.0,>=2.0,>=2.14.2,>=2.5,>=2.7.0,~=2.12', '[]']
+  adding ['s3transfer', '<0.3.0,>=0.2.0', '[]']
+  adding ['sarge', '~=0.1.4', '[]']
+  adding ['singledispatch', '>=3.4.0.3', '[]']
+  adding ['six', '<2.0,>1.9,>=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9', '[]']
+  adding ['snowballstemmer', '', '[]']
+  adding ['stevedore', '>=1.20.0', '[]']
+  adding ['template-remover', '', '[]']
+  adding ['termcolor', '~=1.1.0', '[]']
+  adding ['tornado', '<5.0,>=4.4.1', '[]']
+  adding ['traitlets', '>=4.1', '[]']
+  adding ['typed-ast', '>=1.3.0', '[]']
+  adding ['urllib3', '<1.25,>=1.20,>=1.21.1', '[]']
+  adding ['websocket-client', '>=0.32.0', '[]']
+  adding ['wrapt', '', '[]']
+Removed dependencies in this round:
+  removing ['aenum', '~=2.0.8', '[]']
+  removing ['appdirs', '>=1.3.0,~=1.4', '[]']
+  removing ['astroid', '<3,>=2.2.0', '[]']
+  removing ['botocore', '>=1.12.13', '[]']
+  removing ['click', '==6.6,>=6.5', '[]']
+  removing ['coala-utils', '~=0.6.2', '[]']
+  removing ['isort', '<5,>=4.2.5,~=4.2', '[]']
+  removing ['jmespath', '>=0.9.0', '[]']
+  removing ['mccabe', '<0.7,>=0.6', '[]']
+  removing ['pbr', '!=2.1.0,>=2.0.0', '[]']
+  removing ['pycodestyle', '~=2.2', '[]']
+  removing ['pyflakes', '~=1.5.0', '[]']
+  removing ['pyprint', '~=0.2.6', '[]']
+  removing ['pyyaml', '>=3.12,~=3.12', '[]']
+  removing ['requests', '>=2.5,~=2.12', '[]']
+  removing ['six', '>1.9,>=1.10.0', '[]']
+Unsafe dependencies in this round:
+------------------------------------------------------------
+Result of round 2: not stable
+
+                          ROUND 3                           
+Current constraints:
+  aenum>=1.4.5,~=2.0.8
+  aiogremlin==3.2.6rc1
+  ansicolor~=0.2.4
+  apertium-lint~=0.29
+  appdirs==1.4.*,>=1.3.0,~=1.4
+  asn1crypto>=0.21.0
+  astroid<2.0,>=1.6
+  atomicwrites>=1.0
+  attrs>=17.4.0
+  autoflake~=0.7
+  autopep8~=1.2
+  aws-xray-sdk<0.96,>=0.93
+  bandit~=1.2
+  bitstring>=3.1.4
+  black
+  boto>=2.36.0
+  boto3>=1.6.16
+  botocore<1.13.0,>=1.12.108,>=1.12.13
+  bottle
+  brotlipy>=0.5.1
+  certifi>=2017.4.17
+  cffi!=1.11.3,>=1.8
+  chardet<3.1.0,>=2.3.0,>=3.0.2
+  click==6.6,>=6,>=6.0,>=6.5
+  cmakelint~=1.3
+  coala>=0.12.0.dev20170828055500
+  coala-bears
+  coala-utils~=0.6,~=0.6.2
+  colorama<0.4,>=0.3,~=0.3.7
+  colorlog~=2.7
+  coverage>=4.4
+  cppclean~=0.12.0
+  cpplint~=1.3
+  cprofilev
+  cryptography>=2.1,>=2.3.0
+  daiquiri
+  decorator>=3.4.0
+  defusedxml>=0.5.0
+  dennis~=0.8
+  dependency-management~=0.4.0
+  docker>=2.5.1
+  docker-pycreds>=0.4.0
+  docopt>=0.6.1
+  docutils<1.0,>=0.10,>=0.11,>=0.12,>=0.7
+  docutils-ast-writer~=0.1.2
+  dogpile.cache>=0.6.2
+  dominate>=2.2.0
+  ecdsa<1.0
+  eradicate~=0.1.6
+  flexmock
+  future<1.0
+  gitpython>=1.0.1
+  goblin
+  goblinoid
+  gremlinpython
+  guess-language-spirit~=0.5.2
+  html-linter~=0.3.0
+  httpolice~=0.5.2
+  idna<2.9,>=2.0,>=2.5
+  inflection==0.3.1
+  ipython-genutils
+  iso8601>=0.1.11
+  isort>=4.2.5,~=4.2
+  jinja2>=2.7.3
+  jmespath<1.0.0,>=0.7.1,>=0.9.0
+  jsondiff==1.1.1
+  jsonpatch!=1.20,>=1.16
+  jsonpickle
+  jsonpointer>=1.9
+  jsonschema!=2.5.0,>=2.4
+  jupyter-core
+  keystoneauth1>=3.11.0
+  lazy-object-proxy
+  libclang-py3~=3.4.0
+  lxml>=3.6.0
+  mando<0.4,>=0.3
+  markupsafe>=0.23
+  mccabe
+  memento-client~=0.6.1
+  mock
+  more-itertools>=4.0.0
+  moto
+  multidict>=4.0
+  munch>=2.1.0
+  munkres3~=1.0
+  mypy-lang~=0.4.6
+  nbformat~=4.1
+  netifaces>=0.10.4
+  nltk~=3.2
+  openstacksdk
+  os-service-types>=1.2.0
+  packaging~=16.8
+  pbr!=2.1.0,>=0.11,>=2.0.0
+  pluggy>=0.7
+  polib>=1.0.8
+  proselint~=0.7.0
+  py>=1.5.0
+  pyaml
+  pycodestyle>=2.4.0,~=2.2
+  pycryptodome<4.0.0,>=3.3.1
+  pydocstyle~=2.0
+  pyflakes>=0.8.1,~=1.5.0
+  pygments~=2.1
+  pylint~=1.6
+  pyparsing
+  pyprint==0.2.*,~=0.2.6
+  pyroma~=2.2.0
+  pytest>=3.6,>=3.6.0
+  pytest-cov
+  pytest-timeout
+  python-dateutil<3.0.0,>=2.1
+  python-jose<3.0.0
+  pytz
+  pyyaml>=3.12,~=3.11,~=3.12
+  radon==1.4.0
+  requests!=2.18.0,>=2.0,>=2.14.2,>=2.5,>=2.7.0,~=2.12
+  requestsexceptions>=1.2.0
+  responses>=0.9.0
+  restructuredtext-lint~=1.0.0
+  rstcheck~=3.1
+  s3transfer<0.3.0,>=0.2.0
+  safety~=0.5.1
+  sarge~=0.1.4
+  scspell3k~=2.0
+  singledispatch>=3.4.0.3
+  six<2.0,>1.9,>=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9
+  snowballstemmer
+  stevedore>=1.20.0
+  template-remover
+  termcolor~=1.1.0
+  testfixtures~=4.14.3
+  toml>=0.9.4
+  tornado<5.0,>=4.4.1
+  traitlets>=4.1
+  typed-ast>=1.3.0
+  unidiff~=0.5.2
+  urllib3<1.25,>=1.20,>=1.21.1
+  vim-vint~=0.3.12
+  vulture~=0.25.0
+  websocket-client>=0.32.0
+  werkzeug
+  wrapt
+  xmltodict
+  yamllint~=1.6.1
+  yapf~=0.16.0
+  yarl<1.2
+
+Finding the best candidates:
+  found candidate aenum==2.0.10 (constraint was >=1.4.5,~=2.0.8)
+  found candidate aiogremlin==3.2.6rc1 (constraint was ==3.2.6rc1)
+  found candidate ansicolor==0.2.6 (constraint was ~=0.2.4)
+  found candidate apertium-lint==0.29 (constraint was ~=0.29)
+  found candidate appdirs==1.4.3 (constraint was >=1.3.0,~=1.4,==1.4.*)
+  found candidate asn1crypto==0.24.0 (constraint was >=0.21.0)
+  found candidate astroid==1.6.5 (constraint was >=1.6,<2.0)
+  found candidate atomicwrites==1.3.0 (constraint was >=1.0)
+  found candidate attrs==19.1.0 (constraint was >=17.4.0)
+  found candidate autoflake==0.7 (constraint was ~=0.7)
+  found candidate autopep8==1.4.3 (constraint was ~=1.2)
+  found candidate aws-xray-sdk==0.95 (constraint was >=0.93,<0.96)
+  found candidate bandit==1.5.1 (constraint was ~=1.2)
+  found candidate bitstring==3.1.5 (constraint was >=3.1.4)
+  found candidate black==18.9b0 (constraint was <any>)
+  found candidate boto==2.49.0 (constraint was >=2.36.0)
+  found candidate boto3==1.9.108 (constraint was >=1.6.16)
+  found candidate botocore==1.12.108 (constraint was >=1.12.108,>=1.12.13,<1.13.0)
+  found candidate bottle==0.12.16 (constraint was <any>)
+  found candidate brotlipy==0.7.0 (constraint was >=0.5.1)
+  found candidate certifi==2018.11.29 (constraint was >=2017.4.17)
+  found candidate cffi==1.12.2 (constraint was !=1.11.3,>=1.8)
+  found candidate chardet==3.0.4 (constraint was >=2.3.0,>=3.0.2,<3.1.0)
+  found candidate click==6.6 (constraint was >=6,>=6.0,>=6.5,==6.6)
+  found candidate cmakelint==1.3.4.1 (constraint was ~=1.3)
+  found candidate coala==0.12.0.dev20180101025653 (constraint was >=0.12.0.dev20170828055500)
+  found candidate coala-bears==0.12.0.dev20171110210444 (constraint was <any>)
+  found candidate coala-utils==0.6.7 (constraint was ~=0.6,~=0.6.2)
+  found candidate colorama==0.3.9 (constraint was >=0.3,~=0.3.7,<0.4)
+  found candidate colorlog==2.10.0 (constraint was ~=2.7)
+  found candidate coverage==5.0a4 (constraint was >=4.4)
+  found candidate cppclean==0.12 (constraint was ~=0.12.0)
+  found candidate cpplint==1.4.4 (constraint was ~=1.3)
+  found candidate cprofilev==1.0.7 (constraint was <any>)
+  found candidate cryptography==2.6.1 (constraint was >=2.1,>=2.3.0)
+  found candidate daiquiri==1.5.0 (constraint was <any>)
+  found candidate decorator==4.3.2 (constraint was >=3.4.0)
+  found candidate defusedxml==0.5.0 (constraint was >=0.5.0)
+  found candidate dennis==0.9 (constraint was ~=0.8)
+  found candidate dependency-management==0.4.0 (constraint was ~=0.4.0)
+  found candidate docker==3.7.0 (constraint was >=2.5.1)
+  found candidate docker-pycreds==0.4.0 (constraint was >=0.4.0)
+  found candidate docopt==0.6.2 (constraint was >=0.6.1)
+  found candidate docutils==0.14 (constraint was >=0.10,>=0.11,>=0.12,>=0.7,<1.0)
+  found candidate docutils-ast-writer==0.1.2 (constraint was ~=0.1.2)
+  found candidate dogpile.cache==0.7.1 (constraint was >=0.6.2)
+  found candidate dominate==2.3.5 (constraint was >=2.2.0)
+  found candidate ecdsa==0.13 (constraint was <1.0)
+  found candidate eradicate==0.1.6 (constraint was ~=0.1.6)
+  found candidate flexmock==0.10.3 (constraint was <any>)
+  found candidate future==0.17.1 (constraint was <1.0)
+  found candidate gitpython==2.1.11 (constraint was >=1.0.1)
+  found candidate goblin==2.1.0 (constraint was <any>)
+  found candidate goblinoid==0.1.0 (constraint was <any>)
+  found candidate gremlinpython==3.4.0 (constraint was <any>)
+  found candidate guess-language-spirit==0.5.3 (constraint was ~=0.5.2)
+  found candidate html-linter==0.3.0 (constraint was ~=0.3.0)
+  found candidate httpolice==0.5.2 (constraint was ~=0.5.2)
+  found candidate idna==2.8 (constraint was >=2.0,>=2.5,<2.9)
+  found candidate inflection==0.3.1 (constraint was ==0.3.1)
+  found candidate ipython-genutils==0.2.0 (constraint was <any>)
+  found candidate iso8601==0.1.12 (constraint was >=0.1.11)
+  found candidate isort==4.3.11 (constraint was ~=4.2,>=4.2.5)
+  found candidate jinja2==2.10 (constraint was >=2.7.3)
+  found candidate jmespath==0.9.4 (constraint was >=0.7.1,>=0.9.0,<1.0.0)
+  found candidate jsondiff==1.1.1 (constraint was ==1.1.1)
+  found candidate jsonpatch==1.23 (constraint was >=1.16,!=1.20)
+  found candidate jsonpickle==1.1 (constraint was <any>)
+  found candidate jsonpointer==2.0 (constraint was >=1.9)
+  found candidate jsonschema==3.0.1 (constraint was >=2.4,!=2.5.0)
+  found candidate jupyter-core==4.4.0 (constraint was <any>)
+  found candidate keystoneauth1==3.13.1 (constraint was >=3.11.0)
+  found candidate lazy-object-proxy==1.3.1 (constraint was <any>)
+  found candidate libclang-py3==3.4.0 (constraint was ~=3.4.0)
+  found candidate lxml==4.3.2 (constraint was >=3.6.0)
+  found candidate mando==0.3.3 (constraint was >=0.3,<0.4)
+  found candidate markupsafe==1.1.1 (constraint was >=0.23)
+  found candidate mccabe==0.6.1 (constraint was <any>)
+  found candidate memento-client==0.6.1 (constraint was ~=0.6.1)
+  found candidate mock==2.0.0 (constraint was <any>)
+  found candidate more-itertools==6.0.0 (constraint was >=4.0.0)
+  found candidate moto==1.3.7 (constraint was <any>)
+  found candidate multidict==4.5.2 (constraint was >=4.0)
+  found candidate munch==2.3.2 (constraint was >=2.1.0)
+  found candidate munkres3==1.0.5.5 (constraint was ~=1.0)
+  found candidate mypy-lang==0.4.6 (constraint was ~=0.4.6)
+  found candidate nbformat==4.4.0 (constraint was ~=4.1)
+  found candidate netifaces==0.10.9 (constraint was >=0.10.4)
+  found candidate nltk==3.4 (constraint was ~=3.2)
+  found candidate openstacksdk==0.25.0 (constraint was <any>)
+  found candidate os-service-types==1.6.0 (constraint was >=1.2.0)
+  found candidate packaging==16.8 (constraint was ~=16.8)
+  found candidate pbr==5.1.3 (constraint was >=0.11,>=2.0.0,!=2.1.0)
+  found candidate pluggy==0.9.0 (constraint was >=0.7)
+  found candidate polib==1.1.0 (constraint was >=1.0.8)
+  found candidate proselint==0.7.0 (constraint was ~=0.7.0)
+  found candidate py==1.8.0 (constraint was >=1.5.0)
+  found candidate pyaml==18.11.0 (constraint was <any>)
+  found candidate pycodestyle==2.5.0 (constraint was ~=2.2,>=2.4.0)
+  found candidate pycryptodome==3.7.3 (constraint was >=3.3.1,<4.0.0)
+  found candidate pydocstyle==2.1.1 (constraint was ~=2.0)
+  found candidate pyflakes==1.5.0 (constraint was >=0.8.1,~=1.5.0)
+  found candidate pygments==2.3.1 (constraint was ~=2.1)
+  found candidate pylint==1.9.4 (constraint was ~=1.6)
+  found candidate pyparsing==2.3.1 (constraint was <any>)
+  found candidate pyprint==0.2.6 (constraint was ==0.2.*,~=0.2.6)
+  found candidate pyroma==2.2 (constraint was ~=2.2.0)
+  found candidate pytest==4.3.0 (constraint was >=3.6,>=3.6.0)
+  found candidate pytest-cov==2.6.1 (constraint was <any>)
+  found candidate pytest-timeout==1.3.3 (constraint was <any>)
+  found candidate python-dateutil==2.8.0 (constraint was >=2.1,<3.0.0)
+  found candidate python-jose==2.0.2 (constraint was <3.0.0)
+  found candidate pytz==2018.9 (constraint was <any>)
+  found candidate pyyaml==3.13 (constraint was ~=3.11,>=3.12,~=3.12)
+  found candidate radon==1.4.0 (constraint was ==1.4.0)
+  found candidate requests==2.21.0 (constraint was >=2.0,~=2.12,>=2.14.2,!=2.18.0,>=2.5,>=2.7.0)
+  found candidate requestsexceptions==1.4.0 (constraint was >=1.2.0)
+  found candidate responses==0.10.5 (constraint was >=0.9.0)
+  found candidate restructuredtext-lint==1.0.1 (constraint was ~=1.0.0)
+  found candidate rstcheck==3.3.1 (constraint was ~=3.1)
+  found candidate s3transfer==0.2.0 (constraint was >=0.2.0,<0.3.0)
+  found candidate safety==0.5.1 (constraint was ~=0.5.1)
+  found candidate sarge==0.1.5.post0 (constraint was ~=0.1.4)
+  found candidate scspell3k==2.2 (constraint was ~=2.0)
+  found candidate singledispatch==3.4.0.3 (constraint was >=3.4.0.3)
+  found candidate six==1.12.0 (constraint was >=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9,>1.9,<2.0)
+  found candidate snowballstemmer==1.2.1 (constraint was <any>)
+  found candidate stevedore==1.30.1 (constraint was >=1.20.0)
+  found candidate template-remover==0.1.9 (constraint was <any>)
+  found candidate termcolor==1.1.0 (constraint was ~=1.1.0)
+  found candidate testfixtures==4.14.3 (constraint was ~=4.14.3)
+  found candidate toml==0.10.0 (constraint was >=0.9.4)
+  found candidate tornado==4.5.3 (constraint was >=4.4.1,<5.0)
+  found candidate traitlets==4.3.2 (constraint was >=4.1)
+  found candidate typed-ast==1.3.1 (constraint was >=1.3.0)
+  found candidate unidiff==0.5.5 (constraint was ~=0.5.2)
+  found candidate urllib3==1.24.1 (constraint was >=1.20,>=1.21.1,<1.25)
+  found candidate vim-vint==0.3.19 (constraint was ~=0.3.12)
+  found candidate vulture==0.25 (constraint was ~=0.25.0)
+  found candidate websocket-client==0.55.0 (constraint was >=0.32.0)
+  found candidate werkzeug==0.14.1 (constraint was <any>)
+  found candidate wrapt==1.11.1 (constraint was <any>)
+  found candidate xmltodict==0.12.0 (constraint was <any>)
+  found candidate yamllint==1.6.1 (constraint was ~=1.6.1)
+  found candidate yapf==0.16.3 (constraint was ~=0.16.0)
+  found candidate yarl==1.1.1 (constraint was <1.2)
+
+Finding secondary dependencies:
+  decorator==4.3.2          requires -
+  iso8601==0.1.12           requires -
+  pycodestyle==2.5.0        requires -
+  munch==2.3.2              requires six
+  packaging==16.8           requires pyparsing, six
+  python-dateutil==2.8.0    requires six>=1.5
+  python-jose==2.0.2        requires ecdsa<1.0, future<1.0, pycryptodome<4.0.0,>=3.3.1, six<2.0
+  dominate==2.3.5 not in cache, need to check index
+  dominate==2.3.5           requires -
+  markupsafe==1.1.1         requires -
+  s3transfer==0.2.0         requires botocore<2.0.0,>=1.12.36
+  wrapt==1.11.1             requires -
+  testfixtures==4.14.3      requires -
+  cmakelint==1.3.4.1        requires -
+  radon==1.4.0              requires colorama<0.4,>=0.3, mando<0.4,>=0.3
+  boto3==1.9.108            requires botocore<1.13.0,>=1.12.108, jmespath<1.0.0,>=0.7.1, s3transfer<0.3.0,>=0.2.0
+  netifaces==0.10.9         requires -
+  responses==0.10.5         requires requests>=2.0, six
+  rstcheck==3.3.1           requires docutils>=0.7
+  snowballstemmer==1.2.1    requires -
+  scspell3k==2.2            requires -
+  openstacksdk==0.25.0      requires appdirs>=1.3.0, cryptography>=2.1, decorator>=3.4.0, dogpile.cache>=0.6.2, iso8601>=0.1.11, jmespath>=0.9.0, jsonpatch!=1.20,>=1.16, keystoneauth1>=3.11.0, munch>=2.1.0, netifaces>=0.10.4, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, pyyaml>=3.12, requestsexceptions>=1.2.0, six>=1.10.0
+  cprofilev==1.0.7          requires bottle
+  pytest-cov==2.6.1         requires coverage>=4.4, pytest>=3.6
+  daiquiri==1.5.0           requires -
+  pyaml==18.11.0            requires pyyaml
+  cppclean==0.12            requires -
+  requests==2.21.0          requires certifi>=2017.4.17, chardet<3.1.0,>=3.0.2, idna<2.9,>=2.5, urllib3<1.25,>=1.21.1
+  pyprint==0.2.6            requires colorama~=0.3.7, termcolor~=1.1.0
+  aenum==2.0.10             requires -
+  pylint==1.9.4             requires astroid<2.0,>=1.6, isort>=4.2.5, mccabe, six
+  atomicwrites==1.3.0       requires -
+  mypy-lang==0.4.6          requires -
+  proselint==0.7.0          requires click, future, six
+  requestsexceptions==1.4.0 requires -
+  docopt==0.6.2             requires -
+  sarge==0.1.5.post0        requires -
+  astroid==1.6.5            requires lazy-object-proxy, six, wrapt
+  restructuredtext-lint==1.0.1 requires docutils<1.0,>=0.11
+  black==18.9b0             requires appdirs, attrs>=17.4.0, click>=6.5, toml>=0.9.4
+  pytest==4.3.0             requires atomicwrites>=1.0, attrs>=17.4.0, more-itertools>=4.0.0; python_version > "2.7", pluggy>=0.7, py>=1.5.0, setuptools, six>=1.10.0
+  dennis==0.9               requires click>=6, polib>=1.0.8
+  mccabe==0.6.1             requires -
+  ipython-genutils==0.2.0   requires -
+  inflection==0.3.1         requires -
+  jsonpointer==2.0 not in cache, need to check index
+  jsonpointer==2.0          requires -
+  websocket-client==0.55.0 not in cache, need to check index
+  websocket-client==0.55.0  requires six
+  pbr==5.1.3                requires -
+  attrs==19.1.0             requires -
+  autopep8==1.4.3           requires pycodestyle>=2.4.0
+  more-itertools==6.0.0     requires -
+  safety==0.5.1             requires click>=6.0, packaging, requests
+  cpplint==1.4.4            requires -
+  traitlets==4.3.2          requires decorator, ipython-genutils, six
+  termcolor==1.1.0          requires -
+  pytest-timeout==1.3.3     requires pytest>=3.6.0
+  lxml==4.3.2 not in cache, need to check index
+  lxml==4.3.2               requires -
+  pyparsing==2.3.1          requires -
+  typed-ast==1.3.1 not in cache, need to check index
+  typed-ast==1.3.1          requires -
+  bitstring==3.1.5 not in cache, need to check index
+  bitstring==3.1.5          requires -
+  os-service-types==1.6.0   requires pbr!=2.1.0,>=2.0.0
+  yapf==0.16.3              requires -
+  yarl==1.1.1               requires idna>=2.0, multidict>=4.0
+  unidiff==0.5.5            requires -
+  aws-xray-sdk==0.95        requires jsonpickle, requests, wrapt
+  mando==0.3.3              requires -
+  py==1.8.0                 requires -
+  jsonpatch==1.23           requires jsonpointer>=1.9
+  nltk==3.4                 requires singledispatch, six
+  mock==2.0.0               requires pbr>=0.11, six>=1.9
+  docker-pycreds==0.4.0 not in cache, need to check index
+  docker-pycreds==0.4.0     requires six>=1.4.0
+  pytz==2018.9              requires -
+  boto==2.49.0              requires -
+  pyroma==2.2               requires docutils, setuptools
+  polib==1.1.0              requires -
+  bandit==1.5.1             requires gitpython>=1.0.1, pyyaml>=3.12, six>=1.10.0, stevedore>=1.20.0
+  xmltodict==0.12.0         requires -
+  nbformat==4.4.0           requires ipython-genutils, jsonschema!=2.5.0,>=2.4, jupyter-core, traitlets>=4.1
+  certifi==2018.11.29       requires -
+  docker==3.7.0             requires docker-pycreds>=0.4.0, requests!=2.18.0,>=2.14.2, six>=1.4.0, websocket-client>=0.32.0
+  cryptography==2.6.1       requires asn1crypto>=0.21.0, cffi!=1.11.3,>=1.8, six>=1.4.1
+  botocore==1.12.108        requires docutils>=0.10, jmespath<1.0.0,>=0.7.1, python-dateutil<3.0.0,>=2.1; python_version >= "2.7", urllib3<1.25,>=1.20; python_version >= "3.4"
+  dependency-management==0.4.0 requires coala-utils~=0.6, sarge~=0.1.4
+  tornado==4.5.3            requires -
+  vim-vint==0.3.19          requires ansicolor~=0.2.4, chardet>=2.3.0, pyyaml~=3.11
+  moto==1.3.7               requires aws-xray-sdk<0.96,>=0.93, boto3>=1.6.16, boto>=2.36.0, botocore>=1.12.13, cryptography>=2.3.0, docker>=2.5.1, jinja2>=2.7.3, jsondiff==1.1.1, mock, pyaml, python-dateutil<3.0.0,>=2.1, python-jose<3.0.0, pytz, requests>=2.5, responses>=0.9.0, six>1.9, werkzeug, xmltodict
+  memento-client==0.6.1     requires requests>=2.7.0
+  pyyaml==3.13              requires -
+  toml==0.10.0              requires -
+  chardet==3.0.4            requires -
+  munkres3==1.0.5.5         requires -
+  ansicolor==0.2.6 not in cache, need to check index
+  ansicolor==0.2.6          requires -
+  pygments==2.3.1           requires -
+  yamllint==1.6.1           requires pyyaml
+  apertium-lint==0.29       requires -
+  autoflake==0.7            requires pyflakes>=0.8.1
+  jupyter-core==4.4.0       requires traitlets
+  six==1.12.0               requires -
+  libclang-py3==3.4.0       requires -
+  idna==2.8                 requires -
+  gitpython==2.1.11         requires gitdb2>=2.0.0
+  jmespath==0.9.4           requires -
+  urllib3==1.24.1           requires -
+  singledispatch==3.4.0.3   requires six
+  colorama==0.3.9           requires -
+  colorlog==2.10.0          requires -
+  pydocstyle==2.1.1         requires six, snowballstemmer
+  coala==0.12.0.dev20180101025653 requires appdirs~=1.4, coala-utils~=0.6.2, colorlog~=2.7, dependency-management~=0.4.0, libclang-py3~=3.4.0, packaging~=16.8, pygments~=2.1, pyprint~=0.2.6, requests~=2.12, setuptools>=19.0, testfixtures~=4.14.3, unidiff~=0.5.2
+  future==0.17.1            requires -
+  guess-language-spirit==0.5.3 requires -
+  jsondiff==1.1.1           requires -
+  multidict==4.5.2          requires -
+  goblinoid==0.1.0          requires click, daiquiri, goblin, gremlinpython, yarl<1.2
+  vulture==0.25             requires -
+  dogpile.cache==0.7.1      requires decorator
+  pyflakes==1.5.0           requires -
+  eradicate==0.1.6          requires -
+  pluggy==0.9.0             requires -
+  bottle==0.12.16           requires -
+  werkzeug==0.14.1          requires -
+  goblin==2.1.0             requires aiogremlin==3.2.6rc1, inflection==0.3.1
+  coverage==5.0a4           requires -
+  docutils==0.14            requires -
+  cffi==1.12.2 not in cache, need to check index
+  cffi==1.12.2              requires pycparser
+  gremlinpython==3.4.0      requires aenum>=1.4.5, six>=1.10.0, tornado<5.0,>=4.4.1
+  jinja2==2.10              requires markupsafe>=0.23
+  jsonpickle==1.1 not in cache, need to check index
+  jsonpickle==1.1           requires -
+  keystoneauth1==3.13.1     requires iso8601>=0.1.11, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, requests>=2.14.2, six>=1.10.0, stevedore>=1.20.0
+  template-remover==0.1.9   requires docopt>=0.6.1
+  brotlipy==0.7.0 not in cache, need to check index
+  brotlipy==0.7.0           requires cffi>=1.0.0
+  click==6.6                requires -
+  flexmock==0.10.3          requires -
+  appdirs==1.4.3            requires -
+  ecdsa==0.13 not in cache, need to check index
+  ecdsa==0.13               requires -
+  stevedore==1.30.1         requires pbr!=2.1.0,>=2.0.0, six>=1.10.0
+  coala-bears==0.12.0.dev20171110210444 requires aenum~=2.0.8, apertium-lint~=0.29, autoflake~=0.7, autopep8~=1.2, bandit~=1.2, click==6.6, cmakelint~=1.3, coala>=0.12.0.dev20170828055500, cppclean~=0.12.0, cpplint~=1.3, dennis~=0.8, docutils-ast-writer~=0.1.2, eradicate~=0.1.6, guess-language-spirit~=0.5.2, html-linter~=0.3.0, httpolice~=0.5.2, isort~=4.2, memento-client~=0.6.1, munkres3~=1.0, mypy-lang~=0.4.6, nbformat~=4.1, nltk~=3.2, proselint~=0.7.0, pycodestyle~=2.2, pydocstyle~=2.0, pyflakes~=1.5.0, pylint~=1.6, pyroma~=2.2.0, pyyaml~=3.12, radon==1.4.0, restructuredtext-lint~=1.0.0, rstcheck~=3.1, safety~=0.5.1, scspell3k~=2.0, vim-vint~=0.3.12, vulture~=0.25.0, yamllint~=1.6.1, yapf~=0.16.0
+  coala-utils==0.6.7        requires appdirs==1.4.*, pyprint==0.2.*
+  docutils-ast-writer==0.1.2 requires docutils>=0.12
+  jsonschema==3.0.1         requires attrs>=17.4.0, pyrsistent>=0.14.0, setuptools, six>=1.11.0
+  isort==4.3.11             requires -
+  defusedxml==0.5.0         requires -
+  httpolice==0.5.2          requires bitstring>=3.1.4, brotlipy>=0.5.1, defusedxml>=0.5.0, dominate>=2.2.0, lxml>=3.6.0, singledispatch>=3.4.0.3, six>=1.10.0
+  asn1crypto==0.24.0        requires -
+  pycryptodome==3.7.3 not in cache, need to check index
+  pycryptodome==3.7.3       requires -
+  html-linter==0.3.0        requires docopt>=0.6.1, template-remover
+  lazy-object-proxy==1.3.1  requires -
+  aiogremlin==3.2.6rc1      requires aenum==1.4.5, aiohttp==2.2.5, pyyaml==3.12, six==1.10.0
+
+New dependencies found in this round:
+  adding ['aenum', '==1.4.5,>=1.4.5,~=2.0.8', '[]']
+  adding ['aiohttp', '==2.2.5', '[]']
+  adding ['botocore', '<1.13.0,<2.0.0,>=1.12.108,>=1.12.13,>=1.12.36', '[]']
+  adding ['cffi', '!=1.11.3,>=1.0.0,>=1.8', '[]']
+  adding ['gitdb2', '>=2.0.0', '[]']
+  adding ['pycparser', '', '[]']
+  adding ['pyrsistent', '>=0.14.0', '[]']
+  adding ['pyyaml', '==3.12,>=3.12,~=3.11,~=3.12', '[]']
+  adding ['six', '<2.0,==1.10.0,>1.9,>=1.10.0,>=1.11.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9', '[]']
+Removed dependencies in this round:
+  removing ['aenum', '>=1.4.5,~=2.0.8', '[]']
+  removing ['botocore', '<1.13.0,>=1.12.108,>=1.12.13', '[]']
+  removing ['cffi', '!=1.11.3,>=1.8', '[]']
+  removing ['pyyaml', '>=3.12,~=3.11,~=3.12', '[]']
+  removing ['six', '<2.0,>1.9,>=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9', '[]']
+  removing ['typed-ast', '>=1.3.0', '[]']
+Unsafe dependencies in this round:
+------------------------------------------------------------
+Result of round 3: not stable
+
+                          ROUND 4                           
+Current constraints:
+  aenum==1.4.5,>=1.4.5,~=2.0.8
+  aiogremlin==3.2.6rc1
+  aiohttp==2.2.5
+  ansicolor~=0.2.4
+  apertium-lint~=0.29
+  appdirs==1.4.*,>=1.3.0,~=1.4
+  asn1crypto>=0.21.0
+  astroid<2.0,>=1.6
+  atomicwrites>=1.0
+  attrs>=17.4.0
+  autoflake~=0.7
+  autopep8~=1.2
+  aws-xray-sdk<0.96,>=0.93
+  bandit~=1.2
+  bitstring>=3.1.4
+  black
+  boto>=2.36.0
+  boto3>=1.6.16
+  botocore<1.13.0,<2.0.0,>=1.12.108,>=1.12.13,>=1.12.36
+  bottle
+  brotlipy>=0.5.1
+  certifi>=2017.4.17
+  cffi!=1.11.3,>=1.0.0,>=1.8
+  chardet<3.1.0,>=2.3.0,>=3.0.2
+  click==6.6,>=6,>=6.0,>=6.5
+  cmakelint~=1.3
+  coala>=0.12.0.dev20170828055500
+  coala-bears
+  coala-utils~=0.6,~=0.6.2
+  colorama<0.4,>=0.3,~=0.3.7
+  colorlog~=2.7
+  coverage>=4.4
+  cppclean~=0.12.0
+  cpplint~=1.3
+  cprofilev
+  cryptography>=2.1,>=2.3.0
+  daiquiri
+  decorator>=3.4.0
+  defusedxml>=0.5.0
+  dennis~=0.8
+  dependency-management~=0.4.0
+  docker>=2.5.1
+  docker-pycreds>=0.4.0
+  docopt>=0.6.1
+  docutils<1.0,>=0.10,>=0.11,>=0.12,>=0.7
+  docutils-ast-writer~=0.1.2
+  dogpile.cache>=0.6.2
+  dominate>=2.2.0
+  ecdsa<1.0
+  eradicate~=0.1.6
+  flexmock
+  future<1.0
+  gitdb2>=2.0.0
+  gitpython>=1.0.1
+  goblin
+  goblinoid
+  gremlinpython
+  guess-language-spirit~=0.5.2
+  html-linter~=0.3.0
+  httpolice~=0.5.2
+  idna<2.9,>=2.0,>=2.5
+  inflection==0.3.1
+  ipython-genutils
+  iso8601>=0.1.11
+  isort>=4.2.5,~=4.2
+  jinja2>=2.7.3
+  jmespath<1.0.0,>=0.7.1,>=0.9.0
+  jsondiff==1.1.1
+  jsonpatch!=1.20,>=1.16
+  jsonpickle
+  jsonpointer>=1.9
+  jsonschema!=2.5.0,>=2.4
+  jupyter-core
+  keystoneauth1>=3.11.0
+  lazy-object-proxy
+  libclang-py3~=3.4.0
+  lxml>=3.6.0
+  mando<0.4,>=0.3
+  markupsafe>=0.23
+  mccabe
+  memento-client~=0.6.1
+  mock
+  more-itertools>=4.0.0
+  moto
+  multidict>=4.0
+  munch>=2.1.0
+  munkres3~=1.0
+  mypy-lang~=0.4.6
+  nbformat~=4.1
+  netifaces>=0.10.4
+  nltk~=3.2
+  openstacksdk
+  os-service-types>=1.2.0
+  packaging~=16.8
+  pbr!=2.1.0,>=0.11,>=2.0.0
+  pluggy>=0.7
+  polib>=1.0.8
+  proselint~=0.7.0
+  py>=1.5.0
+  pyaml
+  pycodestyle>=2.4.0,~=2.2
+  pycparser
+  pycryptodome<4.0.0,>=3.3.1
+  pydocstyle~=2.0
+  pyflakes>=0.8.1,~=1.5.0
+  pygments~=2.1
+  pylint~=1.6
+  pyparsing
+  pyprint==0.2.*,~=0.2.6
+  pyroma~=2.2.0
+  pyrsistent>=0.14.0
+  pytest>=3.6,>=3.6.0
+  pytest-cov
+  pytest-timeout
+  python-dateutil<3.0.0,>=2.1
+  python-jose<3.0.0
+  pytz
+  pyyaml==3.12,>=3.12,~=3.11,~=3.12
+  radon==1.4.0
+  requests!=2.18.0,>=2.0,>=2.14.2,>=2.5,>=2.7.0,~=2.12
+  requestsexceptions>=1.2.0
+  responses>=0.9.0
+  restructuredtext-lint~=1.0.0
+  rstcheck~=3.1
+  s3transfer<0.3.0,>=0.2.0
+  safety~=0.5.1
+  sarge~=0.1.4
+  scspell3k~=2.0
+  singledispatch>=3.4.0.3
+  six<2.0,==1.10.0,>1.9,>=1.10.0,>=1.11.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9
+  snowballstemmer
+  stevedore>=1.20.0
+  template-remover
+  termcolor~=1.1.0
+  testfixtures~=4.14.3
+  toml>=0.9.4
+  tornado<5.0,>=4.4.1
+  traitlets>=4.1
+  unidiff~=0.5.2
+  urllib3<1.25,>=1.20,>=1.21.1
+  vim-vint~=0.3.12
+  vulture~=0.25.0
+  websocket-client>=0.32.0
+  werkzeug
+  wrapt
+  xmltodict
+  yamllint~=1.6.1
+  yapf~=0.16.0
+  yarl<1.2
+
+Finding the best candidates:
+Using pip: -i https://pypi.org/simple
+
+                          ROUND 1                           
+Current constraints:
+  black
+  coala
+  coala-bears
+  cprofilev
+  flexmock
+  goblinoid
+  moto
+  openstacksdk
+  pylint
+  pytest
+  pytest-cov
+  pytest-timeout
+
+Finding the best candidates:
+  found candidate black==18.9b0 (constraint was <any>)
+  found candidate coala==0.12.0.dev20180101025653 (constraint was <any>)
+  found candidate coala-bears==0.12.0.dev20171110210444 (constraint was <any>)
+  found candidate cprofilev==1.0.7 (constraint was <any>)
+  found candidate flexmock==0.10.3 (constraint was <any>)
+  found candidate goblinoid==0.1.0 (constraint was <any>)
+  found candidate moto==1.3.7 (constraint was <any>)
+  found candidate openstacksdk==0.25.0 (constraint was <any>)
+  found candidate pylint==2.3.1 (constraint was <any>)
+  found candidate pytest==4.3.0 (constraint was <any>)
+  found candidate pytest-cov==2.6.1 (constraint was <any>)
+  found candidate pytest-timeout==1.3.3 (constraint was <any>)
+
+Finding secondary dependencies:
+  coala==0.12.0.dev20180101025653 requires appdirs~=1.4, coala-utils~=0.6.2, colorlog~=2.7, dependency-management~=0.4.0, libclang-py3~=3.4.0, packaging~=16.8, pygments~=2.1, pyprint~=0.2.6, requests~=2.12, setuptools>=19.0, testfixtures~=4.14.3, unidiff~=0.5.2
+  goblinoid==0.1.0          requires click, daiquiri, goblin, gremlinpython, yarl<1.2
+  flexmock==0.10.3          requires -
+  pylint==2.3.1             requires astroid<3,>=2.2.0, isort<5,>=4.2.5, mccabe<0.7,>=0.6
+  pytest==4.3.0             requires atomicwrites>=1.0, attrs>=17.4.0, more-itertools>=4.0.0; python_version > "2.7", pluggy>=0.7, py>=1.5.0, setuptools, six>=1.10.0
+  pytest-cov==2.6.1         requires coverage>=4.4, pytest>=3.6
+  moto==1.3.7               requires aws-xray-sdk<0.96,>=0.93, boto3>=1.6.16, boto>=2.36.0, botocore>=1.12.13, cryptography>=2.3.0, docker>=2.5.1, jinja2>=2.7.3, jsondiff==1.1.1, mock, pyaml, python-dateutil<3.0.0,>=2.1, python-jose<3.0.0, pytz, requests>=2.5, responses>=0.9.0, six>1.9, werkzeug, xmltodict
+  coala-bears==0.12.0.dev20171110210444 requires aenum~=2.0.8, apertium-lint~=0.29, autoflake~=0.7, autopep8~=1.2, bandit~=1.2, click==6.6, cmakelint~=1.3, coala>=0.12.0.dev20170828055500, cppclean~=0.12.0, cpplint~=1.3, dennis~=0.8, docutils-ast-writer~=0.1.2, eradicate~=0.1.6, guess-language-spirit~=0.5.2, html-linter~=0.3.0, httpolice~=0.5.2, isort~=4.2, memento-client~=0.6.1, munkres3~=1.0, mypy-lang~=0.4.6, nbformat~=4.1, nltk~=3.2, proselint~=0.7.0, pycodestyle~=2.2, pydocstyle~=2.0, pyflakes~=1.5.0, pylint~=1.6, pyroma~=2.2.0, pyyaml~=3.12, radon==1.4.0, restructuredtext-lint~=1.0.0, rstcheck~=3.1, safety~=0.5.1, scspell3k~=2.0, vim-vint~=0.3.12, vulture~=0.25.0, yamllint~=1.6.1, yapf~=0.16.0
+  cprofilev==1.0.7          requires bottle
+  openstacksdk==0.25.0      requires appdirs>=1.3.0, cryptography>=2.1, decorator>=3.4.0, dogpile.cache>=0.6.2, iso8601>=0.1.11, jmespath>=0.9.0, jsonpatch!=1.20,>=1.16, keystoneauth1>=3.11.0, munch>=2.1.0, netifaces>=0.10.4, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, pyyaml>=3.12, requestsexceptions>=1.2.0, six>=1.10.0
+  black==18.9b0             requires appdirs, attrs>=17.4.0, click>=6.5, toml>=0.9.4
+  pytest-timeout==1.3.3     requires pytest>=3.6.0
+
+New dependencies found in this round:
+  adding ['aenum', '~=2.0.8', '[]']
+  adding ['apertium-lint', '~=0.29', '[]']
+  adding ['appdirs', '>=1.3.0,~=1.4', '[]']
+  adding ['astroid', '<3,>=2.2.0', '[]']
+  adding ['atomicwrites', '>=1.0', '[]']
+  adding ['attrs', '>=17.4.0', '[]']
+  adding ['autoflake', '~=0.7', '[]']
+  adding ['autopep8', '~=1.2', '[]']
+  adding ['aws-xray-sdk', '<0.96,>=0.93', '[]']
+  adding ['bandit', '~=1.2', '[]']
+  adding ['boto', '>=2.36.0', '[]']
+  adding ['boto3', '>=1.6.16', '[]']
+  adding ['botocore', '>=1.12.13', '[]']
+  adding ['bottle', '', '[]']
+  adding ['click', '==6.6,>=6.5', '[]']
+  adding ['cmakelint', '~=1.3', '[]']
+  adding ['coala', '>=0.12.0.dev20170828055500', '[]']
+  adding ['coala-utils', '~=0.6.2', '[]']
+  adding ['colorlog', '~=2.7', '[]']
+  adding ['coverage', '>=4.4', '[]']
+  adding ['cppclean', '~=0.12.0', '[]']
+  adding ['cpplint', '~=1.3', '[]']
+  adding ['cryptography', '>=2.1,>=2.3.0', '[]']
+  adding ['daiquiri', '', '[]']
+  adding ['decorator', '>=3.4.0', '[]']
+  adding ['dennis', '~=0.8', '[]']
+  adding ['dependency-management', '~=0.4.0', '[]']
+  adding ['docker', '>=2.5.1', '[]']
+  adding ['docutils-ast-writer', '~=0.1.2', '[]']
+  adding ['dogpile.cache', '>=0.6.2', '[]']
+  adding ['eradicate', '~=0.1.6', '[]']
+  adding ['goblin', '', '[]']
+  adding ['gremlinpython', '', '[]']
+  adding ['guess-language-spirit', '~=0.5.2', '[]']
+  adding ['html-linter', '~=0.3.0', '[]']
+  adding ['httpolice', '~=0.5.2', '[]']
+  adding ['iso8601', '>=0.1.11', '[]']
+  adding ['isort', '<5,>=4.2.5,~=4.2', '[]']
+  adding ['jinja2', '>=2.7.3', '[]']
+  adding ['jmespath', '>=0.9.0', '[]']
+  adding ['jsondiff', '==1.1.1', '[]']
+  adding ['jsonpatch', '!=1.20,>=1.16', '[]']
+  adding ['keystoneauth1', '>=3.11.0', '[]']
+  adding ['libclang-py3', '~=3.4.0', '[]']
+  adding ['mccabe', '<0.7,>=0.6', '[]']
+  adding ['memento-client', '~=0.6.1', '[]']
+  adding ['mock', '', '[]']
+  adding ['more-itertools', '>=4.0.0', '[]']
+  adding ['munch', '>=2.1.0', '[]']
+  adding ['munkres3', '~=1.0', '[]']
+  adding ['mypy-lang', '~=0.4.6', '[]']
+  adding ['nbformat', '~=4.1', '[]']
+  adding ['netifaces', '>=0.10.4', '[]']
+  adding ['nltk', '~=3.2', '[]']
+  adding ['os-service-types', '>=1.2.0', '[]']
+  adding ['packaging', '~=16.8', '[]']
+  adding ['pbr', '!=2.1.0,>=2.0.0', '[]']
+  adding ['pluggy', '>=0.7', '[]']
+  adding ['proselint', '~=0.7.0', '[]']
+  adding ['py', '>=1.5.0', '[]']
+  adding ['pyaml', '', '[]']
+  adding ['pycodestyle', '~=2.2', '[]']
+  adding ['pydocstyle', '~=2.0', '[]']
+  adding ['pyflakes', '~=1.5.0', '[]']
+  adding ['pygments', '~=2.1', '[]']
+  adding ['pylint', '~=1.6', '[]']
+  adding ['pyprint', '~=0.2.6', '[]']
+  adding ['pyroma', '~=2.2.0', '[]']
+  adding ['pytest', '>=3.6,>=3.6.0', '[]']
+  adding ['python-dateutil', '<3.0.0,>=2.1', '[]']
+  adding ['python-jose', '<3.0.0', '[]']
+  adding ['pytz', '', '[]']
+  adding ['pyyaml', '>=3.12,~=3.12', '[]']
+  adding ['radon', '==1.4.0', '[]']
+  adding ['requests', '>=2.5,~=2.12', '[]']
+  adding ['requestsexceptions', '>=1.2.0', '[]']
+  adding ['responses', '>=0.9.0', '[]']
+  adding ['restructuredtext-lint', '~=1.0.0', '[]']
+  adding ['rstcheck', '~=3.1', '[]']
+  adding ['safety', '~=0.5.1', '[]']
+  adding ['scspell3k', '~=2.0', '[]']
+  adding ['six', '>1.9,>=1.10.0', '[]']
+  adding ['testfixtures', '~=4.14.3', '[]']
+  adding ['toml', '>=0.9.4', '[]']
+  adding ['unidiff', '~=0.5.2', '[]']
+  adding ['vim-vint', '~=0.3.12', '[]']
+  adding ['vulture', '~=0.25.0', '[]']
+  adding ['werkzeug', '', '[]']
+  adding ['xmltodict', '', '[]']
+  adding ['yamllint', '~=1.6.1', '[]']
+  adding ['yapf', '~=0.16.0', '[]']
+  adding ['yarl', '<1.2', '[]']
+Removed dependencies in this round:
+Unsafe dependencies in this round:
+------------------------------------------------------------
+Result of round 1: not stable
+
+                          ROUND 2                           
+Current constraints:
+  aenum~=2.0.8
+  apertium-lint~=0.29
+  appdirs>=1.3.0,~=1.4
+  astroid<3,>=2.2.0
+  atomicwrites>=1.0
+  attrs>=17.4.0
+  autoflake~=0.7
+  autopep8~=1.2
+  aws-xray-sdk<0.96,>=0.93
+  bandit~=1.2
+  black
+  boto>=2.36.0
+  boto3>=1.6.16
+  botocore>=1.12.13
+  bottle
+  click==6.6,>=6.5
+  cmakelint~=1.3
+  coala>=0.12.0.dev20170828055500
+  coala-bears
+  coala-utils~=0.6.2
+  colorlog~=2.7
+  coverage>=4.4
+  cppclean~=0.12.0
+  cpplint~=1.3
+  cprofilev
+  cryptography>=2.1,>=2.3.0
+  daiquiri
+  decorator>=3.4.0
+  dennis~=0.8
+  dependency-management~=0.4.0
+  docker>=2.5.1
+  docutils-ast-writer~=0.1.2
+  dogpile.cache>=0.6.2
+  eradicate~=0.1.6
+  flexmock
+  goblin
+  goblinoid
+  gremlinpython
+  guess-language-spirit~=0.5.2
+  html-linter~=0.3.0
+  httpolice~=0.5.2
+  iso8601>=0.1.11
+  isort<5,>=4.2.5,~=4.2
+  jinja2>=2.7.3
+  jmespath>=0.9.0
+  jsondiff==1.1.1
+  jsonpatch!=1.20,>=1.16
+  keystoneauth1>=3.11.0
+  libclang-py3~=3.4.0
+  mccabe<0.7,>=0.6
+  memento-client~=0.6.1
+  mock
+  more-itertools>=4.0.0
+  moto
+  munch>=2.1.0
+  munkres3~=1.0
+  mypy-lang~=0.4.6
+  nbformat~=4.1
+  netifaces>=0.10.4
+  nltk~=3.2
+  openstacksdk
+  os-service-types>=1.2.0
+  packaging~=16.8
+  pbr!=2.1.0,>=2.0.0
+  pluggy>=0.7
+  proselint~=0.7.0
+  py>=1.5.0
+  pyaml
+  pycodestyle~=2.2
+  pydocstyle~=2.0
+  pyflakes~=1.5.0
+  pygments~=2.1
+  pylint~=1.6
+  pyprint~=0.2.6
+  pyroma~=2.2.0
+  pytest>=3.6,>=3.6.0
+  pytest-cov
+  pytest-timeout
+  python-dateutil<3.0.0,>=2.1
+  python-jose<3.0.0
+  pytz
+  pyyaml>=3.12,~=3.12
+  radon==1.4.0
+  requests>=2.5,~=2.12
+  requestsexceptions>=1.2.0
+  responses>=0.9.0
+  restructuredtext-lint~=1.0.0
+  rstcheck~=3.1
+  safety~=0.5.1
+  scspell3k~=2.0
+  six>1.9,>=1.10.0
+  testfixtures~=4.14.3
+  toml>=0.9.4
+  unidiff~=0.5.2
+  vim-vint~=0.3.12
+  vulture~=0.25.0
+  werkzeug
+  xmltodict
+  yamllint~=1.6.1
+  yapf~=0.16.0
+  yarl<1.2
+
+Finding the best candidates:
+  found candidate aenum==2.0.10 (constraint was ~=2.0.8)
+  found candidate apertium-lint==0.29 (constraint was ~=0.29)
+  found candidate appdirs==1.4.3 (constraint was >=1.3.0,~=1.4)
+  found candidate astroid==2.2.4 (constraint was >=2.2.0,<3)
+  found candidate atomicwrites==1.3.0 (constraint was >=1.0)
+  found candidate attrs==19.1.0 (constraint was >=17.4.0)
+  found candidate autoflake==0.7 (constraint was ~=0.7)
+  found candidate autopep8==1.4.3 (constraint was ~=1.2)
+  found candidate aws-xray-sdk==0.95 (constraint was >=0.93,<0.96)
+  found candidate bandit==1.5.1 (constraint was ~=1.2)
+  found candidate black==18.9b0 (constraint was <any>)
+  found candidate boto==2.49.0 (constraint was >=2.36.0)
+  found candidate boto3==1.9.108 (constraint was >=1.6.16)
+  found candidate botocore==1.12.108 (constraint was >=1.12.13)
+  found candidate bottle==0.12.16 (constraint was <any>)
+  found candidate click==6.6 (constraint was >=6.5,==6.6)
+  found candidate cmakelint==1.3.4.1 (constraint was ~=1.3)
+  found candidate coala==0.12.0.dev20180101025653 (constraint was >=0.12.0.dev20170828055500)
+  found candidate coala-bears==0.12.0.dev20171110210444 (constraint was <any>)
+  found candidate coala-utils==0.6.7 (constraint was ~=0.6.2)
+  found candidate colorlog==2.10.0 (constraint was ~=2.7)
+  found candidate coverage==5.0a4 (constraint was >=4.4)
+  found candidate cppclean==0.12 (constraint was ~=0.12.0)
+  found candidate cpplint==1.4.4 (constraint was ~=1.3)
+  found candidate cprofilev==1.0.7 (constraint was <any>)
+  found candidate cryptography==2.6.1 (constraint was >=2.1,>=2.3.0)
+  found candidate daiquiri==1.5.0 (constraint was <any>)
+  found candidate decorator==4.3.2 (constraint was >=3.4.0)
+  found candidate dennis==0.9 (constraint was ~=0.8)
+  found candidate dependency-management==0.4.0 (constraint was ~=0.4.0)
+  found candidate docker==3.7.0 (constraint was >=2.5.1)
+  found candidate docutils-ast-writer==0.1.2 (constraint was ~=0.1.2)
+  found candidate dogpile.cache==0.7.1 (constraint was >=0.6.2)
+  found candidate eradicate==0.1.6 (constraint was ~=0.1.6)
+  found candidate flexmock==0.10.3 (constraint was <any>)
+  found candidate goblin==2.1.0 (constraint was <any>)
+  found candidate goblinoid==0.1.0 (constraint was <any>)
+  found candidate gremlinpython==3.4.0 (constraint was <any>)
+  found candidate guess-language-spirit==0.5.3 (constraint was ~=0.5.2)
+  found candidate html-linter==0.3.0 (constraint was ~=0.3.0)
+  found candidate httpolice==0.5.2 (constraint was ~=0.5.2)
+  found candidate iso8601==0.1.12 (constraint was >=0.1.11)
+  found candidate isort==4.3.11 (constraint was ~=4.2,>=4.2.5,<5)
+  found candidate jinja2==2.10 (constraint was >=2.7.3)
+  found candidate jmespath==0.9.4 (constraint was >=0.9.0)
+  found candidate jsondiff==1.1.1 (constraint was ==1.1.1)
+  found candidate jsonpatch==1.23 (constraint was >=1.16,!=1.20)
+  found candidate keystoneauth1==3.13.1 (constraint was >=3.11.0)
+  found candidate libclang-py3==3.4.0 (constraint was ~=3.4.0)
+  found candidate mccabe==0.6.1 (constraint was >=0.6,<0.7)
+  found candidate memento-client==0.6.1 (constraint was ~=0.6.1)
+  found candidate mock==2.0.0 (constraint was <any>)
+  found candidate more-itertools==6.0.0 (constraint was >=4.0.0)
+  found candidate moto==1.3.7 (constraint was <any>)
+  found candidate munch==2.3.2 (constraint was >=2.1.0)
+  found candidate munkres3==1.0.5.5 (constraint was ~=1.0)
+  found candidate mypy-lang==0.4.6 (constraint was ~=0.4.6)
+  found candidate nbformat==4.4.0 (constraint was ~=4.1)
+  found candidate netifaces==0.10.9 (constraint was >=0.10.4)
+  found candidate nltk==3.4 (constraint was ~=3.2)
+  found candidate openstacksdk==0.25.0 (constraint was <any>)
+  found candidate os-service-types==1.6.0 (constraint was >=1.2.0)
+  found candidate packaging==16.8 (constraint was ~=16.8)
+  found candidate pbr==5.1.3 (constraint was >=2.0.0,!=2.1.0)
+  found candidate pluggy==0.9.0 (constraint was >=0.7)
+  found candidate proselint==0.7.0 (constraint was ~=0.7.0)
+  found candidate py==1.8.0 (constraint was >=1.5.0)
+  found candidate pyaml==18.11.0 (constraint was <any>)
+  found candidate pycodestyle==2.5.0 (constraint was ~=2.2)
+  found candidate pydocstyle==2.1.1 (constraint was ~=2.0)
+  found candidate pyflakes==1.5.0 (constraint was ~=1.5.0)
+  found candidate pygments==2.3.1 (constraint was ~=2.1)
+  found candidate pylint==1.9.4 (constraint was ~=1.6)
+  found candidate pyprint==0.2.6 (constraint was ~=0.2.6)
+  found candidate pyroma==2.2 (constraint was ~=2.2.0)
+  found candidate pytest==4.3.0 (constraint was >=3.6,>=3.6.0)
+  found candidate pytest-cov==2.6.1 (constraint was <any>)
+  found candidate pytest-timeout==1.3.3 (constraint was <any>)
+  found candidate python-dateutil==2.8.0 (constraint was >=2.1,<3.0.0)
+  found candidate python-jose==2.0.2 (constraint was <3.0.0)
+  found candidate pytz==2018.9 (constraint was <any>)
+  found candidate pyyaml==3.13 (constraint was >=3.12,~=3.12)
+  found candidate radon==1.4.0 (constraint was ==1.4.0)
+  found candidate requests==2.21.0 (constraint was ~=2.12,>=2.5)
+  found candidate requestsexceptions==1.4.0 (constraint was >=1.2.0)
+  found candidate responses==0.10.5 (constraint was >=0.9.0)
+  found candidate restructuredtext-lint==1.0.1 (constraint was ~=1.0.0)
+  found candidate rstcheck==3.3.1 (constraint was ~=3.1)
+  found candidate safety==0.5.1 (constraint was ~=0.5.1)
+  found candidate scspell3k==2.2 (constraint was ~=2.0)
+  found candidate six==1.12.0 (constraint was >=1.10.0,>1.9)
+  found candidate testfixtures==4.14.3 (constraint was ~=4.14.3)
+  found candidate toml==0.10.0 (constraint was >=0.9.4)
+  found candidate unidiff==0.5.5 (constraint was ~=0.5.2)
+  found candidate vim-vint==0.3.19 (constraint was ~=0.3.12)
+  found candidate vulture==0.25 (constraint was ~=0.25.0)
+  found candidate werkzeug==0.14.1 (constraint was <any>)
+  found candidate xmltodict==0.12.0 (constraint was <any>)
+  found candidate yamllint==1.6.1 (constraint was ~=1.6.1)
+  found candidate yapf==0.16.3 (constraint was ~=0.16.0)
+  found candidate yarl==1.1.1 (constraint was <1.2)
+
+Finding secondary dependencies:
+  boto3==1.9.108            requires botocore<1.13.0,>=1.12.108, jmespath<1.0.0,>=0.7.1, s3transfer<0.3.0,>=0.2.0
+  xmltodict==0.12.0         requires -
+  colorlog==2.10.0          requires -
+  yapf==0.16.3              requires -
+  openstacksdk==0.25.0      requires appdirs>=1.3.0, cryptography>=2.1, decorator>=3.4.0, dogpile.cache>=0.6.2, iso8601>=0.1.11, jmespath>=0.9.0, jsonpatch!=1.20,>=1.16, keystoneauth1>=3.11.0, munch>=2.1.0, netifaces>=0.10.4, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, pyyaml>=3.12, requestsexceptions>=1.2.0, six>=1.10.0
+  pycodestyle==2.5.0        requires -
+  mccabe==0.6.1             requires -
+  nltk==3.4                 requires singledispatch, six
+  py==1.8.0                 requires -
+  pygments==2.3.1           requires -
+  vim-vint==0.3.19          requires ansicolor~=0.2.4, chardet>=2.3.0, pyyaml~=3.11
+  pydocstyle==2.1.1         requires six, snowballstemmer
+  httpolice==0.5.2          requires bitstring>=3.1.4, brotlipy>=0.5.1, defusedxml>=0.5.0, dominate>=2.2.0, lxml>=3.6.0, singledispatch>=3.4.0.3, six>=1.10.0
+  decorator==4.3.2          requires -
+  pluggy==0.9.0             requires -
+  iso8601==0.1.12           requires -
+  pyflakes==1.5.0           requires -
+  proselint==0.7.0          requires click, future, six
+  jmespath==0.9.4           requires -
+  cpplint==1.4.4            requires -
+  bottle==0.12.16           requires -
+  scspell3k==2.2            requires -
+  pylint==1.9.4             requires astroid<2.0,>=1.6, isort>=4.2.5, mccabe, six
+  isort==4.3.11             requires -
+  docker==3.7.0             requires docker-pycreds>=0.4.0, requests!=2.18.0,>=2.14.2, six>=1.4.0, websocket-client>=0.32.0
+  pyroma==2.2               requires docutils, setuptools
+  cppclean==0.12            requires -
+  jinja2==2.10              requires markupsafe>=0.23
+  autoflake==0.7            requires pyflakes>=0.8.1
+  guess-language-spirit==0.5.3 requires -
+  python-dateutil==2.8.0    requires six>=1.5
+  unidiff==0.5.5            requires -
+  aws-xray-sdk==0.95        requires jsonpickle, requests, wrapt
+  munkres3==1.0.5.5         requires -
+  coala-utils==0.6.7        requires appdirs==1.4.*, pyprint==0.2.*
+  flexmock==0.10.3          requires -
+  pytest==4.3.0             requires atomicwrites>=1.0, attrs>=17.4.0, more-itertools>=4.0.0; python_version > "2.7", pluggy>=0.7, py>=1.5.0, setuptools, six>=1.10.0
+  apertium-lint==0.29       requires -
+  gremlinpython==3.4.0      requires aenum>=1.4.5, six>=1.10.0, tornado<5.0,>=4.4.1
+  responses==0.10.5         requires requests>=2.0, six
+  pbr==5.1.3                requires -
+  cryptography==2.6.1       requires asn1crypto>=0.21.0, cffi!=1.11.3,>=1.8, six>=1.4.1
+  atomicwrites==1.3.0       requires -
+  pytest-timeout==1.3.3     requires pytest>=3.6.0
+  werkzeug==0.14.1          requires -
+  nbformat==4.4.0           requires ipython-genutils, jsonschema!=2.5.0,>=2.4, jupyter-core, traitlets>=4.1
+  daiquiri==1.5.0           requires -
+  dogpile.cache==0.7.1      requires decorator
+  jsonpatch==1.23           requires jsonpointer>=1.9
+  attrs==19.1.0             requires -
+  python-jose==2.0.2        requires ecdsa<1.0, future<1.0, pycryptodome<4.0.0,>=3.3.1, six<2.0
+  os-service-types==1.6.0   requires pbr!=2.1.0,>=2.0.0
+  mock==2.0.0               requires pbr>=0.11, six>=1.9
+  yamllint==1.6.1           requires pyyaml
+  boto==2.49.0              requires -
+  coverage==5.0a4           requires -
+  goblinoid==0.1.0          requires click, daiquiri, goblin, gremlinpython, yarl<1.2
+  mypy-lang==0.4.6          requires -
+  libclang-py3==3.4.0       requires -
+  radon==1.4.0              requires colorama<0.4,>=0.3, mando<0.4,>=0.3
+  more-itertools==6.0.0     requires -
+  pytz==2018.9              requires -
+  yarl==1.1.1               requires idna>=2.0, multidict>=4.0
+  moto==1.3.7               requires aws-xray-sdk<0.96,>=0.93, boto3>=1.6.16, boto>=2.36.0, botocore>=1.12.13, cryptography>=2.3.0, docker>=2.5.1, jinja2>=2.7.3, jsondiff==1.1.1, mock, pyaml, python-dateutil<3.0.0,>=2.1, python-jose<3.0.0, pytz, requests>=2.5, responses>=0.9.0, six>1.9, werkzeug, xmltodict
+  astroid==2.2.4            requires lazy-object-proxy, six, typed-ast>=1.3.0; implementation_name == "cpython", wrapt
+  munch==2.3.2              requires six
+  rstcheck==3.3.1           requires docutils>=0.7
+  coala-bears==0.12.0.dev20171110210444 requires aenum~=2.0.8, apertium-lint~=0.29, autoflake~=0.7, autopep8~=1.2, bandit~=1.2, click==6.6, cmakelint~=1.3, coala>=0.12.0.dev20170828055500, cppclean~=0.12.0, cpplint~=1.3, dennis~=0.8, docutils-ast-writer~=0.1.2, eradicate~=0.1.6, guess-language-spirit~=0.5.2, html-linter~=0.3.0, httpolice~=0.5.2, isort~=4.2, memento-client~=0.6.1, munkres3~=1.0, mypy-lang~=0.4.6, nbformat~=4.1, nltk~=3.2, proselint~=0.7.0, pycodestyle~=2.2, pydocstyle~=2.0, pyflakes~=1.5.0, pylint~=1.6, pyroma~=2.2.0, pyyaml~=3.12, radon==1.4.0, restructuredtext-lint~=1.0.0, rstcheck~=3.1, safety~=0.5.1, scspell3k~=2.0, vim-vint~=0.3.12, vulture~=0.25.0, yamllint~=1.6.1, yapf~=0.16.0
+  pytest-cov==2.6.1         requires coverage>=4.4, pytest>=3.6
+  requests==2.21.0          requires certifi>=2017.4.17, chardet<3.1.0,>=3.0.2, idna<2.9,>=2.5, urllib3<1.25,>=1.21.1
+  memento-client==0.6.1     requires requests>=2.7.0
+  aenum==2.0.10             requires -
+  pyprint==0.2.6            requires colorama~=0.3.7, termcolor~=1.1.0
+  toml==0.10.0              requires -
+  docutils-ast-writer==0.1.2 requires docutils>=0.12
+  goblin==2.1.0             requires aiogremlin==3.2.6rc1, inflection==0.3.1
+  packaging==16.8           requires pyparsing, six
+  eradicate==0.1.6          requires -
+  testfixtures==4.14.3      requires -
+  appdirs==1.4.3            requires -
+  safety==0.5.1             requires click>=6.0, packaging, requests
+  cmakelint==1.3.4.1        requires -
+  jsondiff==1.1.1           requires -
+  autopep8==1.4.3           requires pycodestyle>=2.4.0
+  bandit==1.5.1             requires gitpython>=1.0.1, pyyaml>=3.12, six>=1.10.0, stevedore>=1.20.0
+  dependency-management==0.4.0 requires coala-utils~=0.6, sarge~=0.1.4
+  restructuredtext-lint==1.0.1 requires docutils<1.0,>=0.11
+  dennis==0.9               requires click>=6, polib>=1.0.8
+  botocore==1.12.108        requires docutils>=0.10, jmespath<1.0.0,>=0.7.1, python-dateutil<3.0.0,>=2.1; python_version >= "2.7", urllib3<1.25,>=1.20; python_version >= "3.4"
+  keystoneauth1==3.13.1     requires iso8601>=0.1.11, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, requests>=2.14.2, six>=1.10.0, stevedore>=1.20.0
+  pyaml==18.11.0            requires pyyaml
+  cprofilev==1.0.7          requires bottle
+  vulture==0.25             requires -
+  html-linter==0.3.0        requires docopt>=0.6.1, template-remover
+  six==1.12.0               requires -
+  netifaces==0.10.9         requires -
+  click==6.6                requires -
+  coala==0.12.0.dev20180101025653 requires appdirs~=1.4, coala-utils~=0.6.2, colorlog~=2.7, dependency-management~=0.4.0, libclang-py3~=3.4.0, packaging~=16.8, pygments~=2.1, pyprint~=0.2.6, requests~=2.12, setuptools>=19.0, testfixtures~=4.14.3, unidiff~=0.5.2
+  pyyaml==3.13              requires -
+  requestsexceptions==1.4.0 requires -
+  black==18.9b0             requires appdirs, attrs>=17.4.0, click>=6.5, toml>=0.9.4
+
+New dependencies found in this round:
+  adding ['aenum', '>=1.4.5,~=2.0.8', '[]']
+  adding ['aiogremlin', '==3.2.6rc1', '[]']
+  adding ['ansicolor', '~=0.2.4', '[]']
+  adding ['appdirs', '==1.4.*,>=1.3.0,~=1.4', '[]']
+  adding ['asn1crypto', '>=0.21.0', '[]']
+  adding ['astroid', '<2.0,>=1.6', '[]']
+  adding ['bitstring', '>=3.1.4', '[]']
+  adding ['botocore', '<1.13.0,>=1.12.108,>=1.12.13', '[]']
+  adding ['brotlipy', '>=0.5.1', '[]']
+  adding ['certifi', '>=2017.4.17', '[]']
+  adding ['cffi', '!=1.11.3,>=1.8', '[]']
+  adding ['chardet', '<3.1.0,>=2.3.0,>=3.0.2', '[]']
+  adding ['click', '==6.6,>=6,>=6.0,>=6.5', '[]']
+  adding ['coala-utils', '~=0.6,~=0.6.2', '[]']
+  adding ['colorama', '<0.4,>=0.3,~=0.3.7', '[]']
+  adding ['defusedxml', '>=0.5.0', '[]']
+  adding ['docker-pycreds', '>=0.4.0', '[]']
+  adding ['docopt', '>=0.6.1', '[]']
+  adding ['docutils', '<1.0,>=0.10,>=0.11,>=0.12,>=0.7', '[]']
+  adding ['dominate', '>=2.2.0', '[]']
+  adding ['ecdsa', '<1.0', '[]']
+  adding ['future', '<1.0', '[]']
+  adding ['gitpython', '>=1.0.1', '[]']
+  adding ['idna', '<2.9,>=2.0,>=2.5', '[]']
+  adding ['inflection', '==0.3.1', '[]']
+  adding ['ipython-genutils', '', '[]']
+  adding ['isort', '>=4.2.5,~=4.2', '[]']
+  adding ['jmespath', '<1.0.0,>=0.7.1,>=0.9.0', '[]']
+  adding ['jsonpickle', '', '[]']
+  adding ['jsonpointer', '>=1.9', '[]']
+  adding ['jsonschema', '!=2.5.0,>=2.4', '[]']
+  adding ['jupyter-core', '', '[]']
+  adding ['lazy-object-proxy', '', '[]']
+  adding ['lxml', '>=3.6.0', '[]']
+  adding ['mando', '<0.4,>=0.3', '[]']
+  adding ['markupsafe', '>=0.23', '[]']
+  adding ['mccabe', '', '[]']
+  adding ['multidict', '>=4.0', '[]']
+  adding ['pbr', '!=2.1.0,>=0.11,>=2.0.0', '[]']
+  adding ['polib', '>=1.0.8', '[]']
+  adding ['pycodestyle', '>=2.4.0,~=2.2', '[]']
+  adding ['pycryptodome', '<4.0.0,>=3.3.1', '[]']
+  adding ['pyflakes', '>=0.8.1,~=1.5.0', '[]']
+  adding ['pyparsing', '', '[]']
+  adding ['pyprint', '==0.2.*,~=0.2.6', '[]']
+  adding ['pyyaml', '>=3.12,~=3.11,~=3.12', '[]']
+  adding ['requests', '!=2.18.0,>=2.0,>=2.14.2,>=2.5,>=2.7.0,~=2.12', '[]']
+  adding ['s3transfer', '<0.3.0,>=0.2.0', '[]']
+  adding ['sarge', '~=0.1.4', '[]']
+  adding ['singledispatch', '>=3.4.0.3', '[]']
+  adding ['six', '<2.0,>1.9,>=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9', '[]']
+  adding ['snowballstemmer', '', '[]']
+  adding ['stevedore', '>=1.20.0', '[]']
+  adding ['template-remover', '', '[]']
+  adding ['termcolor', '~=1.1.0', '[]']
+  adding ['tornado', '<5.0,>=4.4.1', '[]']
+  adding ['traitlets', '>=4.1', '[]']
+  adding ['typed-ast', '>=1.3.0', '[]']
+  adding ['urllib3', '<1.25,>=1.20,>=1.21.1', '[]']
+  adding ['websocket-client', '>=0.32.0', '[]']
+  adding ['wrapt', '', '[]']
+Removed dependencies in this round:
+  removing ['aenum', '~=2.0.8', '[]']
+  removing ['appdirs', '>=1.3.0,~=1.4', '[]']
+  removing ['astroid', '<3,>=2.2.0', '[]']
+  removing ['botocore', '>=1.12.13', '[]']
+  removing ['click', '==6.6,>=6.5', '[]']
+  removing ['coala-utils', '~=0.6.2', '[]']
+  removing ['isort', '<5,>=4.2.5,~=4.2', '[]']
+  removing ['jmespath', '>=0.9.0', '[]']
+  removing ['mccabe', '<0.7,>=0.6', '[]']
+  removing ['pbr', '!=2.1.0,>=2.0.0', '[]']
+  removing ['pycodestyle', '~=2.2', '[]']
+  removing ['pyflakes', '~=1.5.0', '[]']
+  removing ['pyprint', '~=0.2.6', '[]']
+  removing ['pyyaml', '>=3.12,~=3.12', '[]']
+  removing ['requests', '>=2.5,~=2.12', '[]']
+  removing ['six', '>1.9,>=1.10.0', '[]']
+Unsafe dependencies in this round:
+------------------------------------------------------------
+Result of round 2: not stable
+
+                          ROUND 3                           
+Current constraints:
+  aenum>=1.4.5,~=2.0.8
+  aiogremlin==3.2.6rc1
+  ansicolor~=0.2.4
+  apertium-lint~=0.29
+  appdirs==1.4.*,>=1.3.0,~=1.4
+  asn1crypto>=0.21.0
+  astroid<2.0,>=1.6
+  atomicwrites>=1.0
+  attrs>=17.4.0
+  autoflake~=0.7
+  autopep8~=1.2
+  aws-xray-sdk<0.96,>=0.93
+  bandit~=1.2
+  bitstring>=3.1.4
+  black
+  boto>=2.36.0
+  boto3>=1.6.16
+  botocore<1.13.0,>=1.12.108,>=1.12.13
+  bottle
+  brotlipy>=0.5.1
+  certifi>=2017.4.17
+  cffi!=1.11.3,>=1.8
+  chardet<3.1.0,>=2.3.0,>=3.0.2
+  click==6.6,>=6,>=6.0,>=6.5
+  cmakelint~=1.3
+  coala>=0.12.0.dev20170828055500
+  coala-bears
+  coala-utils~=0.6,~=0.6.2
+  colorama<0.4,>=0.3,~=0.3.7
+  colorlog~=2.7
+  coverage>=4.4
+  cppclean~=0.12.0
+  cpplint~=1.3
+  cprofilev
+  cryptography>=2.1,>=2.3.0
+  daiquiri
+  decorator>=3.4.0
+  defusedxml>=0.5.0
+  dennis~=0.8
+  dependency-management~=0.4.0
+  docker>=2.5.1
+  docker-pycreds>=0.4.0
+  docopt>=0.6.1
+  docutils<1.0,>=0.10,>=0.11,>=0.12,>=0.7
+  docutils-ast-writer~=0.1.2
+  dogpile.cache>=0.6.2
+  dominate>=2.2.0
+  ecdsa<1.0
+  eradicate~=0.1.6
+  flexmock
+  future<1.0
+  gitpython>=1.0.1
+  goblin
+  goblinoid
+  gremlinpython
+  guess-language-spirit~=0.5.2
+  html-linter~=0.3.0
+  httpolice~=0.5.2
+  idna<2.9,>=2.0,>=2.5
+  inflection==0.3.1
+  ipython-genutils
+  iso8601>=0.1.11
+  isort>=4.2.5,~=4.2
+  jinja2>=2.7.3
+  jmespath<1.0.0,>=0.7.1,>=0.9.0
+  jsondiff==1.1.1
+  jsonpatch!=1.20,>=1.16
+  jsonpickle
+  jsonpointer>=1.9
+  jsonschema!=2.5.0,>=2.4
+  jupyter-core
+  keystoneauth1>=3.11.0
+  lazy-object-proxy
+  libclang-py3~=3.4.0
+  lxml>=3.6.0
+  mando<0.4,>=0.3
+  markupsafe>=0.23
+  mccabe
+  memento-client~=0.6.1
+  mock
+  more-itertools>=4.0.0
+  moto
+  multidict>=4.0
+  munch>=2.1.0
+  munkres3~=1.0
+  mypy-lang~=0.4.6
+  nbformat~=4.1
+  netifaces>=0.10.4
+  nltk~=3.2
+  openstacksdk
+  os-service-types>=1.2.0
+  packaging~=16.8
+  pbr!=2.1.0,>=0.11,>=2.0.0
+  pluggy>=0.7
+  polib>=1.0.8
+  proselint~=0.7.0
+  py>=1.5.0
+  pyaml
+  pycodestyle>=2.4.0,~=2.2
+  pycryptodome<4.0.0,>=3.3.1
+  pydocstyle~=2.0
+  pyflakes>=0.8.1,~=1.5.0
+  pygments~=2.1
+  pylint~=1.6
+  pyparsing
+  pyprint==0.2.*,~=0.2.6
+  pyroma~=2.2.0
+  pytest>=3.6,>=3.6.0
+  pytest-cov
+  pytest-timeout
+  python-dateutil<3.0.0,>=2.1
+  python-jose<3.0.0
+  pytz
+  pyyaml>=3.12,~=3.11,~=3.12
+  radon==1.4.0
+  requests!=2.18.0,>=2.0,>=2.14.2,>=2.5,>=2.7.0,~=2.12
+  requestsexceptions>=1.2.0
+  responses>=0.9.0
+  restructuredtext-lint~=1.0.0
+  rstcheck~=3.1
+  s3transfer<0.3.0,>=0.2.0
+  safety~=0.5.1
+  sarge~=0.1.4
+  scspell3k~=2.0
+  singledispatch>=3.4.0.3
+  six<2.0,>1.9,>=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9
+  snowballstemmer
+  stevedore>=1.20.0
+  template-remover
+  termcolor~=1.1.0
+  testfixtures~=4.14.3
+  toml>=0.9.4
+  tornado<5.0,>=4.4.1
+  traitlets>=4.1
+  typed-ast>=1.3.0
+  unidiff~=0.5.2
+  urllib3<1.25,>=1.20,>=1.21.1
+  vim-vint~=0.3.12
+  vulture~=0.25.0
+  websocket-client>=0.32.0
+  werkzeug
+  wrapt
+  xmltodict
+  yamllint~=1.6.1
+  yapf~=0.16.0
+  yarl<1.2
+
+Finding the best candidates:
+  found candidate aenum==2.0.10 (constraint was >=1.4.5,~=2.0.8)
+  found candidate aiogremlin==3.2.6rc1 (constraint was ==3.2.6rc1)
+  found candidate ansicolor==0.2.6 (constraint was ~=0.2.4)
+  found candidate apertium-lint==0.29 (constraint was ~=0.29)
+  found candidate appdirs==1.4.3 (constraint was >=1.3.0,~=1.4,==1.4.*)
+  found candidate asn1crypto==0.24.0 (constraint was >=0.21.0)
+  found candidate astroid==1.6.5 (constraint was >=1.6,<2.0)
+  found candidate atomicwrites==1.3.0 (constraint was >=1.0)
+  found candidate attrs==19.1.0 (constraint was >=17.4.0)
+  found candidate autoflake==0.7 (constraint was ~=0.7)
+  found candidate autopep8==1.4.3 (constraint was ~=1.2)
+  found candidate aws-xray-sdk==0.95 (constraint was >=0.93,<0.96)
+  found candidate bandit==1.5.1 (constraint was ~=1.2)
+  found candidate bitstring==3.1.5 (constraint was >=3.1.4)
+  found candidate black==18.9b0 (constraint was <any>)
+  found candidate boto==2.49.0 (constraint was >=2.36.0)
+  found candidate boto3==1.9.108 (constraint was >=1.6.16)
+  found candidate botocore==1.12.108 (constraint was >=1.12.108,>=1.12.13,<1.13.0)
+  found candidate bottle==0.12.16 (constraint was <any>)
+  found candidate brotlipy==0.7.0 (constraint was >=0.5.1)
+  found candidate certifi==2018.11.29 (constraint was >=2017.4.17)
+  found candidate cffi==1.12.2 (constraint was !=1.11.3,>=1.8)
+  found candidate chardet==3.0.4 (constraint was >=2.3.0,>=3.0.2,<3.1.0)
+  found candidate click==6.6 (constraint was >=6,>=6.0,>=6.5,==6.6)
+  found candidate cmakelint==1.3.4.1 (constraint was ~=1.3)
+  found candidate coala==0.12.0.dev20180101025653 (constraint was >=0.12.0.dev20170828055500)
+  found candidate coala-bears==0.12.0.dev20171110210444 (constraint was <any>)
+  found candidate coala-utils==0.6.7 (constraint was ~=0.6,~=0.6.2)
+  found candidate colorama==0.3.9 (constraint was >=0.3,~=0.3.7,<0.4)
+  found candidate colorlog==2.10.0 (constraint was ~=2.7)
+  found candidate coverage==5.0a4 (constraint was >=4.4)
+  found candidate cppclean==0.12 (constraint was ~=0.12.0)
+  found candidate cpplint==1.4.4 (constraint was ~=1.3)
+  found candidate cprofilev==1.0.7 (constraint was <any>)
+  found candidate cryptography==2.6.1 (constraint was >=2.1,>=2.3.0)
+  found candidate daiquiri==1.5.0 (constraint was <any>)
+  found candidate decorator==4.3.2 (constraint was >=3.4.0)
+  found candidate defusedxml==0.5.0 (constraint was >=0.5.0)
+  found candidate dennis==0.9 (constraint was ~=0.8)
+  found candidate dependency-management==0.4.0 (constraint was ~=0.4.0)
+  found candidate docker==3.7.0 (constraint was >=2.5.1)
+  found candidate docker-pycreds==0.4.0 (constraint was >=0.4.0)
+  found candidate docopt==0.6.2 (constraint was >=0.6.1)
+  found candidate docutils==0.14 (constraint was >=0.10,>=0.11,>=0.12,>=0.7,<1.0)
+  found candidate docutils-ast-writer==0.1.2 (constraint was ~=0.1.2)
+  found candidate dogpile.cache==0.7.1 (constraint was >=0.6.2)
+  found candidate dominate==2.3.5 (constraint was >=2.2.0)
+  found candidate ecdsa==0.13 (constraint was <1.0)
+  found candidate eradicate==0.1.6 (constraint was ~=0.1.6)
+  found candidate flexmock==0.10.3 (constraint was <any>)
+  found candidate future==0.17.1 (constraint was <1.0)
+  found candidate gitpython==2.1.11 (constraint was >=1.0.1)
+  found candidate goblin==2.1.0 (constraint was <any>)
+  found candidate goblinoid==0.1.0 (constraint was <any>)
+  found candidate gremlinpython==3.4.0 (constraint was <any>)
+  found candidate guess-language-spirit==0.5.3 (constraint was ~=0.5.2)
+  found candidate html-linter==0.3.0 (constraint was ~=0.3.0)
+  found candidate httpolice==0.5.2 (constraint was ~=0.5.2)
+  found candidate idna==2.8 (constraint was >=2.0,>=2.5,<2.9)
+  found candidate inflection==0.3.1 (constraint was ==0.3.1)
+  found candidate ipython-genutils==0.2.0 (constraint was <any>)
+  found candidate iso8601==0.1.12 (constraint was >=0.1.11)
+  found candidate isort==4.3.11 (constraint was ~=4.2,>=4.2.5)
+  found candidate jinja2==2.10 (constraint was >=2.7.3)
+  found candidate jmespath==0.9.4 (constraint was >=0.7.1,>=0.9.0,<1.0.0)
+  found candidate jsondiff==1.1.1 (constraint was ==1.1.1)
+  found candidate jsonpatch==1.23 (constraint was >=1.16,!=1.20)
+  found candidate jsonpickle==1.1 (constraint was <any>)
+  found candidate jsonpointer==2.0 (constraint was >=1.9)
+  found candidate jsonschema==3.0.1 (constraint was >=2.4,!=2.5.0)
+  found candidate jupyter-core==4.4.0 (constraint was <any>)
+  found candidate keystoneauth1==3.13.1 (constraint was >=3.11.0)
+  found candidate lazy-object-proxy==1.3.1 (constraint was <any>)
+  found candidate libclang-py3==3.4.0 (constraint was ~=3.4.0)
+  found candidate lxml==4.3.2 (constraint was >=3.6.0)
+  found candidate mando==0.3.3 (constraint was >=0.3,<0.4)
+  found candidate markupsafe==1.1.1 (constraint was >=0.23)
+  found candidate mccabe==0.6.1 (constraint was <any>)
+  found candidate memento-client==0.6.1 (constraint was ~=0.6.1)
+  found candidate mock==2.0.0 (constraint was <any>)
+  found candidate more-itertools==6.0.0 (constraint was >=4.0.0)
+  found candidate moto==1.3.7 (constraint was <any>)
+  found candidate multidict==4.5.2 (constraint was >=4.0)
+  found candidate munch==2.3.2 (constraint was >=2.1.0)
+  found candidate munkres3==1.0.5.5 (constraint was ~=1.0)
+  found candidate mypy-lang==0.4.6 (constraint was ~=0.4.6)
+  found candidate nbformat==4.4.0 (constraint was ~=4.1)
+  found candidate netifaces==0.10.9 (constraint was >=0.10.4)
+  found candidate nltk==3.4 (constraint was ~=3.2)
+  found candidate openstacksdk==0.25.0 (constraint was <any>)
+  found candidate os-service-types==1.6.0 (constraint was >=1.2.0)
+  found candidate packaging==16.8 (constraint was ~=16.8)
+  found candidate pbr==5.1.3 (constraint was >=0.11,>=2.0.0,!=2.1.0)
+  found candidate pluggy==0.9.0 (constraint was >=0.7)
+  found candidate polib==1.1.0 (constraint was >=1.0.8)
+  found candidate proselint==0.7.0 (constraint was ~=0.7.0)
+  found candidate py==1.8.0 (constraint was >=1.5.0)
+  found candidate pyaml==18.11.0 (constraint was <any>)
+  found candidate pycodestyle==2.5.0 (constraint was ~=2.2,>=2.4.0)
+  found candidate pycryptodome==3.7.3 (constraint was >=3.3.1,<4.0.0)
+  found candidate pydocstyle==2.1.1 (constraint was ~=2.0)
+  found candidate pyflakes==1.5.0 (constraint was >=0.8.1,~=1.5.0)
+  found candidate pygments==2.3.1 (constraint was ~=2.1)
+  found candidate pylint==1.9.4 (constraint was ~=1.6)
+  found candidate pyparsing==2.3.1 (constraint was <any>)
+  found candidate pyprint==0.2.6 (constraint was ==0.2.*,~=0.2.6)
+  found candidate pyroma==2.2 (constraint was ~=2.2.0)
+  found candidate pytest==4.3.0 (constraint was >=3.6,>=3.6.0)
+  found candidate pytest-cov==2.6.1 (constraint was <any>)
+  found candidate pytest-timeout==1.3.3 (constraint was <any>)
+  found candidate python-dateutil==2.8.0 (constraint was >=2.1,<3.0.0)
+  found candidate python-jose==2.0.2 (constraint was <3.0.0)
+  found candidate pytz==2018.9 (constraint was <any>)
+  found candidate pyyaml==3.13 (constraint was ~=3.11,>=3.12,~=3.12)
+  found candidate radon==1.4.0 (constraint was ==1.4.0)
+  found candidate requests==2.21.0 (constraint was >=2.0,~=2.12,>=2.14.2,!=2.18.0,>=2.5,>=2.7.0)
+  found candidate requestsexceptions==1.4.0 (constraint was >=1.2.0)
+  found candidate responses==0.10.5 (constraint was >=0.9.0)
+  found candidate restructuredtext-lint==1.0.1 (constraint was ~=1.0.0)
+  found candidate rstcheck==3.3.1 (constraint was ~=3.1)
+  found candidate s3transfer==0.2.0 (constraint was >=0.2.0,<0.3.0)
+  found candidate safety==0.5.1 (constraint was ~=0.5.1)
+  found candidate sarge==0.1.5.post0 (constraint was ~=0.1.4)
+  found candidate scspell3k==2.2 (constraint was ~=2.0)
+  found candidate singledispatch==3.4.0.3 (constraint was >=3.4.0.3)
+  found candidate six==1.12.0 (constraint was >=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9,>1.9,<2.0)
+  found candidate snowballstemmer==1.2.1 (constraint was <any>)
+  found candidate stevedore==1.30.1 (constraint was >=1.20.0)
+  found candidate template-remover==0.1.9 (constraint was <any>)
+  found candidate termcolor==1.1.0 (constraint was ~=1.1.0)
+  found candidate testfixtures==4.14.3 (constraint was ~=4.14.3)
+  found candidate toml==0.10.0 (constraint was >=0.9.4)
+  found candidate tornado==4.5.3 (constraint was >=4.4.1,<5.0)
+  found candidate traitlets==4.3.2 (constraint was >=4.1)
+  found candidate typed-ast==1.3.1 (constraint was >=1.3.0)
+  found candidate unidiff==0.5.5 (constraint was ~=0.5.2)
+  found candidate urllib3==1.24.1 (constraint was >=1.20,>=1.21.1,<1.25)
+  found candidate vim-vint==0.3.19 (constraint was ~=0.3.12)
+  found candidate vulture==0.25 (constraint was ~=0.25.0)
+  found candidate websocket-client==0.55.0 (constraint was >=0.32.0)
+  found candidate werkzeug==0.14.1 (constraint was <any>)
+  found candidate wrapt==1.11.1 (constraint was <any>)
+  found candidate xmltodict==0.12.0 (constraint was <any>)
+  found candidate yamllint==1.6.1 (constraint was ~=1.6.1)
+  found candidate yapf==0.16.3 (constraint was ~=0.16.0)
+  found candidate yarl==1.1.1 (constraint was <1.2)
+
+Finding secondary dependencies:
+  snowballstemmer==1.2.1    requires -
+  lxml==4.3.2               requires -
+  six==1.12.0               requires -
+  traitlets==4.3.2          requires decorator, ipython-genutils, six
+  netifaces==0.10.9         requires -
+  s3transfer==0.2.0         requires botocore<2.0.0,>=1.12.36
+  yarl==1.1.1               requires idna>=2.0, multidict>=4.0
+  pyyaml==3.13              requires -
+  click==6.6                requires -
+  pbr==5.1.3                requires -
+  toml==0.10.0              requires -
+  websocket-client==0.55.0  requires six
+  wrapt==1.11.1             requires -
+  httpolice==0.5.2          requires bitstring>=3.1.4, brotlipy>=0.5.1, defusedxml>=0.5.0, dominate>=2.2.0, lxml>=3.6.0, singledispatch>=3.4.0.3, six>=1.10.0
+  ipython-genutils==0.2.0   requires -
+  gitpython==2.1.11         requires gitdb2>=2.0.0
+  responses==0.10.5         requires requests>=2.0, six
+  mando==0.3.3              requires -
+  python-dateutil==2.8.0    requires six>=1.5
+  pyroma==2.2               requires docutils, setuptools
+  gremlinpython==3.4.0      requires aenum>=1.4.5, six>=1.10.0, tornado<5.0,>=4.4.1
+  py==1.8.0                 requires -
+  dogpile.cache==0.7.1      requires decorator
+  dominate==2.3.5           requires -
+  jsonpointer==2.0          requires -
+  jinja2==2.10              requires markupsafe>=0.23
+  singledispatch==3.4.0.3   requires six
+  eradicate==0.1.6          requires -
+  safety==0.5.1             requires click>=6.0, packaging, requests
+  goblinoid==0.1.0          requires click, daiquiri, goblin, gremlinpython, yarl<1.2
+  xmltodict==0.12.0         requires -
+  more-itertools==6.0.0     requires -
+  munkres3==1.0.5.5         requires -
+  flexmock==0.10.3          requires -
+  iso8601==0.1.12           requires -
+  requestsexceptions==1.4.0 requires -
+  typed-ast==1.3.1          requires -
+  pytest==4.3.0             requires atomicwrites>=1.0, attrs>=17.4.0, more-itertools>=4.0.0; python_version > "2.7", pluggy>=0.7, py>=1.5.0, setuptools, six>=1.10.0
+  cpplint==1.4.4            requires -
+  ecdsa==0.13               requires -
+  pytest-cov==2.6.1         requires coverage>=4.4, pytest>=3.6
+  yamllint==1.6.1           requires pyyaml
+  goblin==2.1.0             requires aiogremlin==3.2.6rc1, inflection==0.3.1
+  jsondiff==1.1.1           requires -
+  openstacksdk==0.25.0      requires appdirs>=1.3.0, cryptography>=2.1, decorator>=3.4.0, dogpile.cache>=0.6.2, iso8601>=0.1.11, jmespath>=0.9.0, jsonpatch!=1.20,>=1.16, keystoneauth1>=3.11.0, munch>=2.1.0, netifaces>=0.10.4, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, pyyaml>=3.12, requestsexceptions>=1.2.0, six>=1.10.0
+  munch==2.3.2              requires six
+  jmespath==0.9.4           requires -
+  polib==1.1.0              requires -
+  mypy-lang==0.4.6          requires -
+  dependency-management==0.4.0 requires coala-utils~=0.6, sarge~=0.1.4
+  memento-client==0.6.1     requires requests>=2.7.0
+  werkzeug==0.14.1          requires -
+  asn1crypto==0.24.0        requires -
+  yapf==0.16.3              requires -
+  astroid==1.6.5            requires lazy-object-proxy, six, wrapt
+  os-service-types==1.6.0   requires pbr!=2.1.0,>=2.0.0
+  python-jose==2.0.2        requires ecdsa<1.0, future<1.0, pycryptodome<4.0.0,>=3.3.1, six<2.0
+  jsonschema==3.0.1         requires attrs>=17.4.0, pyrsistent>=0.14.0, setuptools, six>=1.11.0
+  jsonpatch==1.23           requires jsonpointer>=1.9
+  boto==2.49.0              requires -
+  coala-bears==0.12.0.dev20171110210444 requires aenum~=2.0.8, apertium-lint~=0.29, autoflake~=0.7, autopep8~=1.2, bandit~=1.2, click==6.6, cmakelint~=1.3, coala>=0.12.0.dev20170828055500, cppclean~=0.12.0, cpplint~=1.3, dennis~=0.8, docutils-ast-writer~=0.1.2, eradicate~=0.1.6, guess-language-spirit~=0.5.2, html-linter~=0.3.0, httpolice~=0.5.2, isort~=4.2, memento-client~=0.6.1, munkres3~=1.0, mypy-lang~=0.4.6, nbformat~=4.1, nltk~=3.2, proselint~=0.7.0, pycodestyle~=2.2, pydocstyle~=2.0, pyflakes~=1.5.0, pylint~=1.6, pyroma~=2.2.0, pyyaml~=3.12, radon==1.4.0, restructuredtext-lint~=1.0.0, rstcheck~=3.1, safety~=0.5.1, scspell3k~=2.0, vim-vint~=0.3.12, vulture~=0.25.0, yamllint~=1.6.1, yapf~=0.16.0
+  coala-utils==0.6.7        requires appdirs==1.4.*, pyprint==0.2.*
+  cprofilev==1.0.7          requires bottle
+  jsonpickle==1.1           requires -
+  cryptography==2.6.1       requires asn1crypto>=0.21.0, cffi!=1.11.3,>=1.8, six>=1.4.1
+  cffi==1.12.2              requires pycparser
+  template-remover==0.1.9   requires docopt>=0.6.1
+  jupyter-core==4.4.0       requires traitlets
+  vulture==0.25             requires -
+  bottle==0.12.16           requires -
+  atomicwrites==1.3.0       requires -
+  coverage==5.0a4           requires -
+  idna==2.8                 requires -
+  restructuredtext-lint==1.0.1 requires docutils<1.0,>=0.11
+  isort==4.3.11             requires -
+  cmakelint==1.3.4.1        requires -
+  coala==0.12.0.dev20180101025653 requires appdirs~=1.4, coala-utils~=0.6.2, colorlog~=2.7, dependency-management~=0.4.0, libclang-py3~=3.4.0, packaging~=16.8, pygments~=2.1, pyprint~=0.2.6, requests~=2.12, setuptools>=19.0, testfixtures~=4.14.3, unidiff~=0.5.2
+  unidiff==0.5.5            requires -
+  aenum==2.0.10             requires -
+  decorator==4.3.2          requires -
+  proselint==0.7.0          requires click, future, six
+  boto3==1.9.108            requires botocore<1.13.0,>=1.12.108, jmespath<1.0.0,>=0.7.1, s3transfer<0.3.0,>=0.2.0
+  colorlog==2.10.0          requires -
+  requests==2.21.0          requires certifi>=2017.4.17, chardet<3.1.0,>=3.0.2, idna<2.9,>=2.5, urllib3<1.25,>=1.21.1
+  aws-xray-sdk==0.95        requires jsonpickle, requests, wrapt
+  pydocstyle==2.1.1         requires six, snowballstemmer
+  chardet==3.0.4            requires -
+  keystoneauth1==3.13.1     requires iso8601>=0.1.11, os-service-types>=1.2.0, pbr!=2.1.0,>=2.0.0, requests>=2.14.2, six>=1.10.0, stevedore>=1.20.0
+  markupsafe==1.1.1         requires -
+  autoflake==0.7            requires pyflakes>=0.8.1
+  docopt==0.6.2             requires -
+  pluggy==0.9.0             requires -
+  vim-vint==0.3.19          requires ansicolor~=0.2.4, chardet>=2.3.0, pyyaml~=3.11
+  pyaml==18.11.0            requires pyyaml
+  tornado==4.5.3            requires -
+  urllib3==1.24.1           requires -
+  inflection==0.3.1         requires -
+  future==0.17.1            requires -
+  guess-language-spirit==0.5.3 requires -
+  mock==2.0.0               requires pbr>=0.11, six>=1.9
+  apertium-lint==0.29       requires -
+  packaging==16.8           requires pyparsing, six
+  defusedxml==0.5.0         requires -
+  pytest-timeout==1.3.3     requires pytest>=3.6.0
+  aiogremlin==3.2.6rc1      requires aenum==1.4.5, aiohttp==2.2.5, pyyaml==3.12, six==1.10.0
+  pycodestyle==2.5.0        requires -
+  nltk==3.4                 requires singledispatch, six
+  pyprint==0.2.6            requires colorama~=0.3.7, termcolor~=1.1.0
+  pyflakes==1.5.0           requires -
+  pyparsing==2.3.1          requires -
+  bitstring==3.1.5          requires -
+  multidict==4.5.2          requires -
+  pylint==1.9.4             requires astroid<2.0,>=1.6, isort>=4.2.5, mccabe, six
+  radon==1.4.0              requires colorama<0.4,>=0.3, mando<0.4,>=0.3
+  rstcheck==3.3.1           requires docutils>=0.7
+  lazy-object-proxy==1.3.1  requires -
+  libclang-py3==3.4.0       requires -
+  attrs==19.1.0             requires -
+  sarge==0.1.5.post0        requires -
+  testfixtures==4.14.3      requires -
+  black==18.9b0             requires appdirs, attrs>=17.4.0, click>=6.5, toml>=0.9.4
+  botocore==1.12.108        requires docutils>=0.10, jmespath<1.0.0,>=0.7.1, python-dateutil<3.0.0,>=2.1; python_version >= "2.7", urllib3<1.25,>=1.20; python_version >= "3.4"
+  autopep8==1.4.3           requires pycodestyle>=2.4.0
+  appdirs==1.4.3            requires -
+  brotlipy==0.7.0           requires cffi>=1.0.0
+  daiquiri==1.5.0           requires -
+  certifi==2018.11.29       requires -
+  moto==1.3.7               requires aws-xray-sdk<0.96,>=0.93, boto3>=1.6.16, boto>=2.36.0, botocore>=1.12.13, cryptography>=2.3.0, docker>=2.5.1, jinja2>=2.7.3, jsondiff==1.1.1, mock, pyaml, python-dateutil<3.0.0,>=2.1, python-jose<3.0.0, pytz, requests>=2.5, responses>=0.9.0, six>1.9, werkzeug, xmltodict
+  pytz==2018.9              requires -
+  termcolor==1.1.0          requires -
+  bandit==1.5.1             requires gitpython>=1.0.1, pyyaml>=3.12, six>=1.10.0, stevedore>=1.20.0
+  mccabe==0.6.1             requires -
+  pycryptodome==3.7.3       requires -
+  nbformat==4.4.0           requires ipython-genutils, jsonschema!=2.5.0,>=2.4, jupyter-core, traitlets>=4.1
+  scspell3k==2.2            requires -
+  docker-pycreds==0.4.0     requires six>=1.4.0
+  pygments==2.3.1           requires -
+  stevedore==1.30.1         requires pbr!=2.1.0,>=2.0.0, six>=1.10.0
+  ansicolor==0.2.6          requires -
+  docutils==0.14            requires -
+  colorama==0.3.9           requires -
+  docutils-ast-writer==0.1.2 requires docutils>=0.12
+  docker==3.7.0             requires docker-pycreds>=0.4.0, requests!=2.18.0,>=2.14.2, six>=1.4.0, websocket-client>=0.32.0
+  html-linter==0.3.0        requires docopt>=0.6.1, template-remover
+  cppclean==0.12            requires -
+  dennis==0.9               requires click>=6, polib>=1.0.8
+
+New dependencies found in this round:
+  adding ['aenum', '==1.4.5,>=1.4.5,~=2.0.8', '[]']
+  adding ['aiohttp', '==2.2.5', '[]']
+  adding ['botocore', '<1.13.0,<2.0.0,>=1.12.108,>=1.12.13,>=1.12.36', '[]']
+  adding ['cffi', '!=1.11.3,>=1.0.0,>=1.8', '[]']
+  adding ['gitdb2', '>=2.0.0', '[]']
+  adding ['pycparser', '', '[]']
+  adding ['pyrsistent', '>=0.14.0', '[]']
+  adding ['pyyaml', '==3.12,>=3.12,~=3.11,~=3.12', '[]']
+  adding ['six', '<2.0,==1.10.0,>1.9,>=1.10.0,>=1.11.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9', '[]']
+Removed dependencies in this round:
+  removing ['aenum', '>=1.4.5,~=2.0.8', '[]']
+  removing ['botocore', '<1.13.0,>=1.12.108,>=1.12.13', '[]']
+  removing ['cffi', '!=1.11.3,>=1.8', '[]']
+  removing ['pyyaml', '>=3.12,~=3.11,~=3.12', '[]']
+  removing ['six', '<2.0,>1.9,>=1.10.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9', '[]']
+  removing ['typed-ast', '>=1.3.0', '[]']
+Unsafe dependencies in this round:
+------------------------------------------------------------
+Result of round 3: not stable
+
+                          ROUND 4                           
+Current constraints:
+  aenum==1.4.5,>=1.4.5,~=2.0.8
+  aiogremlin==3.2.6rc1
+  aiohttp==2.2.5
+  ansicolor~=0.2.4
+  apertium-lint~=0.29
+  appdirs==1.4.*,>=1.3.0,~=1.4
+  asn1crypto>=0.21.0
+  astroid<2.0,>=1.6
+  atomicwrites>=1.0
+  attrs>=17.4.0
+  autoflake~=0.7
+  autopep8~=1.2
+  aws-xray-sdk<0.96,>=0.93
+  bandit~=1.2
+  bitstring>=3.1.4
+  black
+  boto>=2.36.0
+  boto3>=1.6.16
+  botocore<1.13.0,<2.0.0,>=1.12.108,>=1.12.13,>=1.12.36
+  bottle
+  brotlipy>=0.5.1
+  certifi>=2017.4.17
+  cffi!=1.11.3,>=1.0.0,>=1.8
+  chardet<3.1.0,>=2.3.0,>=3.0.2
+  click==6.6,>=6,>=6.0,>=6.5
+  cmakelint~=1.3
+  coala>=0.12.0.dev20170828055500
+  coala-bears
+  coala-utils~=0.6,~=0.6.2
+  colorama<0.4,>=0.3,~=0.3.7
+  colorlog~=2.7
+  coverage>=4.4
+  cppclean~=0.12.0
+  cpplint~=1.3
+  cprofilev
+  cryptography>=2.1,>=2.3.0
+  daiquiri
+  decorator>=3.4.0
+  defusedxml>=0.5.0
+  dennis~=0.8
+  dependency-management~=0.4.0
+  docker>=2.5.1
+  docker-pycreds>=0.4.0
+  docopt>=0.6.1
+  docutils<1.0,>=0.10,>=0.11,>=0.12,>=0.7
+  docutils-ast-writer~=0.1.2
+  dogpile.cache>=0.6.2
+  dominate>=2.2.0
+  ecdsa<1.0
+  eradicate~=0.1.6
+  flexmock
+  future<1.0
+  gitdb2>=2.0.0
+  gitpython>=1.0.1
+  goblin
+  goblinoid
+  gremlinpython
+  guess-language-spirit~=0.5.2
+  html-linter~=0.3.0
+  httpolice~=0.5.2
+  idna<2.9,>=2.0,>=2.5
+  inflection==0.3.1
+  ipython-genutils
+  iso8601>=0.1.11
+  isort>=4.2.5,~=4.2
+  jinja2>=2.7.3
+  jmespath<1.0.0,>=0.7.1,>=0.9.0
+  jsondiff==1.1.1
+  jsonpatch!=1.20,>=1.16
+  jsonpickle
+  jsonpointer>=1.9
+  jsonschema!=2.5.0,>=2.4
+  jupyter-core
+  keystoneauth1>=3.11.0
+  lazy-object-proxy
+  libclang-py3~=3.4.0
+  lxml>=3.6.0
+  mando<0.4,>=0.3
+  markupsafe>=0.23
+  mccabe
+  memento-client~=0.6.1
+  mock
+  more-itertools>=4.0.0
+  moto
+  multidict>=4.0
+  munch>=2.1.0
+  munkres3~=1.0
+  mypy-lang~=0.4.6
+  nbformat~=4.1
+  netifaces>=0.10.4
+  nltk~=3.2
+  openstacksdk
+  os-service-types>=1.2.0
+  packaging~=16.8
+  pbr!=2.1.0,>=0.11,>=2.0.0
+  pluggy>=0.7
+  polib>=1.0.8
+  proselint~=0.7.0
+  py>=1.5.0
+  pyaml
+  pycodestyle>=2.4.0,~=2.2
+  pycparser
+  pycryptodome<4.0.0,>=3.3.1
+  pydocstyle~=2.0
+  pyflakes>=0.8.1,~=1.5.0
+  pygments~=2.1
+  pylint~=1.6
+  pyparsing
+  pyprint==0.2.*,~=0.2.6
+  pyroma~=2.2.0
+  pyrsistent>=0.14.0
+  pytest>=3.6,>=3.6.0
+  pytest-cov
+  pytest-timeout
+  python-dateutil<3.0.0,>=2.1
+  python-jose<3.0.0
+  pytz
+  pyyaml==3.12,>=3.12,~=3.11,~=3.12
+  radon==1.4.0
+  requests!=2.18.0,>=2.0,>=2.14.2,>=2.5,>=2.7.0,~=2.12
+  requestsexceptions>=1.2.0
+  responses>=0.9.0
+  restructuredtext-lint~=1.0.0
+  rstcheck~=3.1
+  s3transfer<0.3.0,>=0.2.0
+  safety~=0.5.1
+  sarge~=0.1.4
+  scspell3k~=2.0
+  singledispatch>=3.4.0.3
+  six<2.0,==1.10.0,>1.9,>=1.10.0,>=1.11.0,>=1.4.0,>=1.4.1,>=1.5,>=1.9
+  snowballstemmer
+  stevedore>=1.20.0
+  template-remover
+  termcolor~=1.1.0
+  testfixtures~=4.14.3
+  toml>=0.9.4
+  tornado<5.0,>=4.4.1
+  traitlets>=4.1
+  unidiff~=0.5.2
+  urllib3<1.25,>=1.20,>=1.21.1
+  vim-vint~=0.3.12
+  vulture~=0.25.0
+  websocket-client>=0.32.0
+  werkzeug
+  wrapt
+  xmltodict
+  yamllint~=1.6.1
+  yapf~=0.16.0
+  yarl<1.2
+
+Finding the best candidates:
+
+Warning: Your dependencies could not be resolved. You likely have a mismatch in your sub-dependencies.
+  First try clearing your dependency cache with $ pipenv lock --clear, then try the original command again.
+ Alternatively, you can use $ pipenv install --skip-lock to bypass this mechanism, then run $ pipenv graph to inspect the situation.
+  Hint: try $ pipenv lock --pre if it is a pre-release dependency.
+Could not find a version that matches aenum==1.4.5,>=1.4.5,~=2.0.8
+Tried: 1.0, 1.0, 1.2.1, 1.2.1, 1.3.0, 1.3.0, 1.3.0, 1.3.1, 1.3.1, 1.3.1, 1.3.2, 1.3.2, 1.3.2, 1.3.3, 1.3.3, 1.3.3, 1.4.0, 1.4.0, 1.4.0, 1.4.1, 1.4.1, 1.4.1, 1.4.2, 1.4.2, 1.4.2, 1.4.3, 1.4.3, 1.4.3, 1.4.4, 1.4.4, 1.4.4, 1.4.5, 1.4.5, 1.4.5, 1.4.5, 1.4.7, 1.4.7, 1.4.7, 2.0.0, 2.0.0, 2.0.0, 2.0.1, 2.0.1, 2.0.1, 2.0.2, 2.0.2, 2.0.2, 2.0.3, 2.0.3, 2.0.3, 2.0.4, 2.0.4, 2.0.4, 2.0.5, 2.0.5, 2.0.5, 2.0.6, 2.0.6, 2.0.6, 2.0.7, 2.0.7, 2.0.7, 2.0.8, 2.0.8, 2.0.8, 2.0.9, 2.0.9, 2.0.9, 2.0.10, 2.0.10, 2.0.10, 2.1.0, 2.1.0, 2.1.0, 2.1.1, 2.1.1, 2.1.1, 2.1.2, 2.1.2, 2.1.2
+There are incompatible versions in the resolved dependencies.
+Warning: Your dependencies could not be resolved. You likely have a mismatch in your sub-dependencies.
+  First try clearing your dependency cache with $ pipenv lock --clear, then try the original command again.
+ Alternatively, you can use $ pipenv install --skip-lock to bypass this mechanism, then run $ pipenv graph to inspect the situation.
+  Hint: try $ pipenv lock --pre if it is a pre-release dependency.
+Could not find a version that matches aenum==1.4.5,>=1.4.5,~=2.0.8
+Tried: 1.0, 1.0, 1.2.1, 1.2.1, 1.3.0, 1.3.0, 1.3.0, 1.3.1, 1.3.1, 1.3.1, 1.3.2, 1.3.2, 1.3.2, 1.3.3, 1.3.3, 1.3.3, 1.4.0, 1.4.0, 1.4.0, 1.4.1, 1.4.1, 1.4.1, 1.4.2, 1.4.2, 1.4.2, 1.4.3, 1.4.3, 1.4.3, 1.4.4, 1.4.4, 1.4.4, 1.4.5, 1.4.5, 1.4.5, 1.4.5, 1.4.7, 1.4.7, 1.4.7, 2.0.0, 2.0.0, 2.0.0, 2.0.1, 2.0.1, 2.0.1, 2.0.2, 2.0.2, 2.0.2, 2.0.3, 2.0.3, 2.0.3, 2.0.4, 2.0.4, 2.0.4, 2.0.5, 2.0.5, 2.0.5, 2.0.6, 2.0.6, 2.0.6, 2.0.7, 2.0.7, 2.0.7, 2.0.8, 2.0.8, 2.0.8, 2.0.9, 2.0.9, 2.0.9, 2.0.10, 2.0.10, 2.0.10, 2.1.0, 2.1.0, 2.1.0, 2.1.1, 2.1.1, 2.1.1, 2.1.2, 2.1.2, 2.1.2
+There are incompatible versions in the resolved dependencies.
+

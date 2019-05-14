@@ -1,0 +1,8 @@
+Processing /home/macermak/RedHat/aicoe/lab
+Collecting gremlinpython (from thoth-lab==0.0.3)
+  Using cached https://files.pythonhosted.org/packages/36/67/f12b688b8478dceb00e6853b6deb7437f38346fec90766bbcf855ec4942b/gremlinpython-3.4.0-py2.py3-none-any.whl
+Collecting jupyter_d3 (from thoth-lab==0.0.3)
+  Could not find a version that satisfies the requirement jupyter_d3 (from thoth-lab==0.0.3) (from versions: )
+No matching distribution found for jupyter_d3 (from thoth-lab==0.0.3)
+You are using pip version 10.0.1, however version 19.0.3 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
