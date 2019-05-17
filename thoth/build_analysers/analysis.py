@@ -86,7 +86,7 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.Series
     if any(
         [re.fullmatch(p, msg, re.IGNORECASE) for msg in [log_messages[0], log_messages[-1]] for p in pip_indicators]
     ):
-        return "pip", patterns_pip
+        return "pip3", patterns_pip
 
     # otherwise try to determine using BoW scores
 
@@ -99,18 +99,24 @@ def retrieve_build_log_patterns(log_messages: List[str]) -> Tuple[str, pd.Series
     bow_pipenv = {k: v / s for k, v in bow_pipenv.items()}
 
     # compare scores
-    score = {"pip": 0, "pipenv": 0}
+    score = {"pip3": 0, "pipenv": 0}
     for word, count in bow_log.items():
-        score["pip"] += bow_pip.get(word, 0) * count
+        score["pip3"] += bow_pip.get(word, 0) * count
         score["pipenv"] += bow_pipenv.get(word, 0) * count
 
-    return ("pip", patterns_pip) if score["pip"] >= score["pipenv"] else ("pipenv", patterns_pipenv)
+    return ("pip3", patterns_pip) if score["pip3"] >= score["pipenv"] else ("pipenv", patterns_pipenv)
 
 
-def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, colorize: bool = False) -> dict:
+def build_breaker_report(
+    log: Union[str, pd.DataFrame], *, handler: str = None, top: int = 5, colorize: bool = False
+) -> dict:
     """Analyze raw build log and produce a report.
 
     :param log: Union[str, pd.DataFrame], raw build log to be analyzed or result of `build_log_analyze`
+    :param handler: str, handler to be used, only required if `log` is result of an analysis
+
+        Currently supported handlers are: pip and pipenv
+
     :param top: int, maximum number of candidates to report
     :param colorize: bool, whether to map scores to colors (only valid if `log` is instance of str)
 
@@ -130,8 +136,13 @@ def build_breaker_report(log: Union[str, pd.DataFrame], *, top: int = 5, coloriz
             "candidates": List[dict#reason]
         }
     """
-    df_log = log
-    if isinstance(log, str):
+    if isinstance(log, pd.DataFrame):
+        if not handler:
+            raise ValueError("Given that `log` is assumed to be result of an analysis, a `handler` must be provided.")
+
+        df_log: pd.DataFrame = log
+        log: str = "\n".join(df_log.msg)
+    else:
         handler, df_log = build_breaker_analyze(log, colorize=colorize)
 
     build_breaker_info = dict()
@@ -245,7 +256,7 @@ def build_breaker_analyze(log: str, *, colorize: bool = True) -> Tuple[str, pd.D
 
     handler, patterns = retrieve_build_log_patterns(log_messages)
 
-    scores, candidate_indices = build_breaker_predict(log_messages, patterns, handler == "pip")
+    scores, candidate_indices = build_breaker_predict(log_messages, patterns, handler == "pip3")
 
     df_log = pd.DataFrame(list(zip(log_messages, scores)), columns=["msg", "score"])
     df_log["pattern"] = [patterns[int(i)] if i is not None else None for i in candidate_indices]

@@ -229,7 +229,7 @@ def reformat(string: str) -> str:  # Ignore PyDocStyleBear
                 formatted = rest[: span.start()] + "{}"
 
                 yield formatted
-                yield from _reformat(rest[span.end():])
+                yield from _reformat(rest[span.end() :])  # Ignore PycodestyleBear (E203)
         else:
             yield rest
 
