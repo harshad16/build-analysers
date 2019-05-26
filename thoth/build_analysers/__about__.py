@@ -15,7 +15,7 @@ __title__ = "thoth-build-analysers"
 __summary__ = "Build analysis library and tools to handle and process build logs."
 __uri__ = "https://github.com/thoth-station/build-analysers"
 
-__version__ = "0.1.0dev"
+__version__ = "0.1.0rc0"
 
 __author__ = "Marek Cermak"
 __email__ = "macermak@redhat.com"
