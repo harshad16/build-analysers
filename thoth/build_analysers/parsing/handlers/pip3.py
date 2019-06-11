@@ -34,7 +34,7 @@ _RE_COLLECTING_DEPENDENCY_REMOTE = re.compile(
     r'Collecting ([+a-zA-Z_\-.():/0-9>=<;,"]+) ' r"from ([a-zA-Z_\-.():/0-9>=<, ]+)"  # Ignore PycodestyleBear (E501)
 )  # Ignore PycodestyleBear (E501)
 _RE_DOWNLOADING_ARTIFACT = re.compile(
-    r'  Downloading ([+a-zA-Z_\-.:/0-9>=<;,"]+)( \(([a-zA-Z.,0-9]+)\))?'
+    r'  (Downloading|Using cached) ([+a-zA-Z_\-.:/0-9>=<;,"]+)( \(([a-zA-Z.,0-9]+)\))?'
 )  # Ignore PycodestyleBear (E501)
 _RE_ALREADY_SATISFIED = re.compile(
     r'Requirement already satisfied: ([+a-zA-Z_\-.():/0-9>=<;,"]+) in '  # Ignore PycodestyleBear (E501)
@@ -148,7 +148,7 @@ class PIP3(HandlerBase):
     def _parse_artifact(line: str) -> typing.Optional[dict]:
         match_result = _RE_DOWNLOADING_ARTIFACT.fullmatch(line)
         if not match_result:
-            _LOG.warning("Unable to parse downloaded artifact from line %r", line)
+            _LOG.debug("Unable to parse downloaded artifact from line %r", line)
             return None
 
         size = match_result.group(2)
