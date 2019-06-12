@@ -11,10 +11,12 @@ autopep8 = "*"
 
 [packages]
 astpath = "*"
+click = "*"
 networkx = "*"
 numpy = "*"
 pandas = "*"
 parse = "*"
+prettyprinter = "*"
 thoth-lab = "*"
 
 [requires]
