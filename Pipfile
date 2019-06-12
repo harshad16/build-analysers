@@ -11,6 +11,7 @@ autopep8 = "*"
 
 [packages]
 astpath = "*"
+click = "*"
 networkx = "*"
 numpy = "*"
 pandas = "*"
