@@ -162,6 +162,12 @@ And you're good to go :thumbsup:
 
 <br>
 
+### CLI Usage
+
+The package can also be used via its Command Line Interface.
+
+Check output of `thoth-build-analysis --help` after installing the package for more information.
+
 ---
 
 > Author: Marek Cermak <macermak@redhat.com>, @AICoE - Project Thoth

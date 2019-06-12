@@ -51,6 +51,10 @@ setup(
         'thoth.{subpackage}'.format(subpackage=p) for p in find_packages('thoth/')
     ],
     include_package_data=True,
+    
+    entry_points={
+        'console_scripts': [f"thoth-build-analysis=thoth.{NAME}.cli:cli"],
+    },
 
     zip_safe=False
 )
