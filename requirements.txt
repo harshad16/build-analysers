@@ -2,6 +2,7 @@
 astpath
 click
 parse
+prettyprinter
 
 numpy
 pandas

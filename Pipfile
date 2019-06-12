@@ -16,6 +16,7 @@ networkx = "*"
 numpy = "*"
 pandas = "*"
 parse = "*"
+prettyprinter = "*"
 thoth-lab = "*"
 
 [requires]
