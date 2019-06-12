@@ -59,10 +59,12 @@ def _format_table(df, output: str = "plain", pretty: bool = False) -> str:
 
 
 class AliasedGroup(click.Group):
+    """Command group to handler comand aliases."""
 
     aliases = {"analyse": "analyze"}
 
     def get_command(self, ctx, cmd_name):
+        """Get Click command by its name."""
         rv = click.Group.get_command(self, ctx, cmd_name)
         if rv is not None:
             return rv
@@ -138,6 +140,7 @@ def analyse(log: Union[str, Path], output: str = "plain", pretty: bool = False) 
 )
 @click.option("--pretty", "-p", is_flag=True, default=False)
 def dependencies(log: Union[str, Path], output: str = "plain", pretty: bool = False):
+    """Process dependencies from the log file."""
     with open(log, "r") as f:
         build_log: str = f.read()
 
