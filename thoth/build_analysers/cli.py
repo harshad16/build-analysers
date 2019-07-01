@@ -82,10 +82,14 @@ def cli():
 
 
 @cli.command()
-@click.argument("log", type=click.Path(exists=True))
-@click.option("--limit", "-n", help="Limit number of candidates.", type=int)
+@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path(exists=True))
+@click.option("--limit", "-n", envvar="THOTH_BUILD_ANALYSER_LIMIT", help="Limit number of candidates.", type=int)
 @click.option(
-    "--handler", help="Handler to parse log dependencies.", type=click.Choice(choices=["pip3", "pipenv"]), default=None
+    "--handler",
+    help="Handler to parse log dependencies.",
+    envvar="THOTH_BUILD_ANALYSER_HANDLER",
+    type=click.Choice(choices=["pip3", "pipenv"]),
+    default=None,
 )
 @click.option("--colorize/--no-colorize", default=True)
 @click.option("--pretty", "-p", is_flag=True, default=False)
@@ -109,11 +113,12 @@ def report(
 
 
 @cli.command()
-@click.argument("log", type=click.Path(exists=True))
+@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path(exists=True))
 @click.option(
     "--output",
     "-o",
     help="Output format.",
+    envvar="THOTH_BUILD_ANALYSER_OUTPUT_FORMAT",
     type=click.Choice(choices=["dict", "html", "json", "plain", "records"]),
     default="plain",
 )
@@ -130,11 +135,12 @@ def analyse(log: Union[str, Path], output: str = "plain", pretty: bool = False) 
 
 
 @cli.command()
-@click.argument("log", type=click.Path(exists=True))
+@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path(exists=True))
 @click.option(
     "--output",
     "-o",
     help="Output format.",
+    envvar="THOTH_BUILD_ANALYSER_OUTPUT_FORMAT",
     type=click.Choice(choices=["dict", "html", "json", "plain", "records"]),
     default="plain",
 )
