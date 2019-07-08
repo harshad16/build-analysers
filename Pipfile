@@ -15,9 +15,12 @@ click = "*"
 networkx = "*"
 numpy = "*"
 pandas = "*"
+plotly = "*"
 parse = "*"
 prettyprinter = "*"
 thoth-lab = "*"
+thoth-analyzer = "*"
+thoth-storages = "*"
 
 [requires]
 python_version = "3.6"
