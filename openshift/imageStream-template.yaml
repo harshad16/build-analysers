@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: build-analyser-imagestream
+  annotations:
+    description: >
+      This is Thoth Build Analyser ImageStream, this template is meant to be used by Bots, but could also
+      be used by humans
+    openshift.io/display-name: "Thoth: Build Analyser ImageStream"
+    version: 0.4.1
+    tags: thoth,ai-stacks,build-analyser
+    template.openshift.io/documentation-url: https://github.com/Thoth-Station
+    template.openshift.io/long-description: >
+      This is Thoth Build Analyser ImageStream, this template is meant to be used by Bots, but could also
+      be used by humans...
+    template.openshift.io/provider-display-name: "Red Hat, Inc."
+  labels:
+    app: thoth
+    component: build-analyser
+
+objects:
+  - apiVersion: v1
+    kind: ImageStream
+    metadata:
+      labels:
+        app: thoth
+        component: build-analyser
+      name: build-analyser
+    spec:
+      name: latest
+      lookupPolicy:
+        local: true
