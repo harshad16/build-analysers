@@ -1,0 +1,240 @@
+pattern,parent_tag,caller,method
+started,args,self,_update
+still running...,args,self,_update
+#document,args,rv,append
+#document-fragment,args,rv,append
+*final,args,result,append
+Could not install packages due to an EnvironmentError,args,parts,append
+universal,args,matches,append
+Name: {},args,logger,info
+Version: {},args,logger,info
+Codename: {},args,logger,info
+creating {},args,logger,info
+copying and adjusting {} -> {},args,logger,info
+Copying {} to {},args,logger,info
+Copying stream {} to {},args,logger,info
+changing mode of {},args,logger,info
+changing mode of {} to {},args,logger,info
+Byte-compiling {} to {},args,logger,info
+Creating tar archive,args,logger,info
+creating '{}' and adding '{}' to it,args,logger,info
+adding '{}',args,logger,info
+"Skipping {}, due to already being wheel.",args,logger,info
+"Skipping bdist_wheel for {}, due to binaries being disabled for it.",args,logger,info
+Stored in directory: {},args,logger,info
+Running setup.py clean for {},args,logger,info
+Building wheels for collected packages: {},args,logger,info
+Successfully built {},args,logger,info
+Failed to build {},args,logger,info
+Requirement already satisfied (use --upgrade to upgrade): {},args,logger,info
+Downloading {} ({}),args,logger,info
+Downloading {},args,logger,info
+Using cached {},args,logger,info
+Saved {},args,logger,info
+"Link is a directory, ignoring download_dir",args,logger,info
+Running setup.py sdist for {},args,logger,info
+Unpacking sdist {} into {},args,logger,info
+File was already downloaded {},args,logger,info
+Writing to {},args,logger,info
+Ignoring {}: markers '{}' don't match your environment,args,logger,info
+Can't uninstall '{}'. No files were found to uninstall.,args,logger,info
+Uninstalling {}:,args,logger,info
+Successfully uninstalled {},args,logger,info
+Rolling back uninstall of {},args,logger,info
+"Not uninstalling {} at {}, outside environment {}",args,logger,info
+"Not uninstalling {} at {}, as it is in the standard library.",args,logger,info
+Installing collected packages: {},args,logger,info
+Found existing installation: {},args,logger,info
+Running setup.py develop for {},args,logger,info
+Complete output from command {}:,args,logger,info
+Cloning hg {}{} to {},args,logger,info
+Cloning {}{} to {},args,logger,info
+Checking out {}{} to {},args,logger,info
+Exporting svn repository {} to {},args,logger,info
+Updating {} {}{},args,logger,info
+Skipping because already up-to-date.,args,logger,info
+Switching {} {} to {}{},args,logger,info
+Processing {},args,logger,info
+Collecting {},args,logger,info
+Obtaining {},args,logger,info
+Requirement {}: {} ({}),args,logger,info
+Skipping line in requirement file [{}] because it's not clear what it would install: {},args,logger,info
+(add #egg=PackageName to the URL to avoid this warning),args,logger,info
+INSTALLED: {} (latest),args,logger,info
+INSTALLED: {},args,logger,info
+LATEST:    {},args,logger,info
+Successfully downloaded {},args,logger,info
+Successfully installed {},args,logger,info
+"{} {} has requirement {}, but you have {} {}.",args,logger,info
+No broken requirements found.,args,logger,info
+Summary: {},args,logger,info
+Home-page: {},args,logger,info
+Author: {},args,logger,info
+Author-email: {},args,logger,info
+License: {},args,logger,info
+Location: {},args,logger,info
+Requires: {},args,logger,info
+Required-by: {},args,logger,info
+Metadata-Version: {},args,logger,info
+Installer: {},args,logger,info
+Classifiers:,args,logger,info
+Entry-points:,args,logger,info
+Files:,args,logger,info
+Cannot locate installed-files.txt,args,logger,info
+--hash={}:{},args,logger,info
+Added a stderr logging handler to logger: {},args,logger,debug
+Wrote {} to {} in wheel,args,logger,debug
+lib_only: skipping {},args,logger,debug
+lib_only: returning None,args,logger,debug
+{} already in path,args,logger,debug
+{} not in path,args,logger,debug
+Cannot update non-compliant (PEP-440) version {},args,logger,debug
+Version updated from {} to {},args,logger,debug
+Found {},args,logger,debug
+"No ""provides"": {}",args,logger,debug
+Getting requirements from metadata {},args,logger,debug
+{} missing {},args,logger,debug
+Moving to result: {},args,logger,debug
+"Add to provided: {}, {}, {}",args,logger,debug
+Able to replace executable using .deleteme logic,args,logger,debug
+not copying {} (up-to-date),args,logger,debug
+_find failed: {} {},args,logger,debug
+_find worked: {} {},args,logger,debug
+Removed 1.0 due to {},args,logger,debug
+Removed 1.1 due to {},args,logger,debug
+Removed 1.2 due to {},args,logger,debug
+Removed 1.3 due to {},args,logger,debug
+Removed 2.1 due to {},args,logger,debug
+Removed 2.0 due to {},args,logger,debug
+Out of options - unknown metadata set: {},args,logger,debug
+invoking: {},args,logger,debug
+No digest specified,args,logger,debug
+Digest verified: {},args,logger,debug
+Removing directory tree at {},args,logger,debug
+Removing {} {},args,logger,debug
+Unexpected response for JSON request: {},args,logger,debug
+"publish {}: args = {}, kwargs = {}, result = {}",args,logger,debug
+Host verified: {},args,logger,debug
+add_dir added {},args,logger,debug
+Not replacing {} with {},args,logger,debug
+Replacing {} with {},args,logger,debug
+{}: version hint in fragment: {},args,logger,debug
+Wheel not compatible: {},args,logger,debug
+Not downloadable: {},args,logger,debug
+No match for project/version: {},args,logger,debug
+matcher: {} ({}),args,logger,debug
+{} did not match {},args,logger,debug
+skipping pre-release version {} of {},args,logger,debug
+sorted list: {},args,logger,debug
+Queueing {},args,logger,debug
+process_download: {} -> {},args,logger,debug
+should_queue: {} ({}) from {} -> {},args,logger,debug
+Queueing {} from {},args,logger,debug
+Returning {} from cache: {},args,logger,debug
+Skipping {} due to bad host {},args,logger,debug
+Fetching {},args,logger,debug
+Fetched {},args,logger,debug
+adding distribution {},args,logger,debug
+removing distribution {},args,logger,debug
+"Remove from provided: {}, {}, {}",args,logger,debug
+passed {} as requirement,args,logger,debug
+located {},args,logger,debug
+No providers found for {},args,logger,debug
+Cannot satisfy {},args,logger,debug
+Adding {} to install_dists,args,logger,debug
+{} is a build-time dependency only.,args,logger,debug
+find done for {},args,logger,debug
+changing into '{}',args,logger,debug
+changing back to '{}',args,logger,debug
+Ignoring unknown cache-control directive: {},args,logger,debug
+Missing value for cache-control directive: {},args,logger,debug
+"Invalid value for cache-control directive {}, must be {}",args,logger,debug
+"Looking up ""{}"" in the cache",args,logger,debug
+"Request header has ""no-cache"", cache bypassed",args,logger,debug
+"Request header has ""max_age"" as 0, cache bypassed",args,logger,debug
+No cache entry available,args,logger,debug
+Purging cached response: no date or etag,args,logger,debug
+Ignoring cached response: no date,args,logger,debug
+Current age based on date: {},args,logger,debug
+Freshness lifetime from max-age: {},args,logger,debug
+Freshness lifetime from expires: {},args,logger,debug
+Freshness lifetime from request max-age: {},args,logger,debug
+Adjusted current age from min-fresh: {},args,logger,debug
+"The response is ""fresh"", returning cached response",args,logger,debug
+"The cached response is ""stale"" with no etag, purging",args,logger,debug
+Status code {} not in {},args,logger,debug
+"Updating cache with response from ""{}""",args,logger,debug
+"Response header has ""no-store""",args,logger,debug
+"Request header has ""no-store""",args,logger,debug
+"Purging existing cache entry to honor ""no-store""",args,logger,debug
+Caching due to etag,args,logger,debug
+Caching permanant redirect,args,logger,debug
+Caching b/c date exists and max-age > 0,args,logger,debug
+Caching b/c of expires header,args,logger,debug
+Destination directory: {},args,logger,debug
+"Config variable '{}' is unset, Python ABI tag may be incorrect",args,logger,debug
+Installing extra requirements: {},args,logger,debug
+Downloading from URL {},args,logger,debug
+Getting page {},args,logger,debug
+Cannot look at {} URL {},args,logger,debug
+"file: URL is directory, getting {}",args,logger,debug
+"Skipping page {} because it looks like an archive, and cannot be checked by HEAD.",args,logger,debug
+Skipping page {} because the {} request got Content-Type: {},args,logger,debug
+{} location(s) to search for versions of {}:,args,logger,debug
+Analyzing links from page {},args,logger,debug
+Local files found: {},args,logger,debug
+Existing installed version ({}) is most up-to-date and satisfies requirement,args,logger,debug
+Existing installed version ({}) satisfies requirement (most up-to-date version is {}),args,logger,debug
+Installed version ({}) is most up-to-date (past versions: {}),args,logger,debug
+Using version {} (newest of versions: {}),args,logger,debug
+Skipping link {}; {},args,logger,debug
+Package {} has an invalid Requires-Python entry: {},args,logger,debug
+The package {} is incompatible with the python version in use. Acceptable python versions are: {},args,logger,debug
+"Found link {}, version: {}",args,logger,debug
+Ignoring error {} when setting locale,args,logger,debug
+Will be working with {} variant only,args,logger,debug
+Skipping loading configuration files due to environment's PIP_CONFIG_FILE being os.devnull,args,logger,debug
+Skipping file '{}' (variant: {}),args,logger,debug
+"For variant '{}', will try loading '{}'",args,logger,debug
+Created requirements tracker {},args,logger,debug
+Re-using requirements tracker {},args,logger,debug
+Added {} to build tracker {},args,logger,debug
+Removed {} from build tracker {},args,logger,debug
+{} build tracker {},args,logger,debug
+Setting {} extras to: {},args,logger,debug
+Cleaning up...,args,logger,debug
+Replacing {} from {},args,logger,debug
+Exception: {},args,logger,debug
+Removing file or directory {},args,logger,debug
+Not sure how to uninstall: {} - Check: {},args,logger,debug
+Removing pth entries from {}:,args,logger,debug
+Removing entry: {},args,logger,debug
+Rolling {} back to previous state,args,logger,debug
+Using cached wheel link: {},args,logger,debug
+Creating directory {},args,logger,debug
+Moving package {} from {} to new location {},args,logger,debug
+Removing source in {},args,logger,debug
+Running setup.py (path:{}) egg_info for package {},args,logger,debug
+Running setup.py (path:{}) egg_info for package from {},args,logger,debug
+"Source in {} has version {}, which satisfies requirement {}",args,logger,debug
+Cannot update repository at {}; repository location is unknown,args,logger,debug
+Record file {} not found,args,logger,debug
+lzma module is not available,args,logger,debug
+Running command {},args,logger,debug
+There was an error checking the latest version of pip,args,logger,debug
+could not determine if {} is under git control because git is not available,args,logger,debug
+Registered VCS backend: {},args,logger,debug
+Determine that {} uses VCS: {},args,logger,debug
+"{} in {} exists, and has correct URL ({})",args,logger,debug
+Checking in {} for {} ({})...,args,logger,debug
+"Since it is already installed, we are trusting this package without checking its hash. To ensure a completely repeatable environment, install into an empty virtualenv.",args,logger,debug
+No VCS found for editable requirement {} in: {},args,logger,debug
+Ignoring indexes: {},args,logger,debug
+Ignoring configuration key '{}' as it's value is empty.,args,logger,debug
+Exception information:,args,logger,debug
+--prefix=,args,install_options,append
+Location,args,header,append
+Installer,args,header,append
+--no-index,args,args,append
+genshi,args,__all__,append
+invalid-codepoint,args,,append

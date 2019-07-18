@@ -1,5 +1,6 @@
 [all]
 bears = LineCountBear, FilenameBear
+file_naming_convention = snake
 files = **.py, **.yml, **.rst
 ignore = **/__pycache__/**, **/__pycache__, __pycache__, __pycache__/**, **/*.pyc, *.pyc
 max_lines_per_file = 1000
@@ -14,4 +15,11 @@ ignore = setup.py
 
 [all.yaml]
 bears = YAMLLintBear
-files = **.yml, **.yaml
+files = **.yaml
+ignore = .zuul.yaml
+max_line_length = 120
+
+[zuul.yaml]
+bears = YAMLLintBear
+files = .zuul.yaml
+max_line_length = 180
