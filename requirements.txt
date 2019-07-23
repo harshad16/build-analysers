@@ -11,3 +11,5 @@ pandas
 networkx
 
 thoth-lab
+thoth-analyzer
+thoth-storages

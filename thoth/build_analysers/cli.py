@@ -17,23 +17,24 @@
 
 """Command line interface for Thoth build-analysers library."""
 
-import sys
 import click
 import json
+import sys
 
 from functools import wraps
 
 from pathlib import Path
 from prettyprinter import pformat
-from typing import Union
 
-from thoth.build_analysers.preprocessing import build_log_to_dependency_table
-
+from thoth.analyzer import print_command_result
+from thoth.build_analysers import __title__ as analyzer_name
+from thoth.build_analysers import __version__ as analyzer_version
 from thoth.build_analysers.analysis import build_breaker_analyze
 from thoth.build_analysers.analysis import build_breaker_report
-
 from thoth.build_analysers.analysis import get_failed_branch
 from thoth.build_analysers.analysis import get_succesfully_installed_packages
+from thoth.build_analysers.preprocessing import build_log_to_dependency_table
+from thoth.storages import BuildLogsStore
 
 
 def _format_table(df, output: str = "plain", pretty: bool = False) -> str:
@@ -56,6 +57,18 @@ def _format_table(df, output: str = "plain", pretty: bool = False) -> str:
         return result
 
     return json.dumps(result)
+
+
+def _get_document(document_id: str, log: str):
+    """Get the build log document from ceph and store it in required log path."""
+    adapter = BuildLogsStore()
+    adapter.connect()
+    document = adapter.retrieve_document(document_id)
+
+    with open(log, "w") as f:
+        f.write(document.get("log"))
+
+    return
 
 
 class AliasedGroup(click.Group):
@@ -82,7 +95,8 @@ def cli():
 
 
 @cli.command()
-@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path(exists=True))
+@click.pass_context
+@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path())
 @click.option("--limit", "-n", envvar="THOTH_BUILD_ANALYSER_LIMIT", help="Limit number of candidates.", type=int)
 @click.option(
     "--handler",
@@ -91,29 +105,65 @@ def cli():
     type=click.Choice(choices=["pip3", "pipenv"]),
     default=None,
 )
+@click.option(
+    "--ceph-document-id",
+    help="Document id of build log in ceph",
+    envvar="THOTH_BUILD_LOG_DOC_ID",
+    type=str,
+    required=False,
+)
+@click.option(
+    "--report-output",
+    "-R",
+    type=str,
+    envvar="THOTH_REPORT_OUTPUT",
+    required=False,
+    default="-",
+    help="Output directory or remote API where output reports should be posted.",
+)
 @click.option("--colorize/--no-colorize", default=True)
 @click.option("--pretty", "-p", is_flag=True, default=False)
 def report(
-    log: Union[str, Path], limit: int = 5, handler: str = None, colorize: bool = False, pretty: bool = False
+    click_ctx,
+    log: str,
+    ceph_document_id: str = None,
+    limit: int = 5,
+    report_output: str = "-",
+    handler: str = None,
+    colorize: bool = False,
+    pretty: bool = False,
 ) -> str:
     """Analyze raw build log and produce a report."""
+    if ceph_document_id:
+        _get_document(ceph_document_id, log)
+
     with open(log, "r") as f:
         build_log: str = f.read()
 
     result: dict = build_breaker_report(log=build_log, handler=handler, top=limit, colorize=colorize)
 
-    if pretty:
-        result: str = pformat(result)
+    if ceph_document_id:
+        if pretty:
+            result: str = pformat(result)
+            click.echo(result)
+            sys.exit(0)
 
-        click.echo(result)
-        sys.exit(0)
-
-    click.echo(json.dumps(result))
+        click.echo(json.dumps(result))
+    else:
+        print_command_result(
+            click_ctx=click_ctx,
+            result=result,
+            analyzer=analyzer_name,
+            analyzer_version=analyzer_version,
+            output=report_output,
+            pretty=pretty,
+        )
     sys.exit(0)
 
 
 @cli.command()
-@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path(exists=True))
+@click.pass_context
+@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path())
 @click.option(
     "--output",
     "-o",
@@ -122,20 +172,58 @@ def report(
     type=click.Choice(choices=["dict", "html", "json", "plain", "records"]),
     default="plain",
 )
+@click.option(
+    "--ceph-document-id",
+    help="Document id of build log in ceph",
+    envvar="THOTH_BUILD_LOG_DOC_ID",
+    type=str,
+    required=False,
+)
+@click.option(
+    "--report-output",
+    "-R",
+    type=str,
+    envvar="THOTH_REPORT_OUTPUT",
+    required=False,
+    default="-",
+    help="Output directory or remote API where output reports should be posted.",
+)
 @click.option("--pretty", "-p", is_flag=True, default=False)
-def analyse(log: Union[str, Path], output: str = "plain", pretty: bool = False) -> str:
+def analyse(
+    click_ctx,
+    log: str,
+    ceph_document_id: str = None,
+    output: str = "plain",
+    report_output: str = "-",
+    pretty: bool = False,
+):
     """Analyze raw build log and produce tabular output."""
+    if ceph_document_id:
+        _get_document(ceph_document_id, log)
+
     with open(log, "r") as f:
         build_log: str = f.read()
 
     _, df = build_breaker_analyze(build_log)
+    result = _format_table(df, output=output, pretty=pretty)
 
-    click.echo(_format_table(df, output=output, pretty=pretty))
+    if ceph_document_id:
+        print_command_result(
+            click_ctx=click_ctx,
+            result=result,
+            analyzer=analyzer_name,
+            analyzer_version=analyzer_version,
+            output=report_output,
+            pretty=pretty,
+        )
+    else:
+        click.echo(result)
     sys.exit(0)
 
 
 @cli.command()
-@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path(exists=True))
+@click.pass_context
+@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path())
 @click.option(
     "--output",
     "-o",
@@ -144,15 +232,52 @@ def analyse(log: Union[str, Path], output: str = "plain", pretty: bool = False) 
     type=click.Choice(choices=["dict", "html", "json", "plain", "records"]),
     default="plain",
 )
+@click.option(
+    "--ceph-document-id",
+    help="Document id of build log in ceph",
+    envvar="THOTH_BUILD_LOG_DOC_ID",
+    type=str,
+    required=False,
+)
+@click.option(
+    "--report-output",
+    "-R",
+    type=str,
+    envvar="THOTH_REPORT_OUTPUT",
+    required=False,
+    default="-",
+    help="Output directory or remote API where output reports should be posted.",
+)
 @click.option("--pretty", "-p", is_flag=True, default=False)
-def dependencies(log: Union[str, Path], output: str = "plain", pretty: bool = False):
+def dependencies(
+    click_ctx,
+    log: str,
+    ceph_document_id: str = None,
+    output: str = "plain",
+    report_output: str = "-",
+    pretty: bool = False,
+):
     """Process dependencies from the log file."""
+    if ceph_document_id:
+        _get_document(ceph_document_id, log)
+
     with open(log, "r") as f:
         build_log: str = f.read()
 
     df = build_log_to_dependency_table(build_log)
+    result = _format_table(df, output=output, pretty=pretty)
 
-    click.echo(_format_table(df, output=output, pretty=pretty))
+    if ceph_document_id:
+        print_command_result(
+            click_ctx=click_ctx,
+            result=result,
+            analyzer=analyzer_name,
+            analyzer_version=analyzer_version,
+            output=report_output,
+            pretty=pretty,
+        )
+    else:
+        click.echo(result)
     sys.exit(0)
 
 
