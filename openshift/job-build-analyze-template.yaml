@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: build-analyse
+  name: build-analyze
   annotations:
-    description: "Thoth: Build Log Analysis Analyse"
-    openshift.io/display-name: "Thoth: Build Log Analysis Analyse"
+    description: "Thoth: Build Log Analysis Analyze"
+    openshift.io/display-name: "Thoth: Build Log Analysis Analyze"
     version: 0.1.0
-    tags: thoth,ai-stacks,build-analyser
+    tags: thoth,ai-stacks,build-analyzer
     template.openshift.io/documentation-url: https://github.com/Thoth-Station/
     template.openshift.io/long-description: >
       This template defines resources needed to run recommendation logic of Thoth to OpenShift.
     template.openshift.io/provider-display-name: "Red Hat, Inc."
   labels:
     app: thoth
-    template: build-analyse
-    component: build-analyse
+    template: build-analyze
+    component: build-analyze
 
 parameters:
   - name: IMAGE_STREAM_REGISTRY
@@ -29,13 +29,13 @@ parameters:
     required: true
     value: "latest"
 
-  - name: THOTH_BUILD_ANALYSER_LOG_PATH
+  - name: THOTH_BUILD_ANALYZER_LOG_PATH
     description: Path for the build log read/write.
     displayName: Log Path
     required: false
     value: "/opt/app-root/src/build.log"
 
-  - name: THOTH_BUILD_ANALYSER_OUTPUT_FORMAT
+  - name: THOTH_BUILD_ANALYZER_OUTPUT_FORMAT
     description: Required Output format.
     displayName: ImageStream Tag
     required: false
@@ -46,9 +46,9 @@ parameters:
     displayName: ImageStream Project
     required: true
 
-  - name: THOTH_BUILD_ANALYSER_JOB_ID
-    description: A unique dentifier of build-analyser job.
-    displayName: Build Analyser id
+  - name: THOTH_BUILD_ANALYZER_JOB_ID
+    description: A unique dentifier of build-analyzer job.
+    displayName: Build Analyzer id
     required: true
 
   - name: THOTH_BUILD_LOG_DOC_ID
@@ -65,37 +65,37 @@ objects:
   - apiVersion: batch/v1
     kind: Job
     metadata:
-      name: ${THOTH_BUILD_ANALYSER_JOB_ID}
+      name: ${THOTH_BUILD_ANALYZER_JOB_ID}
       labels:
         app: thoth
-        component: build-analyse
+        component: build-analyze
         mark: cleanup
-        task: build-analyser
+        task: build-analyzer
     spec:
       backoffLimit: 0
       template:
         metadata:
           labels:
             app: thoth
-            component: build-analyse
+            component: build-analyze
             mark: cleanup
         spec:
           restartPolicy: Never
           automountServiceAccountToken: false
           containers:
-            - name: build-analyse
-              image: "${IMAGE_STREAM_REGISTRY}/${IMAGE_STREAM_NAMESPACE}/build-analyser:${IMAGE_STREAM_TAG}"
+            - name: build-analyze
+              image: "${IMAGE_STREAM_REGISTRY}/${IMAGE_STREAM_NAMESPACE}/build-analyzer:${IMAGE_STREAM_TAG}"
               env:
                 - name: THOTH_BUILD_LOG_DOC_ID
                   value: "${THOTH_BUILD_LOG_DOC_ID}"
-                - name: THOTH_BUILD_ANALYSER_LOG_PATH
-                  value: "${THOTH_BUILD_ANALYSER_LOG_PATH}"
-                - name: THOTH_BUILD_ANALYSER_OUTPUT_FORMAT
-                  value: "${THOTH_BUILD_ANALYSER_OUTPUT_FORMAT}"
+                - name: THOTH_BUILD_ANALYZER_LOG_PATH
+                  value: "${THOTH_BUILD_ANALYZER_LOG_PATH}"
+                - name: THOTH_BUILD_ANALYZER_OUTPUT_FORMAT
+                  value: "${THOTH_BUILD_ANALYZER_OUTPUT_FORMAT}"
                 - name: THOTH_REPORT_OUTPUT
                   value: "${THOTH_REPORT_OUTPUT}"
-                - name: THOTH_BUILD_ANALYSER_SUBCOMMAND
-                  value: "analyse"
+                - name: THOTH_BUILD_ANALYZER_SUBCOMMAND
+                  value: "analyze"
                 - name: THOTH_DEPLOYMENT_NAME
                   valueFrom:
                     configMapKeyRef:

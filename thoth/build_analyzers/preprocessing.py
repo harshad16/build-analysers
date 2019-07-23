@@ -1,4 +1,4 @@
-# thoth-build-analysers
+# thoth-build-analyzers
 # Copyright(C) 2019 Marek Cermak
 #
 # This program is free software: you can redistribute it and / or modify
@@ -38,7 +38,7 @@ from thoth.lab import convert
 
 from typing import Iterable, List, Mapping, Tuple, Union
 
-from thoth.build_analysers.parsing import parse_log
+from thoth.build_analyzers.parsing import parse_log
 
 query = _query_factory()
 tostring = _tostring_factory()

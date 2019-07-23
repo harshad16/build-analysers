@@ -1,4 +1,4 @@
-# thoth-build-analysers
+# thoth-build-analyzers
 # Copyright(C) 2018, 2019 Fridolin Pokorny
 #
 # This program is free software: you can redistribute it and / or modify
@@ -42,7 +42,7 @@ _RE_ALREADY_SATISFIED = re.compile(
 )  # Ignore PycodestyleBear (E501)
 _RE_ESCAPE_SEQ = re.compile(r"(\x9B|\x1B\[)[0-?]*[ -/]*[@-~]")
 
-_LOG = logging.getLogger("thoth.build_analysers.parsing.handlers.pip3")
+_LOG = logging.getLogger("thoth.build_analyzers.parsing.handlers.pip3")
 
 
 @attr.s

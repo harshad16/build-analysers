@@ -1,4 +1,4 @@
-# thoth-build-analysers
+# thoth-build-analyzers
 # Copyright(C) 2018, 2019 Marek Cermak
 #
 # This program is free software: you can redistribute it and / or modify
@@ -31,9 +31,9 @@ import pandas as pd
 from collections import Counter
 from pathlib import Path
 
-from thoth.build_analysers.preprocessing import build_log_prepare
-from thoth.build_analysers.preprocessing import build_log_to_dependency_table
-from thoth.build_analysers.preprocessing import reconstruct_string
+from thoth.build_analyzers.preprocessing import build_log_prepare
+from thoth.build_analyzers.preprocessing import build_log_to_dependency_table
+from thoth.build_analyzers.preprocessing import reconstruct_string
 
 from thoth.lab.graph import get_root
 

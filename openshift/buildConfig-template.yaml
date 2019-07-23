@@ -1,33 +1,33 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: build-analyser-buildconfig
+  name: build-analyzer-buildconfig
   annotations:
     description: >
-      This is Thoth Build Analyser BuildConfig, this template is meant to be used by Bots, but could also be
+      This is Thoth Build Analyzer BuildConfig, this template is meant to be used by Bots, but could also be
       used by humans...
-    openshift.io/display-name: "Thoth: Build Analyser BuildConfig"
+    openshift.io/display-name: "Thoth: Build Analyzer BuildConfig"
     version: 0.4.1
-    tags: thoth,ai-stacks,build-analyser
+    tags: thoth,ai-stacks,build-analyzer
     template.openshift.io/documentation-url: https://github.com/Thoth-Station
     template.openshift.io/long-description: >
-      This is Thoth Build Analyser BuildConfig, this template is meant to be
+      This is Thoth Build Analyzer BuildConfig, this template is meant to be
       used by Bots, but could also be used by humans...
     template.openshift.io/provider-display-name: "Red Hat, Inc."
   labels:
-    template: build-analyser-buildconfig
+    template: build-analyzer-buildconfig
     app: thoth
-    component: build-analyser
+    component: build-analyzer
 
 parameters:
-  - description: Git repository for Thoth's Build Analyser
-    displayName: Thoth Build Analyser git repository
+  - description: Git repository for Thoth's Build Analyzer
+    displayName: Thoth Build Analyzer git repository
     required: true
     name: GITHUB_URL
-    value: "https://github.com/thoth-station/build-analysers"
+    value: "https://github.com/thoth-station/build-analyzers"
 
-  - description: Git repository for Thoth's Build Analyser
-    displayName: Thoth Build Analyser git reference
+  - description: Git repository for Thoth's Build Analyzer
+    displayName: Thoth Build Analyzer git reference
     required: true
     name: GITHUB_REF
     value: "master"
@@ -44,8 +44,8 @@ objects:
     metadata:
       labels:
         app: thoth
-        component: build-analyser
-      name: build-analyser
+        component: build-analyzer
+      name: build-analyzer
     spec:
       resources:
         limits:
@@ -57,7 +57,7 @@ objects:
       output:
         to:
           kind: ImageStreamTag
-          name: "build-analyser:${IMAGE_STREAM_TAG}"
+          name: "build-analyzer:${IMAGE_STREAM_TAG}"
       runPolicy: Serial
       source:
         git:
@@ -76,7 +76,7 @@ objects:
             - name: UPGRADE_PIP_TO_LATEST
               value: ""
             - name: APP_FILE
-              value: "thoth-build-analyser"
+              value: "thoth-build-analyzer"
       triggers:
         - imageChange: {}
           type: ImageChange

@@ -1,4 +1,4 @@
-# thoth-build-analysers
+# thoth-build-analyzers
 # Copyright(C) 2018, 2019 Marek Cermak
 #
 # This program is free software: you can redistribute it and / or modify

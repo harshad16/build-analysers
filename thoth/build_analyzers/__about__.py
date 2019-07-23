@@ -11,9 +11,9 @@ __all__ = [
     "__copyright__",
 ]
 
-__title__ = "thoth-build-analysers"
+__title__ = "thoth-build-analyzers"
 __summary__ = "Build analysis library and tools to handle and process build logs."
-__uri__ = "https://github.com/thoth-station/build-analysers"
+__uri__ = "https://github.com/thoth-station/build-analyzers"
 
 __version__ = "0.1.0"
 

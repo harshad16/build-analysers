@@ -29,7 +29,7 @@ parameters:
     required: true
     value: "latest"
 
-  - name: THOTH_BUILD_ANALYSER_LOG_PATH
+  - name: THOTH_BUILD_ANALYZER_LOG_PATH
     description: Path for the build log read/write.
     displayName: Log Path
     required: false
@@ -40,9 +40,9 @@ parameters:
     displayName: ImageStream Project
     required: true
 
-  - name: THOTH_BUILD_ANALYSER_JOB_ID
-    description: A unique dentifier of build-analyser job.
-    displayName: Build Analyser id
+  - name: THOTH_BUILD_ANALYZER_JOB_ID
+    description: A unique dentifier of build-analyzer job.
+    displayName: Build Analyzer id
     required: true
 
   - name: THOTH_BUILD_LOG_DOC_ID
@@ -55,26 +55,26 @@ parameters:
     displayName: ImageStream Tag
     required: true
 
-  - name: THOTH_BUILD_ANALYSER_HANDLER
+  - name: THOTH_BUILD_ANALYZER_HANDLER
     description: Handler to parse log dependencies(pip, pipenv).
-    displayName: Build analyser handler
+    displayName: Build analyzer handler
     required: false
 
-  - name: THOTH_BUILD_ANALYSER_LIMIT
+  - name: THOTH_BUILD_ANALYZER_LIMIT
     description: Limit number of candidates.
-    displayName: Build analyser limit
+    displayName: Build analyzer limit
     required: false
 
 objects:
   - apiVersion: batch/v1
     kind: Job
     metadata:
-      name: ${THOTH_BUILD_ANALYSER_JOB_ID}
+      name: ${THOTH_BUILD_ANALYZER_JOB_ID}
       labels:
         app: thoth
         component: build-report
         operator: graph-sync
-        task: build-analyser
+        task: build-analyzer
         mark: cleanup
     spec:
       backoffLimit: 0
@@ -89,19 +89,19 @@ objects:
           automountServiceAccountToken: false
           containers:
             - name: build-report
-              image: "${IMAGE_STREAM_REGISTRY}/${IMAGE_STREAM_NAMESPACE}/build-analyser:${IMAGE_STREAM_TAG}"
+              image: "${IMAGE_STREAM_REGISTRY}/${IMAGE_STREAM_NAMESPACE}/build-analyzer:${IMAGE_STREAM_TAG}"
               env:
                 - name: THOTH_BUILD_LOG_DOC_ID
                   value: "${THOTH_BUILD_LOG_DOC_ID}"
-                - name: THOTH_BUILD_ANALYSER_LOG_PATH
-                  value: "${THOTH_BUILD_ANALYSER_LOG_PATH}"
+                - name: THOTH_BUILD_ANALYZER_LOG_PATH
+                  value: "${THOTH_BUILD_ANALYZER_LOG_PATH}"
                 - name: THOTH_REPORT_OUTPUT
                   value: "${THOTH_REPORT_OUTPUT}"
-                - name: THOTH_BUILD_ANALYSER_HANDLER
-                  value: "${THOTH_BUILD_ANALYSER_HANDLER}"
-                - name: THOTH_BUILD_ANALYSER_LIMIT
-                  value: "${THOTH_BUILD_ANALYSER_LIMIT}"
-                - name: THOTH_BUILD_ANALYSER_SUBCOMMAND
+                - name: THOTH_BUILD_ANALYZER_HANDLER
+                  value: "${THOTH_BUILD_ANALYZER_HANDLER}"
+                - name: THOTH_BUILD_ANALYZER_LIMIT
+                  value: "${THOTH_BUILD_ANALYZER_LIMIT}"
+                - name: THOTH_BUILD_ANALYZER_SUBCOMMAND
                   value: "report"
                 - name: THOTH_DEPLOYMENT_NAME
                   valueFrom:
