@@ -4,18 +4,18 @@
 # sub-command based on env-variables configuration.
 #
 
-case $THOTH_BUILD_ANALYSER_SUBCOMMAND in
-	'analyse')
-		exec /opt/app-root/bin/python3 thoth-build-analyser analyse
+case $THOTH_BUILD_ANALYZER_SUBCOMMAND in
+	'analyze')
+		exec /opt/app-root/bin/python3 thoth-build-analyzer analyze
 		;;
 	'report')
-		exec /opt/app-root/bin/python3 thoth-build-analyser report
+		exec /opt/app-root/bin/python3 thoth-build-analyzer report
 		;;
 	'dependencies')
-		exec /opt/app-root/bin/python3 thoth-build-analyser dependencies
+		exec /opt/app-root/bin/python3 thoth-build-analyzer dependencies
 		;;
 	*)
-		echo "Application configuration error - no build-analyser subcommand specified." >&2
+		echo "Application configuration error - no build-analyzer subcommand specified." >&2
 		exit 1
 		;;
 esac

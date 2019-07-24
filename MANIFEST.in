@@ -1,4 +1,4 @@
-recursive-include thoth/build_analysers/resources *.*
+recursive-include thoth/build_analyzers/resources *.*
 
 graft fixtures/
 

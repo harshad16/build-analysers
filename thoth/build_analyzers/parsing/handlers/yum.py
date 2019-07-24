@@ -1,4 +1,4 @@
-# thoth-build-analysers
+# thoth-build-analyzers
 # Copyright(C) 2018, 2019 Fridolin Pokorny
 #
 # This program is free software: you can redistribute it and / or modify
@@ -29,7 +29,7 @@ _RE_DEPENDENCY = re.compile(
     r"--> Processing Dependency: " r"([a-zA-Z_\-.():/0-9>=< ]+) for package: ([a-zA-Z_\-.():0-9]+)"
 )  # Ignore PycodestyleBear (E501)
 
-_LOG = logging.getLogger("thoth.build_analysers.parsing.handlers.yum")
+_LOG = logging.getLogger("thoth.build_analyzers.parsing.handlers.yum")
 
 
 @attr.s

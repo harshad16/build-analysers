@@ -1,4 +1,4 @@
-# thoth-build-analysers
+# thoth-build-analyzers
 # Copyright(C) 2019 Marek Cermak
 #
 # This program is free software: you can redistribute it and / or modify
@@ -24,7 +24,7 @@ import attr
 
 from .base import HandlerBase
 
-_LOG = logging.getLogger("thoth.build_analysers.parsing.handlers.pipenv")
+_LOG = logging.getLogger("thoth.build_analyzers.parsing.handlers.pipenv")
 
 _RE_ESCAPE_SEQ = re.compile(r"(\x9B|\x1B\[)[0-?]*[ -/]*[@-~]")
 _RE_FOUND_CANDIDATE = re.compile(

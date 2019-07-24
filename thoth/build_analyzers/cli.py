@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# thoth-build-analysers
+# thoth-build-analyzers
 # Copyright(C) 2018, 2019 Marek Cermak
 #
 # This program is free software: you can redistribute it and / or modify
@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
-"""Command line interface for Thoth build-analysers library."""
+"""Command line interface for Thoth build-analyzers library."""
 
 import click
 import json
@@ -27,13 +27,13 @@ from pathlib import Path
 from prettyprinter import pformat
 
 from thoth.analyzer import print_command_result
-from thoth.build_analysers import __title__ as analyzer_name
-from thoth.build_analysers import __version__ as analyzer_version
-from thoth.build_analysers.analysis import build_breaker_analyze
-from thoth.build_analysers.analysis import build_breaker_report
-from thoth.build_analysers.analysis import get_failed_branch
-from thoth.build_analysers.analysis import get_succesfully_installed_packages
-from thoth.build_analysers.preprocessing import build_log_to_dependency_table
+from thoth.build_analyzers import __title__ as analyzer_name
+from thoth.build_analyzers import __version__ as analyzer_version
+from thoth.build_analyzers.analysis import build_breaker_analyze
+from thoth.build_analyzers.analysis import build_breaker_report
+from thoth.build_analyzers.analysis import get_failed_branch
+from thoth.build_analyzers.analysis import get_succesfully_installed_packages
+from thoth.build_analyzers.preprocessing import build_log_to_dependency_table
 from thoth.storages import BuildLogsStore
 
 
@@ -74,8 +74,6 @@ def _get_document(document_id: str, log: str):
 class AliasedGroup(click.Group):
     """Command group to handler comand aliases."""
 
-    aliases = {"analyse": "analyze"}
-
     def get_command(self, ctx, cmd_name):
         """Get Click command by its name."""
         rv = click.Group.get_command(self, ctx, cmd_name)
@@ -91,17 +89,17 @@ class AliasedGroup(click.Group):
 
 @click.command(cls=AliasedGroup)
 def cli():
-    """Command line interface for Thoth build-analysers library."""
+    """Command line interface for Thoth build-analyzers library."""
 
 
 @cli.command()
 @click.pass_context
-@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path())
-@click.option("--limit", "-n", envvar="THOTH_BUILD_ANALYSER_LIMIT", help="Limit number of candidates.", type=int)
+@click.argument("log", envvar="THOTH_BUILD_ANALYZER_LOG_PATH", type=click.Path())
+@click.option("--limit", "-n", envvar="THOTH_BUILD_ANALYZER_LIMIT", help="Limit number of candidates.", type=int)
 @click.option(
     "--handler",
     help="Handler to parse log dependencies.",
-    envvar="THOTH_BUILD_ANALYSER_HANDLER",
+    envvar="THOTH_BUILD_ANALYZER_HANDLER",
     type=click.Choice(choices=["pip3", "pipenv"]),
     default=None,
 )
@@ -163,12 +161,12 @@ def report(
 
 @cli.command()
 @click.pass_context
-@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path())
+@click.argument("log", envvar="THOTH_BUILD_ANALYZER_LOG_PATH", type=click.Path())
 @click.option(
     "--output",
     "-o",
     help="Output format.",
-    envvar="THOTH_BUILD_ANALYSER_OUTPUT_FORMAT",
+    envvar="THOTH_BUILD_ANALYZER_OUTPUT_FORMAT",
     type=click.Choice(choices=["dict", "html", "json", "plain", "records"]),
     default="plain",
 )
@@ -189,7 +187,7 @@ def report(
     help="Output directory or remote API where output reports should be posted.",
 )
 @click.option("--pretty", "-p", is_flag=True, default=False)
-def analyse(
+def analyze(
     click_ctx,
     log: str,
     ceph_document_id: str = None,
@@ -223,12 +221,12 @@ def analyse(
 
 @cli.command()
 @click.pass_context
-@click.argument("log", envvar="THOTH_BUILD_ANALYSER_LOG_PATH", type=click.Path())
+@click.argument("log", envvar="THOTH_BUILD_ANALYZER_LOG_PATH", type=click.Path())
 @click.option(
     "--output",
     "-o",
     help="Output format.",
-    envvar="THOTH_BUILD_ANALYSER_OUTPUT_FORMAT",
+    envvar="THOTH_BUILD_ANALYZER_OUTPUT_FORMAT",
     type=click.Choice(choices=["dict", "html", "json", "plain", "records"]),
     default="plain",
 )
