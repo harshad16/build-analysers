@@ -66,7 +66,7 @@ def _get_document(document_id: str, log: str):
     document = adapter.retrieve_document(document_id)
 
     with open(log, "w") as f:
-        f.write(document.get("log"))
+        f.write(document.get("build_log", {}).get("log"))
 
     return
 
