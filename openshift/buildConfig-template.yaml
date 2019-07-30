@@ -1,52 +1,69 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: build-analysers-buildconfig
-  labels:
-    template: build-analysers-buildconfig
-    app: thoth
-    component: build-analyser
+  name: build-analyzer-buildconfig
   annotations:
     description: >
-      This is Thoth Build Analysers API BuildConfig, this template is meant to be used by Bots,
-      but could also be used by humans...
-    openshift.io/display-name: Thoth Build Analysers API BuildConfig
-    version: 0.2.0
-    tags: poc,thoth,build-analysers,ai-stacks
-    template.openshift.io/documentation-url: https://github.com/Thoth-Station/
+      This is Thoth Build Analyzer BuildConfig, this template is meant to be used by Bots, but could also be
+      used by humans...
+    openshift.io/display-name: "Thoth: Build Analyzer BuildConfig"
+    version: 0.4.1
+    tags: thoth,ai-stacks,build-analyzer
+    template.openshift.io/documentation-url: https://github.com/Thoth-Station
     template.openshift.io/long-description: >
-      This is Thoth Build Analysers API BuildConfig, this template is meant to be used by Bots,
-      but could also be used by humans...
-    template.openshift.io/provider-display-name: Red Hat, Inc.
+      This is Thoth Build Analyzer BuildConfig, this template is meant to be
+      used by Bots, but could also be used by humans...
+    template.openshift.io/provider-display-name: "Red Hat, Inc."
+  labels:
+    template: build-analyzer-buildconfig
+    app: thoth
+    component: build-analyzer
+
+parameters:
+  - description: Git repository for Thoth's Build Analyzer
+    displayName: Thoth Build Analyzer git repository
+    required: true
+    name: GITHUB_URL
+    value: "https://github.com/thoth-station/build-analyzers"
+
+  - description: Git repository for Thoth's Build Analyzer
+    displayName: Thoth Build Analyzer git reference
+    required: true
+    name: GITHUB_REF
+    value: "master"
+
+  - description: Tag of the output ImageStream the resulting container image should go to
+    displayName: ImageStream Tag
+    required: true
+    name: IMAGE_STREAM_TAG
+    value: "latest"
 
 objects:
   - apiVersion: v1
-    kind: ImageStream
+    kind: BuildConfig
     metadata:
       labels:
         app: thoth
-        component: build-analyser
-      name: build-analysers
+        component: build-analyzer
+      name: build-analyzer
     spec:
-      name: ${IMAGE_STREAM_TAG}
-
-  - apiVersion: v1
-    kind: BuildConfig
-    metadata:
-      name: build-analysers
-      labels:
-        app: thoth-core
-        component: build-analyser
-    spec:
+      resources:
+        limits:
+          cpu: 1
+          memory: 768Mi
+        requests:
+          cpu: 1
+          memory: 768Mi
       output:
         to:
           kind: ImageStreamTag
-          name: "build-analysers:${IMAGE_STREAM_TAG}"
+          name: "build-analyzer:${IMAGE_STREAM_TAG}"
+      runPolicy: Serial
       source:
-        type: Git
         git:
           uri: ${GITHUB_URL}
           ref: ${GITHUB_REF}
+        type: Git
       strategy:
         type: Source
         sourceStrategy:
@@ -56,25 +73,10 @@ objects:
           env:
             - name: ENABLE_PIPENV
               value: "1"
+            - name: UPGRADE_PIP_TO_LATEST
+              value: ""
+            - name: APP_FILE
+              value: "thoth-build-analyzer"
       triggers:
-        - type: ImageChange
-          imageChange: {}
-
-parameters:
-  - description: Git repository for Thoth's Build Analysers
-    displayName: Thoth build-analysers git repository
-    required: true
-    name: GITHUB_URL
-    value: 'https://github.com/thoth-station/build-analysers'
-
-  - description: Git repository for Thoth's Build Analysers API
-    displayName: Thoth build-analysers git reference
-    required: true
-    name: GITHUB_REF
-    value: 'master'
-
-  - description: Tag of the output ImageStream the resulting container image should go to
-    displayName: ImageStream Tag
-    required: true
-    name: IMAGE_STREAM_TAG
-    value: 'latest'
+        - imageChange: {}
+          type: ImageChange

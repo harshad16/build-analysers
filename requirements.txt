@@ -1,0 +1,15 @@
+# build log parsing
+astpath
+click
+parse
+prettyprinter
+
+numpy
+pandas
+
+# graph traversal
+networkx
+
+thoth-lab
+thoth-analyzer
+thoth-storages

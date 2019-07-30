@@ -1,0 +1,151 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: build-dependencies
+  annotations:
+    description: "Thoth: Build Log Analysis Dependencies"
+    openshift.io/display-name: "Thoth: Build Log Analysis Dependencies"
+    version: 0.1.0
+    tags: thoth,ai-stacks,build-analyzer
+    template.openshift.io/documentation-url: https://github.com/Thoth-Station/
+    template.openshift.io/long-description: >
+      This template defines resources needed to run recommendation logic of Thoth to OpenShift.
+    template.openshift.io/provider-display-name: "Red Hat, Inc."
+  labels:
+    app: thoth
+    template: build-dependencies
+    component: build-dependencies
+
+parameters:
+  - name: IMAGE_STREAM_REGISTRY
+    description: Registry where the ImageStream is present.
+    displayName: ImageStream Registry
+    required: true
+    value: "docker-registry.default.svc:5000"
+
+  - name: IMAGE_STREAM_TAG
+    description: Tag of the ImageStream to be used.
+    displayName: ImageStream Tag
+    required: true
+    value: "latest"
+
+  - name: THOTH_BUILD_ANALYZER_LOG_PATH
+    description: Path for the build log read/write.
+    displayName: Log Path
+    required: false
+    value: "/opt/app-root/src/build.log"
+
+  - name: THOTH_BUILD_ANALYZER_OUTPUT_FORMAT
+    description: Required Output format.
+    displayName: ImageStream Tag
+    required: false
+    value: "json"
+
+  - name: IMAGE_STREAM_NAMESPACE
+    description: Project/Namespace to be used for deployment.
+    displayName: ImageStream Project
+    required: true
+
+  - name: THOTH_BUILD_ANALYZER_JOB_ID
+    description: A unique dentifier of build-analyzer job.
+    displayName: Build Analyzer id
+    required: true
+
+  - name: THOTH_BUILD_LOG_DOC_ID
+    description: Document id of Build log present in ceph.
+    displayName: Build Log Document ID
+    required: true
+
+  - name: THOTH_REPORT_OUTPUT
+    description: Remote where results should be send to.
+    displayName: ImageStream Tag
+    required: true
+
+objects:
+  - apiVersion: batch/v1
+    kind: Job
+    metadata:
+      name: ${THOTH_BUILD_ANALYZER_JOB_ID}
+      labels:
+        app: thoth
+        component: build-dependencies
+        operator: graph-sync
+        task: build-analyzer
+        mark: cleanup
+    spec:
+      backoffLimit: 0
+      template:
+        metadata:
+          labels:
+            app: thoth
+            component: build-dependencies
+            mark: cleanup
+        spec:
+          restartPolicy: Never
+          automountServiceAccountToken: false
+          containers:
+            - name: build-dependencies
+              image: "${IMAGE_STREAM_REGISTRY}/${IMAGE_STREAM_NAMESPACE}/build-analyzer:${IMAGE_STREAM_TAG}"
+              env:
+                - name: THOTH_BUILD_LOG_DOC_ID
+                  value: "${THOTH_BUILD_LOG_DOC_ID}"
+                - name: THOTH_BUILD_ANALYZER_LOG_PATH
+                  value: "${THOTH_BUILD_ANALYZER_LOG_PATH}"
+                - name: THOTH_BUILD_ANALYZER_OUTPUT_FORMAT
+                  value: "${THOTH_BUILD_ANALYZER_OUTPUT_FORMAT}"
+                - name: THOTH_REPORT_OUTPUT
+                  value: "${THOTH_REPORT_OUTPUT}"
+                - name: THOTH_BUILD_ANALYZER_SUBCOMMAND
+                  value: "dependencies"
+                - name: THOTH_DEPLOYMENT_NAME
+                  valueFrom:
+                    configMapKeyRef:
+                      key: storage-bucket-name
+                      name: thoth
+                - name: THOTH_S3_ENDPOINT_URL
+                  valueFrom:
+                    configMapKeyRef:
+                      key: ceph-host
+                      name: thoth
+                - name: THOTH_CEPH_BUCKET
+                  valueFrom:
+                    configMapKeyRef:
+                      key: ceph-bucket-name
+                      name: thoth
+                - name: THOTH_CEPH_BUCKET_PREFIX
+                  valueFrom:
+                    configMapKeyRef:
+                      key: ceph-bucket-prefix
+                      name: thoth
+                - name: THOTH_CEPH_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: thoth
+                      key: ceph-key-id
+                - name: THOTH_CEPH_SECRET_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: thoth
+                      key: ceph-secret-key
+                - name: PROMETHEUS_PUSHGATEWAY_HOST
+                  valueFrom:
+                    configMapKeyRef:
+                      key: prometheus-pushgateway-host
+                      name: thoth
+                - name: PROMETHEUS_PUSHGATEWAY_PORT
+                  valueFrom:
+                    configMapKeyRef:
+                      name: thoth
+                      key: prometheus-pushgateway-port
+                - name: SENTRY_DSN
+                  valueFrom:
+                    secretKeyRef:
+                      name: thoth
+                      key: sentry-dsn
+              resources:
+                limits:
+                  memory: "512Mi"
+                  cpu: "500m"
+                requests:
+                  memory: "512Mi"
+                  cpu: "500m"

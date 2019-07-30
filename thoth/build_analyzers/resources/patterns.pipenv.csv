@@ -1,0 +1,44 @@
+pattern,parent_tag,caller,method
+There are incompatible versions in the resolved dependencies.,args,lines,append
+No versions found,args,lines,append
+Package installation failed...,args,crayons,yellow
+Please ensure that the file exists!,args,crayons,white
+Please ensure that the file exists and is located in your project root directory.,args,crayons,white
+You need to run,args,crayons,white
+before you can continue.,args,crayons,white
+-deploy flag.,args,crayons,white
+"Consider trying ""pipenv lock --clear"" to clear the cache.",args,crayons,white
+ERROR:,args,crayons,red
+Aborting!,args,crayons,red
+$ pipenv lock,args,crayons,red
+Warning,args,crayons,red
+ERROR (PACKAGE NOT INSTALLED):,args,crayons,red
+$ pipenv lock --clear,args,crayons,red
+$ pipenv install --skip-lock,args,crayons,red
+$ pipenv graph,args,crayons,red
+$ pipenv lock --pre,args,crayons,red
+Aborting deploy,args,crayons,normal
+Failed to uninstall package(s),args,crayons,normal
+Corrupt cache file,args,crayons,blue
+Please check your version specifier and version number. See PEP440 for more information.,args,crayons,blue
+[pipenv.exceptions.{}]: {},value,,format
+{} not found!,value,,format
+"{}: --system is intended to be used for Pipfile installation, not installation of specific packages. Aborting.",value,,format
+See also: {},value,,format
+Attempted to run command: {},value,,format
+Could not find a version that matches {},value,,format
+Tried: {},value,,format
+pre-versions: {},value,,format
+{} {} reachable?,value,,format
+{} (constraint was: {}),value,,format
+Configuration file {}{},value,,format
+<HTTPError {} {}>,value,,format
+{} at line {} col {},value,,format
+Unexpected character: {},value,,format
+Invalid character {} in string,value,,format
+"Key ""{}"" does not exist.",value,,format
+"Key ""{}"" already exists.",value,,format
+Hint: try {} if it is a pre-release dependency.,value,,format
+"Alternatively, you can use {} to bypass this mechanism, then run {} to inspect the situation.",value,,format
+"First try clearing your dependency cache with {}, then try the original command again.",value,,format
+{}: Your dependencies could not be resolved. You likely have a mismatch in your sub-dependencies.,value,,format

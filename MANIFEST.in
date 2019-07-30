@@ -1,0 +1,12 @@
+recursive-include thoth/build_analyzers/resources *.*
+
+graft fixtures/
+
+include LICENSE
+include README.md
+
+include Pipfile
+include requirements.in
+include requirements.txt
+
+include pyproject.toml
