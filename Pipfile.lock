@@ -998,10 +998,11 @@
         },
         "thoth-analyzer": {
             "hashes": [
-                "sha256:4e0b94e3a2a4dd48b531100c7754a961aaaabcde44868f3cf722ffac6c53dd10"
+                "sha256:792e81216678b49aed978866c109561270f3f3000b8e755591c2db27dc1006b6",
+                "sha256:fb5420476e90cba9a44aad7b41cab842f83df5a94be9ef268ada60e8665bf22e"
             ],
             "index": "pypi",
-            "version": "==0.1.2"
+            "version": "==0.1.3"
         },
         "thoth-common": {
             "hashes": [
