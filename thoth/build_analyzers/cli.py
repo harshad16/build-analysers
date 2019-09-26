@@ -20,6 +20,7 @@
 import click
 import json
 import sys
+import time
 
 from functools import wraps
 
@@ -132,6 +133,7 @@ def report(
     pretty: bool = False,
 ) -> str:
     """Analyze raw build log and produce a report."""
+    start_time = time.monotonic()
     if ceph_document_id:
         _get_document(ceph_document_id, log)
 
@@ -154,6 +156,7 @@ def report(
             analyzer=analyzer_name,
             analyzer_version=analyzer_version,
             output=report_output,
+            duration=time.monotonic() - start_time,
             pretty=pretty,
         )
     sys.exit(0)
@@ -196,6 +199,7 @@ def analyze(
     pretty: bool = False,
 ):
     """Analyze raw build log and produce tabular output."""
+    start_time = time.monotonic()
     if ceph_document_id:
         _get_document(ceph_document_id, log)
 
@@ -212,6 +216,7 @@ def analyze(
             analyzer=analyzer_name,
             analyzer_version=analyzer_version,
             output=report_output,
+            duration=time.monotonic() - start_time,
             pretty=pretty,
         )
     else:
@@ -256,6 +261,7 @@ def dependencies(
     pretty: bool = False,
 ):
     """Process dependencies from the log file."""
+    start_time = time.monotonic()
     if ceph_document_id:
         _get_document(ceph_document_id, log)
 
@@ -272,6 +278,7 @@ def dependencies(
             analyzer=analyzer_name,
             analyzer_version=analyzer_version,
             output=report_output,
+            duration=time.monotonic() - start_time,
             pretty=pretty,
         )
     else:
