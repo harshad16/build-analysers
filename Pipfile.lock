@@ -81,17 +81,17 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:874b3d8b16f94cec8365bdf0d1bd40951ee0373152b84f9f72d46d2e89999962",
-                "sha256:b2bcbf26b33b54666d95cc9650517ed8cc6ec50563a2ac3f12f5c4bbacfa0d9e"
+                "sha256:2fc1c407a5ab08cfcf54eb4171d85c523bd27019ab890de257d018af2770f71d",
+                "sha256:c215cf2c8e5e7b28ae7544b1cbdbc3216bef983d7adb8b701a64f9b893e0320b"
             ],
-            "version": "==1.9.237"
+            "version": "==1.9.238"
         },
         "botocore": {
             "hashes": [
-                "sha256:717f4bb3a16a8b5c2b3546e3f839ee3707ddfc8d0379dcb31030fbb7917b8a9b",
-                "sha256:9fd8c57edc9661ae9848ab67d6fa7a6b0d19aed569674654b17085187b0feb45"
+                "sha256:1ca993f0dc70591e0fca6cf3837ee9be52fd4fbbf1aa96ba1d4a860b41f676b7",
+                "sha256:6ec3297b87d3e2c4d88b009f91061aaecdb2ceef6d9be9386394571353909adb"
             ],
-            "version": "==1.12.237"
+            "version": "==1.12.238"
         },
         "cachetools": {
             "hashes": [
@@ -417,10 +417,10 @@
         },
         "jupyter-require": {
             "hashes": [
-                "sha256:8647630b165454ead3625b59ed8f3a7eb7d61783313824f328491f9c6896c079",
-                "sha256:e42a8d7e238418344ce5108d877dad23429f1d2faf89945a20d0c36b7b4786ca"
+                "sha256:321fa6dbda175db97dfe76a01bbf9e1e387adc5c0cca2820bce4b2da6507951e",
+                "sha256:4199f78da296194afb09942d18852e5342949f6a0f67d83681c86ec257d0e2e2"
             ],
-            "version": "==0.3.0"
+            "version": "==0.3.2"
         },
         "kubernetes": {
             "hashes": [
@@ -1028,11 +1028,11 @@
         },
         "thoth-storages": {
             "hashes": [
-                "sha256:0619682a5ec6d96ca9146ad350bd385ee9f24591b7211be7949be7ea5eee030a",
-                "sha256:be1bef4241149ee42e80d6999fc969c9288a89906ea7aca36e002dce6237fdb1"
+                "sha256:57db804f38edec7c90a0bdf1c10399256140e46fbf7d7eee3dac924b08d14475",
+                "sha256:a1b80ccffccddd7279b8b187eee7b6bd6130f9117ef6124bcbc5ee7f640b4e5c"
             ],
             "index": "pypi",
-            "version": "==0.19.8"
+            "version": "==0.19.9"
         },
         "timestamp": {
             "hashes": [
@@ -1403,10 +1403,10 @@
         },
         "gitdb2": {
             "hashes": [
-                "sha256:83361131a1836661a155172932a13c08bda2db3674e4caa32368aa6eb02f38c2",
-                "sha256:e3a0141c5f2a3f635c7209d56c496ebe1ad35da82fe4d3ec4aaa36278d70648a"
+                "sha256:1b6df1433567a51a4a9c1a5a0de977aa351a405cc56d7d35f3388bad1f630350",
+                "sha256:96bbb507d765a7f51eb802554a9cfe194a174582f772e0d89f4e87288c288b7b"
             ],
-            "version": "==2.0.5"
+            "version": "==2.0.6"
         },
         "gitpython": {
             "hashes": [
