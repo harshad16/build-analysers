@@ -7,13 +7,14 @@ metadata:
       This is Thoth Build Analyzer ImageStream, this template is meant to be used by Bots, but could also
       be used by humans
     openshift.io/display-name: "Thoth: Build Analyzer ImageStream"
-    version: 0.4.1
+    version: 0.4.2
     tags: thoth,ai-stacks,build-analyzer
     template.openshift.io/documentation-url: https://github.com/Thoth-Station
     template.openshift.io/long-description: >
       This is Thoth Build Analyzer ImageStream, this template is meant to be used by Bots, but could also
       be used by humans...
     template.openshift.io/provider-display-name: "Red Hat, Inc."
+    thoth-station.ninja/template-version: 0.4.2
   labels:
     app: thoth
     component: build-analyzer
@@ -25,6 +26,8 @@ objects:
       labels:
         app: thoth
         component: build-analyzer
+      annotations:
+        thoth-station.ninja/template-version: 0.4.2
       name: build-analyzer
     spec:
       name: latest
