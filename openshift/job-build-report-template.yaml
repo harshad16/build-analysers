@@ -5,12 +5,13 @@ metadata:
   annotations:
     description: "Thoth: Build Log Analysis Report"
     openshift.io/display-name: "Thoth: Build Log Analysis Report"
-    version: 0.1.0
+    version: 0.4.2
     tags: thoth,ai-stacks,build-report
     template.openshift.io/documentation-url: https://github.com/Thoth-Station/
     template.openshift.io/long-description: >
       This template defines resources needed to run recommendation logic of Thoth to OpenShift.
     template.openshift.io/provider-display-name: "Red Hat, Inc."
+    thoth-station.ninja/template-version: 0.4.2
   labels:
     app: thoth
     template: build-report
@@ -70,6 +71,8 @@ objects:
     kind: Job
     metadata:
       name: ${THOTH_BUILD_ANALYZER_JOB_ID}
+      annotations:
+        thoth-station.ninja/template-version: 0.4.2
       labels:
         app: thoth
         component: build-report
