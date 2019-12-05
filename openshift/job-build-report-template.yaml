@@ -30,6 +30,11 @@ parameters:
     required: true
     value: "latest"
 
+  - name: THOTH_DOCUMENT_ID
+    description: "A unique identifier of the resulting document in a Thoth deployment."
+    displayName: "Document identifier"
+    required: true
+
   - name: THOTH_BUILD_ANALYZER_LOG_PATH
     description: Path for the build log read/write.
     displayName: Log Path
@@ -98,6 +103,8 @@ objects:
                   value: "${THOTH_BUILD_LOG_DOC_ID}"
                 - name: THOTH_BUILD_ANALYZER_LOG_PATH
                   value: "${THOTH_BUILD_ANALYZER_LOG_PATH}"
+                - name: THOTH_DOCUMENT_ID
+                  value: "${THOTH_DOCUMENT_ID}"
                 - name: THOTH_REPORT_OUTPUT
                   value: "${THOTH_REPORT_OUTPUT}"
                 - name: THOTH_BUILD_ANALYZER_HANDLER

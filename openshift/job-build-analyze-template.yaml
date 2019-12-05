@@ -42,6 +42,11 @@ parameters:
     required: false
     value: "json"
 
+  - name: THOTH_DOCUMENT_ID
+    description: "A unique identifier of the resulting document in a Thoth deployment."
+    displayName: "Document identifier"
+    required: true
+
   - name: IMAGE_STREAM_NAMESPACE
     description: Project/Namespace to be used for deployment.
     displayName: ImageStream Project
@@ -91,6 +96,8 @@ objects:
               env:
                 - name: THOTH_BUILD_LOG_DOC_ID
                   value: "${THOTH_BUILD_LOG_DOC_ID}"
+                - name: THOTH_DOCUMENT_ID
+                  value: "${THOTH_DOCUMENT_ID}"
                 - name: THOTH_BUILD_ANALYZER_LOG_PATH
                   value: "${THOTH_BUILD_ANALYZER_LOG_PATH}"
                 - name: THOTH_BUILD_ANALYZER_OUTPUT_FORMAT
