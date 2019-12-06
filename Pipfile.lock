@@ -458,10 +458,10 @@
         },
         "more-itertools": {
             "hashes": [
-                "sha256:57cc732766f26ddc424a4ed76d837677777a03f557c7ebeecb7e2be2888ce702",
-                "sha256:a293dbdad9d4d22e1e70832b8dcab72aac20805f0fa0575aec27cab8841e09ff"
+                "sha256:b84b238cce0d9adad5ed87e745778d20a3f8487d0f0cb8b8a586816c7496458d",
+                "sha256:c833ef592a0324bcc6a60e48440da07645063c453880c9477ceb22490aec1564"
             ],
-            "version": "==8.0.1"
+            "version": "==8.0.2"
         },
         "multidict": {
             "hashes": [
@@ -971,11 +971,11 @@
         },
         "thoth-storages": {
             "hashes": [
-                "sha256:439c4e4310d71b4c276711f1d68236826d5d276065d370bcc364b0b47797ce39",
-                "sha256:64d9d86f1a541a7dbf439a85bcfe87777a8ec037fabeda0eead1cf502b0a4535"
+                "sha256:a8929c73ff039b6363f4e8e3527c225986c1a9fb03f65b734c3db544e40ec1c3",
+                "sha256:c9e0231947cd67b9bef72045fe139fd0510a07e21dad8a4319d8a00d89578201"
             ],
             "index": "pypi",
-            "version": "==0.19.26"
+            "version": "==0.19.27"
         },
         "toml": {
             "hashes": [
@@ -1549,10 +1549,10 @@
         },
         "more-itertools": {
             "hashes": [
-                "sha256:57cc732766f26ddc424a4ed76d837677777a03f557c7ebeecb7e2be2888ce702",
-                "sha256:a293dbdad9d4d22e1e70832b8dcab72aac20805f0fa0575aec27cab8841e09ff"
+                "sha256:b84b238cce0d9adad5ed87e745778d20a3f8487d0f0cb8b8a586816c7496458d",
+                "sha256:c833ef592a0324bcc6a60e48440da07645063c453880c9477ceb22490aec1564"
             ],
-            "version": "==8.0.1"
+            "version": "==8.0.2"
         },
         "munkres3": {
             "hashes": [
