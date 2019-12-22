@@ -595,10 +595,10 @@
         },
         "parse": {
             "hashes": [
-                "sha256:d4d818549bdf39f57ea569db5e6dabd21730e86383a1bbf45852dc7354f1d103"
+                "sha256:7db848a42df2ec9751222c566782933ff1b4a0534bc93c70304c9922936f738e"
             ],
             "index": "pypi",
-            "version": "==1.13.0"
+            "version": "==1.13.1"
         },
         "parso": {
             "hashes": [
