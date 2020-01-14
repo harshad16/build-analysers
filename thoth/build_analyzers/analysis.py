@@ -156,7 +156,8 @@ def build_breaker_report(
 
     if len(errors) >= 1:
         dep_table = build_log_to_dependency_table(log, handlers=[handler])
-        dep_table.target.fillna("", inplace=True)
+        if "target" in dep_table:
+            dep_table.target.fillna("", inplace=True)
         # make sure the packages are unique, keep only the latest
         dep_table.drop_duplicates(["source", "target"], keep="last", inplace=True)
 

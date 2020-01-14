@@ -143,13 +143,6 @@ def report(
     result: dict = build_breaker_report(log=build_log, handler=handler, top=limit, colorize=colorize)
 
     if ceph_document_id:
-        if pretty:
-            result: str = pformat(result)
-            click.echo(result)
-            sys.exit(0)
-
-        click.echo(json.dumps(result))
-    else:
         print_command_result(
             click_ctx=click_ctx,
             result=result,
@@ -159,6 +152,10 @@ def report(
             duration=time.monotonic() - start_time,
             pretty=pretty,
         )
+    else:
+        if pretty:
+            result: str = pformat(result)
+        click.echo(result)
     sys.exit(0)
 
 
