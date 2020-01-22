@@ -618,11 +618,11 @@
         },
         "plotly": {
             "hashes": [
-                "sha256:67889851783d13efcfb944ead7f05bc72737808bee9a6fe2f410ada55ca539c9",
-                "sha256:a530331111c3ca4f287e30b7a3a2bd433c0444d58f2bdbeadbecab4b48c779cb"
+                "sha256:a19ed783bcf094e6207b3699ab261465bf3c7d299403678801de634bf17e2559",
+                "sha256:bb5271f648913cf330a0de4ede3084cda848f8ad8b080330a0678e1b21df97b0"
             ],
             "index": "pypi",
-            "version": "==4.5.0rc1"
+            "version": "==4.5.0"
         },
         "prettyprinter": {
             "hashes": [
