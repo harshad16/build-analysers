@@ -77,8 +77,9 @@ objects:
       labels:
         app: thoth
         component: build-analyze
+        operator: graph-sync
         mark: cleanup
-        task: build-analyzer
+        task: build-analyze
     spec:
       backoffLimit: 0
       template:
