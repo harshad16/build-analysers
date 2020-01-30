@@ -82,7 +82,7 @@ objects:
         app: thoth
         component: build-report
         operator: graph-sync
-        task: build-analyzer
+        task: build-report
         mark: cleanup
     spec:
       backoffLimit: 0
