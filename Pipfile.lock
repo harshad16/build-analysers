@@ -136,6 +136,7 @@
         },
         "boto3": {
             "hashes": [
+                "sha256:2e58368d32171f42100353007fb48fe583ea9deafd0ec556aa2bc1ce1582d06d",
                 "sha256:c774003dc13d6de74b5e19d2b84d625da4456e64bd97f44baa1fcf40d808d29a"
             ],
             "version": "==1.13.19"
@@ -533,10 +534,9 @@
         },
         "mako": {
             "hashes": [
-                "sha256:3139c5d64aa5d175dbafb95027057128b5fbd05a40c53999f3905ceb53366d9d",
-                "sha256:8e8b53c71c7e59f3de716b6832c4e401d903af574f6962edbbbf6ecc2a5fe6c9"
+                "sha256:8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27"
             ],
-            "version": "==1.1.2"
+            "version": "==1.1.3"
         },
         "markupsafe": {
             "hashes": [
@@ -1321,11 +1321,11 @@
         },
         "thoth-storages": {
             "hashes": [
-                "sha256:2a21fea4b70817b78e2e250094b17731b0bf56e3a87778f6a77e08696ff054bb",
-                "sha256:fdc4e78c329cce5ac56f622f12713022a1d4db090f1b3e99dfcb9852ea0082ea"
+                "sha256:48bcddf3cf917a7e8d2ca3a75627ea582f1bdc3d9b634b92932923e54ea76e80",
+                "sha256:fc456f97d8399913610045c4e5c1a3ab21e2a7e65acf17d04e13946b07677785"
             ],
             "index": "pypi",
-            "version": "==0.22.11"
+            "version": "==0.22.12"
         },
         "threadpoolctl": {
             "hashes": [
